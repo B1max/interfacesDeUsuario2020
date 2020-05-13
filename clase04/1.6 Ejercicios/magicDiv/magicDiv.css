@@ -1,0 +1,25 @@
+html{
+    background-color: black;
+}
+.magic{
+    width: 50;
+    height: 50;
+    /* background-color: red; */
+    position: absolute;
+    margin-left: -50;
+    left: 100vw;
+    margin-bottom: -50;
+    bottom: 50vh;
+}
+.oculto{
+    display: none;
+}
+img{
+    height: 200;
+    width: 350;
+    margin-left: -175;
+    margin-top: -100;
+    left: 50vw;
+    top: 50vh;
+    position: absolute;
+}

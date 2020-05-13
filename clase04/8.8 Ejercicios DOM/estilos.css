@@ -1,0 +1,26 @@
+.square{
+    height: 250;
+    width: 300;
+    background-color: blue;
+}
+#source{
+    height: 100;
+    width: 250;
+    background-color: chocolate;
+}
+#destination{
+    height: 100;
+    width: 250;
+    background-color: darkgreen;
+}
+#swap_1{
+    height: 100;
+    width: 250;
+    background-color: red;
+}
+
+#swap_2{
+    height: 100;
+    width: 250;
+    background-color: green;
+}

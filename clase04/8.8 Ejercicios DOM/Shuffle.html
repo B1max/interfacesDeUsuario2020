@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="estilos.css" />
+    </head>
+    <body>
+        <div id="source"> contenido de source</div>
+        <div id="destination"></div>
+        <div id="swap_1">rojo</div>
+        <div id="swap_2">verde</div>
+    </body>
+    <script>
+        let source = document.getElementById("source")
+        let destination = document.getElementById("destination")
+        destination.innerHTML = source.innerHTML;
+        // Crea s con ids swap_1 y swap_2.
+        let swap_1 = document.getElementById("swap_1")
+        let swap_2 = document.getElementById("swap_2")
+        let temp = swap_2.innerHTML;
+        swap_2.innerHTML = swap_1.innerHTML;
+        swap_1.innerHTML = temp;
+        let links = document.getElementsByTagName("a")
+        for (let i = 0; i< links.length; i++){
+            links[i].href = "https://espanol.yahoo.com"
+            links[i].style.color = "red";
+            links[i].style.backgroundColor = "blue"
+        }
+
+        doges = document.getElementsByTagName("img")
+        for (let i = 0; i< doges.length; i++){
+            doges[i].src = "https://scontent.faep6-1.fna.fbcdn.net/v/t1.0-9/25289633_1911720615524227_843571474992783455_n.jpg?_nc_cat=1&_nc_sid=85a577&_nc_oc=AQkuUZdYWmeaHwDVAV0rmG90APeoduRR7dYSxofJqRqje2TK0fFGU5nsjaROAbvp6SI&_nc_ht=scontent.faep6-1.fna&oh=b98d6591368274ea74e1a4b4e16e28a5&oe=5EDE94E4";
+        }
+    </script>
+</html>

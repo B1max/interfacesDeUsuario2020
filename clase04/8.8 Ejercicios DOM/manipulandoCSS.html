@@ -1,0 +1,30 @@
+<html><head>
+    <link rel="stylesheet" href="estilos.css" />
+</head><body>
+    <div id="div1" class="square" ></div>
+    <h1></h1>
+</body>
+<script>
+    // let divv = document.getElementById("div1").style;
+    // divv.height = 250;
+    // divv.width = 300;
+    // divv.backgroundColor = "green";
+
+    setInterval(() => {3
+        let element = document.getElementById("div1");
+        // if (element.classList.value==""){
+        //     element.classList.add("square")
+        // }else{
+        //     element.classList.remove("square");
+        // }
+        element.classList.toggle("square")
+    }, 1000);
+</script>
+</html>
+
+<!-- respuestas
+    Que devuelve h1.classList?
+        si no esta definido devuelve -> h1 is not defined
+        si esta definido devuelve una lista de atributos de la etiqueta h1 seleccionada
+
+-->
