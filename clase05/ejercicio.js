@@ -9,15 +9,9 @@
         console.log(resultado);
         return resultado;
     }
-
-    async function main (url){
-        try{
-            const download = await downloadFallbackData(url);
-            await processedDataInWorker(download);
-        }catch (e){
-            console.log(e);
-        }
-    }
-
-let url = "www.google.com.ar";
-main(url);
+    
+    (async()=>{
+        let url = "www.google.com.ar";
+        const download = downloadFallbackData(url);
+        return worker = processedDataInWorker(download);
+    })()
