@@ -1,3 +1,15 @@
+/* text-align: center;
+height: 25;
+width: 150;
+margin-left: -75;
+left: 50%;
+position: absolute; */
+.contenedor{
+    position: absolute;
+    background-color: blue;
+    margin-left: -720;
+    left: 50%;
+}
 .texto-login{
     /* texto login */
     position: absolute;
@@ -15,124 +27,98 @@
 }
 .texto-rectangulo-superior{
     /* texto rectangulo inferior */
+    position: absolute;
+    width: 1064px;
+    height: 150px;
+    left: 184px;
+    /* left: 184px; */
 
-
-position: absolute;
-width: 1064px;
-height: 150px;
-left: 184px;
-top: 780px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 64px;
-line-height: 75px;
-text-align: center;
-
-color: #FFFFFF;
+    top: 780px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 75px;
+    text-align: center;
+    color: #FFFFFF;
 }
+
 .rectangulo-info-inferior{
     /* rectangulo-info-inferior */
-
-
-position: absolute;
-width: 1403px;
-height: 180px;
-left: 18px;
-top: 760px;
-
-background: rgba(92, 183, 96, 0.8);
-border-radius: 0px 65px;
+    position: absolute;
+    width: 1403px;
+    height: 180px;
+    left: 18px;
+    top: 760px;
+    background: rgba(92, 183, 96, 0.8);
+    border-radius: 0px 65px;
 }
-
 
 .texto-bienbenida{
     /* texto-bienvenida */
-
-
-position: absolute;
-width: 1180px;
-height: 235px;
-left: 164px;
-top: 216px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 64px;
-line-height: 75px;
-text-align: center;
-
-color: #5CB760;
-
+    position: absolute;
+    width: 1180px;
+    height: 235px;
+    left: 164px;
+    top: 216px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 75px;
+    text-align: center;
+    color: #5CB760;
 }
-
 
 .img-logo{
     /* images 1 */
-
-
-position: absolute;
-width: 300px;
-height: 125px;
-left: 39px;
-top: 68px;
-
-background: url(images.png);
-border-radius: 0px 35px;
+    position: absolute;
+    width: 300px;
+    height: 125px;
+    left: 39px;
+    top: 68px;
+    background: url(images.png);
+    border-radius: 0px 35px;
 }
 .contacto{
     /* concacto */
-
-
-position: absolute;
-width: 885px;
-height: 40px;
-left: 273px;
-top: 984px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-
-color: #FFFFFF;
-
+    position: absolute;
+    width: 885px;
+    height: 40px;
+    left: 273px;
+    top: 984px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
 }
 .parrafoSuperior{
     /* parrafoSuperior */
-
-
-position: absolute;
-width: 830px;
-height: 97px;
-left: 393px;
-top: 96px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 14px;
-
-color: #FFFFFF;
+    position: absolute;
+    width: 830px;
+    height: 97px;
+    left: 393px;
+    top: 96px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
 }
 
 .rectangulo-superior-flotante{
     /* rectangulo-superior-flotante */
-
-
-position: absolute;
-width: 1403px;
-height: 169px;
-left: 18px;
-top: 51px;
-
-background: rgba(92, 183, 96, 0.8);
-border-radius: 0px 60px;
+    position: absolute;
+    width: 1403px;
+    height: 169px;
+    left: 18px;
+    top: 51px;
+    background: rgba(92, 183, 96, 0.8);
+    border-radius: 0px 60px;
 }
 .img-fondo{
     /* img-fondo */
@@ -161,4 +147,24 @@ border-radius: 0px 60px;
     left: 0px;
     top: 0px;
     background: #B78B5C;
+}
+
+.texto-rectangulo-inferior{
+    /* texto rectangulo inferior */
+    position: absolute;
+    width: 1064px;
+    height: 150px;
+    left: 184px;
+    top: 780px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 75px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+body{
+    background-color: black;
 }
