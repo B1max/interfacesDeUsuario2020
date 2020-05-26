@@ -32,3 +32,16 @@ text-align: center;
 
 color: #FFFFFF;
 }
+.rectangulo-info-inferior{
+    /* rectangulo-info-inferior */
+
+
+position: absolute;
+width: 1403px;
+height: 180px;
+left: 18px;
+top: 760px;
+
+background: rgba(92, 183, 96, 0.8);
+border-radius: 0px 65px;
+}
