@@ -1,0 +1,34 @@
+.texto-login{
+    /* texto login */
+    position: absolute;
+    width: 126px;
+    height: 20px;
+    left: 1289px;
+    top: 182px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.texto-rectangulo-superior{
+    /* texto rectangulo inferior */
+
+
+position: absolute;
+width: 1064px;
+height: 150px;
+left: 184px;
+top: 780px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 64px;
+line-height: 75px;
+text-align: center;
+
+color: #FFFFFF;
+}
