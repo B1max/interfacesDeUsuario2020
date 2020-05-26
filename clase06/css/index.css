@@ -82,3 +82,83 @@ top: 68px;
 background: url(images.png);
 border-radius: 0px 35px;
 }
+.contacto{
+    /* concacto */
+
+
+position: absolute;
+width: 885px;
+height: 40px;
+left: 273px;
+top: 984px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+
+color: #FFFFFF;
+
+}
+.parrafoSuperior{
+    /* parrafoSuperior */
+
+
+position: absolute;
+width: 830px;
+height: 97px;
+left: 393px;
+top: 96px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+
+color: #FFFFFF;
+}
+
+.rectangulo-superior-flotante{
+    /* rectangulo-superior-flotante */
+
+
+position: absolute;
+width: 1403px;
+height: 169px;
+left: 18px;
+top: 51px;
+
+background: rgba(92, 183, 96, 0.8);
+border-radius: 0px 60px;
+}
+.img-fondo{
+    /* img-fondo */
+    position: absolute;
+    width: 1442px;
+    height: 929px;
+    left: -2px;
+    top: 31px;
+    background: url("../img/img-fondo.png");
+    border-radius: 0px 70px 0px 75px;
+}
+.rectangulo-inferior{
+    /* rectangulo-inferior */
+    position: absolute;
+    width: 1440px;
+    height: 181px;
+    left: 0px;
+    top: 843px;
+    background: #B78B5C;
+}
+.rectangulo-superior{
+    /* rectangulo-superior */
+    position: absolute;
+    width: 1440px;
+    height: 144px;
+    left: 0px;
+    top: 0px;
+    background: #B78B5C;
+}
