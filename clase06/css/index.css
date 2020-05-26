@@ -45,3 +45,40 @@ top: 760px;
 background: rgba(92, 183, 96, 0.8);
 border-radius: 0px 65px;
 }
+
+
+.texto-bienbenida{
+    /* texto-bienvenida */
+
+
+position: absolute;
+width: 1180px;
+height: 235px;
+left: 164px;
+top: 216px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 64px;
+line-height: 75px;
+text-align: center;
+
+color: #5CB760;
+
+}
+
+
+.img-logo{
+    /* images 1 */
+
+
+position: absolute;
+width: 300px;
+height: 125px;
+left: 39px;
+top: 68px;
+
+background: url(images.png);
+border-radius: 0px 35px;
+}
