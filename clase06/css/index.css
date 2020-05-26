@@ -71,14 +71,16 @@ position: absolute; */
 }
 
 .img-logo{
-    /* images 1 */
+    /* images-logo */
     position: absolute;
     width: 300px;
     height: 125px;
     left: 39px;
     top: 68px;
-    background: url(images.png);
+    background-image: url("../img/img-fondo.png") ;
+    /* background: url("../img/img-fondo.png"); */
     border-radius: 0px 35px;
+    background-color: blue;
 }
 .contacto{
     /* concacto */
