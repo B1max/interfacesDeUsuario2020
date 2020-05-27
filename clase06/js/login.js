@@ -1,8 +1,7 @@
 const botonLogear = document.getElementById("BotonLogear");
 const itemsMenu = document.getElementById("elementoMenu");
-itemsMenu.style.visibility = "hidden";
+itemsMenu.style.display ='none'; 
 botonLogear.addEventListener("click",function(){
-    itemsMenu.style.display = ((e.style.display!='none') ? 'none' : 'block');
-
-    // e.style.display = ((e.style.display!='none') ? 'none' : 'block');
-})
+    console.log("se apreto el boton logear")
+    itemsMenu.style.display = 'block';
+},false)
