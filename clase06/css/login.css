@@ -1,0 +1,113 @@
+.ventanaColoreada{
+
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  left: 420px;
+  top: 311px;
+  
+  background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
+  border: 4px solid #CB1DC4;
+  box-sizing: border-box;
+  border-radius: 0px 50px;
+}
+
+/* ingresoDeUsuario */
+
+.ingresoDeUsuario{
+
+  position: absolute;
+  width: 205px;
+  height: 35px;
+  left: 743px;
+  top: 464px;
+  
+  background: #FFFFFF;
+}
+/* ingresoDeContraseña */
+
+.ingresoDeContraseña{
+  
+  position: absolute;
+  width: 205px;
+  height: 35px;
+  left: 743px;
+  top: 506px;
+  
+  background: #FFFFFF;
+}
+
+/* USUARIO_CONTRASEÑA */
+
+.USUARIO_CONTRASEÑA{
+
+  position: absolute;
+  width: 255px;
+  height: 126px;
+  left: 484px;
+  top: 466px;
+  
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: right;
+  
+  color: #FFFFFF;
+}
+
+/* BotonAceptar */
+
+.BotonAceptar{
+
+  position: absolute;
+  width: 180px;
+  height: 35px;
+  left: 630px;
+  top: 625px;
+  
+  background: #5CB760;
+  border: 1px solid #FA16FF;
+  box-sizing: border-box;
+}
+
+.aceptar{
+
+  position: absolute;
+  width: 180px;
+  height: 25px;
+  left: 630px;
+  top: 630px;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  
+  color: #FFFFFF;
+}
+
+
+/* H1ModificarSolicitud */
+
+.H1ModificarSolicitud{
+
+  position: absolute;
+  width: 326px;
+  height: 26px;
+  left: 557px;
+  top: 367px;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  text-decoration-line: underline;
+  
+  color: #FFFFFF;
+}
