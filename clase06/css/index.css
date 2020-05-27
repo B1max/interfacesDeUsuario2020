@@ -191,4 +191,83 @@ body{
     box-sizing: border-box;
     border-radius: 0px 50px;
 }
+.H1ModificarSolicitud{
+/* H1ModificarSolicitud */
+    position: absolute;
+    width: 326px;
+    height: 26px;
+    left: 557px;
+    top: 367px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+}
 
+.USUARIO_CONTRASEÑA{
+/* USUARIO_CONTRASEÑA */
+    position: absolute;
+    width: 255px;
+    height: 126px;
+    left: 480px;
+    top: 466px;
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.ingresoDeUsuario{
+    /* ingresoDeUsuario */   
+    position: absolute;
+    width: 205px;
+    height: 35px;
+    left: 743px;
+    top: 464px;
+    background: #FFFFFF;
+}
+
+.ingresoDeContraseña{
+    /* ingresoDeContraseña */
+    position: absolute;
+    width: 205px;
+    height: 35px;
+    left: 743px;
+    top: 506px;
+    background: #FFFFFF;
+}
+
+.BotonAceptar{
+    /* BotonAceptar */
+    position: absolute;
+    width: 180px;
+    height: 35px;
+    left: 630px;
+    top: 625px;
+    background: #5CB760;
+    border: 1px solid #FA16FF;
+    box-sizing: border-box;
+}
+
+.ACEPTAR{
+    /* ACEPTAR */
+    position: absolute;
+    width: 180px;
+    height: 25px;
+    left: 630px;
+    top: 630px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
