@@ -232,6 +232,7 @@ body{
     left: 743px;
     top: 464px;
     background: #FFFFFF;
+    font-size: 24px;
 }
 
 .ingresoDeContraseña{
@@ -242,6 +243,7 @@ body{
     left: 743px;
     top: 506px;
     background: #FFFFFF;
+    font-size: 24px;
 }
 
 .BotonAceptar{
