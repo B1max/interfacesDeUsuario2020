@@ -6,12 +6,20 @@ let elementosAagregar = [
     "<div id='elementoMenu3' class='USUARIO_CONTRASEÑA'>USUARIO: <br>CONTRASEÑA: ",
     "<input id='elementoMenu4' class='ingresoDeUsuario' type='text' name='usuario' id='usuario'>",
     "<input id='elementoMenu5' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
+    "<p id='elementoMenu8' class='loginResultado'></p>",
     "<div id='elementoMenu6' class='BotonAceptar'>",
     "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div></div></div></div></div>"
 ];
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
     items.forEach(await function(item){
         document.body.lastElementChild.insertAdjacentHTML("afterend",item);
+    })
+    //agregado solo para esta pantalla
+    document.getElementById("elementoMenu6").addEventListener("click", function(){
+        validarUsuarioCont();
+    })
+    document.getElementById("elementoMenu7").addEventListener("click", function(){
+        validarUsuarioCont();
     })
 }
 async function removerAgregados(primero, items){
@@ -27,35 +35,33 @@ botonLogear.addEventListener("click",async function(){
         await removerAgregados("elementoMenu0",elementosAagregar);
     })
 })
-
-// function removerAgregados(){
-//     for(let i = 7;i>=0;i--){
-//         let elementoMenu = document.getElementById("ultimo");
-//         try{
-//             // document.getElementById("elementoMenu"+i).remove;
-//             elementoMenu.nextElementSibling.remove();
-//             // elementoMenu.removeChild(document.getElementById("elementoMenu"+i));
-//         }catch (e){
-//             console.log("no se encontro el elemento a borrar -> "+e);
-//         }
-//     }
-// }
-// botonLogear.addEventListener("click",async function(){
-//     console.log("se apreto el boton logear");
-
-//     agregarAlFinal("ultimo","elementoMenu0",elementosAagregar)
-//     await setTimeout(function(){
-//         document.getElementById("elementoMenu0").addEventListener("click",function(){
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").nextElementSibling.remove();
-//             document.getElementById("elementoMenu0").remove();
-//             // removerAgregados();
-//             // document.getElementById("elementoMenu0").parentElement.parentElement.remove();
-//         });
-//     },500);
-// },false)
+function validarUsuario(usuario){
+    if(usuario.value.length > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+function validarContraseña(cont){
+    if(cont.value.length > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+function validarUsuarioCont(){
+    let usuario = document.getElementById("elementoMenu4");
+    let cont = document.getElementById("elementoMenu5");
+    let resultado = document.getElementById("elementoMenu8");
+    if(validarUsuario(usuario) && validarContraseña(cont)){
+        console.log("usuario y contraseña valida,"+validarUsuario(usuario)+","+validarContraseña(cont));
+        return true;
+    }else{
+        console.log("usuario y contraseña no valida,"+validarUsuario(usuario)+","+validarContraseña(cont));
+        resultado.textContent = "usuario o contraseña invalida";
+        setTimeout(function(){
+            resultado.textContent = " ";
+        },2000)
+        return false;
+    }
+}
