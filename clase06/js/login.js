@@ -1,4 +1,7 @@
 const botonLogear = document.getElementById("BotonLogear");
+const usuariosLogin = [
+    ['30337591','dario83']
+];
 let elementosAagregar = [
     "<div id='elementoMenu0' class='menu-fondo'>esto es del menu",
     "<div id='elementoMenu1' class='ventanaColoreada'>",
@@ -16,9 +19,11 @@ async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
     })
     //agregado solo para esta pantalla
     document.getElementById("elementoMenu6").addEventListener("click", function(){
+        console.log("se apreto el boton aceptar");
         validarUsuarioCont();
     })
     document.getElementById("elementoMenu7").addEventListener("click", function(){
+        console.log("se apreto el boton aceptar");
         validarUsuarioCont();
     })
 }
@@ -36,6 +41,7 @@ botonLogear.addEventListener("click",async function(){
     })
 })
 function validarUsuario(usuario){
+    console.log("validando usuario:"+usuario.value)
     if((usuario.value.length == 8) && !isNaN(usuario.value)){
         return true;
     }else{
@@ -43,6 +49,7 @@ function validarUsuario(usuario){
     }
 }
 function validarContraseña(cont){
+    console.log("validando contraseña:"+cont.value)
     let numeros = [1,2,3,4,5,6,7,8,9,0];
     let letras = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','ñ','z','x','c','v','b','n','m'];
     let tieneUnNumero = false
@@ -52,23 +59,33 @@ function validarContraseña(cont){
         letras.forEach((letra)=>{if(caracter == letra){tieneUnaLetra = true}})
         numeros.forEach((numero)=>{if(caracter == numero){tieneUnNumero= true}})
     })
-    console.log("contiene numeros: "+tieneUnNumero)
-    console.log("contiene letras: "+tieneUnaLetra)
-    return cont.value.length >= 6  && tieneUnNumero && tieneUnaLetra;
+    if(cont.value.length < 6){mostrarResultado("la contraseña debe tener al menos 6 caracteres");};
+    if(tieneUnNumero==false){mostrarResultado("la contraseña debe tener al menos un numero");};
+    if(tieneUnaLetra==false){mostrarResultado("la contraseña debe tener al menos una letra");};
+    return (cont.value.length >= 6) && tieneUnNumero && tieneUnaLetra;
 }
 function validarUsuarioCont(){
+    console.log("validando usuario y contraseña")
     let usuario = document.getElementById("elementoMenu4");
     let cont = document.getElementById("elementoMenu5");
-    let resultado = document.getElementById("elementoMenu8");
-    if(validarUsuario(usuario) && validarContraseña(cont)){
-        console.log("usuario y contraseña valida,"+validarUsuario(usuario)+","+validarContraseña(cont));
+    let usuarioValido = validarUsuario(usuario);
+    let contValida = validarContraseña(cont);
+    if(usuarioValido && contValida){
+        console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido")
         return true;
     }else{
-        console.log("usuario y contraseña no valida,"+validarUsuario(usuario)+","+validarContraseña(cont));
-        resultado.textContent = "usuario o contraseña invalida";
-        setTimeout(function(){
-            resultado.textContent = " ";
-        },2000)
+        console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
+
         return false;
     }
 }
+
+function mostrarResultado(txt){
+    console.log(txt)
+    const resultado = document.getElementById("elementoMenu8");
+    resultado.textContent = txt+"";
+    setTimeout(function(){
+        resultado.textContent = " ";
+    },2000)
+}
+
