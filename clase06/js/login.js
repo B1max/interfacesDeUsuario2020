@@ -36,18 +36,25 @@ botonLogear.addEventListener("click",async function(){
     })
 })
 function validarUsuario(usuario){
-    if(usuario.value.length > 0){
+    if((usuario.value.length == 8) && !isNaN(usuario.value)){
         return true;
     }else{
         return false;
     }
 }
 function validarContraseña(cont){
-    if(cont.value.length > 0){
-        return true;
-    }else{
-        return false;
-    }
+    let numeros = [1,2,3,4,5,6,7,8,9,0];
+    let letras = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','ñ','z','x','c','v','b','n','m'];
+    let tieneUnNumero = false
+    let tieneUnaLetra = false
+    let palabra = Array.from(cont.value);
+    palabra.forEach((caracter)=>{
+        letras.forEach((letra)=>{if(caracter == letra){tieneUnaLetra = true}})
+        numeros.forEach((numero)=>{if(caracter == numero){tieneUnNumero= true}})
+    })
+    console.log("contiene numeros: "+tieneUnNumero)
+    console.log("contiene letras: "+tieneUnaLetra)
+    return cont.value.length >= 6  && tieneUnNumero && tieneUnaLetra;
 }
 function validarUsuarioCont(){
     let usuario = document.getElementById("elementoMenu4");
