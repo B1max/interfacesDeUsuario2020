@@ -170,9 +170,3 @@ position: absolute; */
 body{
     background-color: black;
 }
-.menu-fondo{
-    background-color: black;
-    opacity: 50%;
-    /* visibility: hidden; */
-}
-
