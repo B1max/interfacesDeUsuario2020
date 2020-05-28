@@ -1,96 +1,138 @@
 /* botonMenu */
 
 .botonMenu{
-position: absolute;
-width: 231px;
-height: 39px;
-left: 20px;
-top: 230px;
+    position: absolute;
+    width: 231px;
+    height: 39px;
+    left: 20px;
+    top: 238px;
 
-background: #519856;
-border: 2px solid #CB1DC4;
-box-sizing: border-box;
-border-radius: 0px 20px;
+    background: #519856;
+    border: 2px solid #CB1DC4;
+    box-sizing: border-box;
+    border-radius: 0px 20px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 
 .botonNuevo{
-position: absolute;
-width: 231px;
-height: 39px;
-left: 261px;
-top: 230px;
+    position: absolute;
+    width: 231px;
+    height: 39px;
+    left: 261px;
+    top: 238px;
+    /* margin-inline-start: 0px; */
 
-background: #519856;
-border: 2px solid #CB1DC4;
-box-sizing: border-box;
-border-radius: 0px 20px;
+    background: #519856;
+    border: 2px solid #CB1DC4;
+    box-sizing: border-box;
+    border-radius: 0px 20px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 
 .botonModificar{
-position: absolute;
-width: 231px;
-height: 39px;
-left: 502px;
-top: 231px;
+    position: absolute;
+    width: 231px;
+    height: 39px;
+    left: 502px;
+    top: 238px;
+    /* margin-inline-start: 241px; */
 
-background: #519856;
-border: 2px solid #CB1DC4;
-box-sizing: border-box;
-border-radius: 0px 20px;
+    background: #519856;
+    border: 2px solid #CB1DC4;
+    box-sizing: border-box;
+    border-radius: 0px 20px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
 }
-
 
 .botonEliminar{
     position: absolute;
     width: 231px;
     height: 39px;
     left: 743px;
-    top: 233px;
+    top: 238px;
+    /* margin-inline-start: 241px; */
+
     background: #519856;
     border: 2px solid #CB1DC4;
     box-sizing: border-box;
     border-radius: 0px 20px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .botonSalir{
-position: absolute;
-width: 231px;
-height: 39px;
-left: 984px;
-top: 234px;
+    position: absolute;
+    width: 231px;
+    height: 39px;
+    left: 984px;
+    top: 238px;
+    /* margin-inline-start: 241px; */
 
-background: #519856;
-border: 2px solid #CB1DC4;
-box-sizing: border-box;
-border-radius: 0px 20px;
+    background: #519856;
+    border: 2px solid #CB1DC4;
+    box-sizing: border-box;
+    border-radius: 0px 20px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
-
+/*----------------*//*
 .txtMenu{
-position: absolute;
+position: relative;
 width: 231px;
 height: 28px;
 left: 20px;
-top: 236px;
-
+top: 238px;
 font-family: Roboto;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
 line-height: 28px;
 text-align: center;
-
 color: #FFFFFF;
 }
 
 .txtNuevo{
-position: absolute;
+position: relative;
 width: 231px;
 height: 28px;
 left: 261px;
-top: 236px;
+top: 238px;
 
 font-family: Roboto;
 font-style: normal;
@@ -98,7 +140,6 @@ font-weight: normal;
 font-size: 24px;
 line-height: 28px;
 text-align: center;
-
 color: #FFFFFF;
 }
 
@@ -108,10 +149,10 @@ position: absolute;
 width: 231px;
 height: 28px;
 left: 502px;
-top: 237px;
+top: 238px;
 font-family: Roboto;
 font-style: normal;
-font-weight: bold;
+font-weight: normal;
 font-size: 24px;
 line-height: 28px;
 text-align: center;
@@ -123,10 +164,10 @@ position: absolute;
 width: 231px;
 height: 28px;
 left: 733px;
-top: 239px;
+top: 238px;
 font-family: Roboto;
 font-style: normal;
-font-weight: bold;
+font-weight: normal;
 font-size: 24px;
 line-height: 28px;
 text-align: center;
@@ -140,13 +181,22 @@ position: absolute;
 width: 231px;
 height: 28px;
 left: 974px;
-top: 240px;
+top: 238px;
 font-family: Roboto;
 font-style: normal;
-font-weight: bold;
+font-weight: normal;
 font-size: 24px;
 line-height: 28px;
 text-align: center;
 color: #FFFFFF;
 }
 
+.divMenu{
+    position: absolute;
+    width: 1440px;
+    margin-left: -720px;
+    left: 50%;
+    height: 1023px;
+    max-height: 1023px;
+}
+*/

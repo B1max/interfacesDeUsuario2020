@@ -83,21 +83,14 @@ function validarUsuarioCont(){
     if(usuarioValido && contValida){
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido")
         //borra los objetos de mas
-        // let elementosDeInicio = [
-            // document.getElementById("index0").remove;
-            // document.getElementById("index1").remove;
-            // document.getElementById("index2").remove;
-        // ]
-
-        // removerAgregados(elementosDeInicio)// a modificar la funcion
         removerAgregados("index0",[]);
         removerAgregados("index1",[]);
         removerAgregados("index2",[]);
         removerAgregados("BotonLogear",[]);
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla
-
-        saludar();
+        dibujarMenu();
+        saludar;
         return true;
     }else{
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
