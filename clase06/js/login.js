@@ -15,6 +15,7 @@ let elementosAagregar = [
     "<div id='elementoMenu6' class='BotonAceptar'></div>",
     "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div>"
 ];
+
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
     items.forEach(await function(item){
         document.body.lastElementChild.insertAdjacentHTML("afterend",item);
@@ -29,6 +30,7 @@ async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
         validarUsuarioCont();
     })
 }
+
 async function removerAgregados(primero, items){
     for(let i = items.length-1;i>0;i--){
         console.log("eliminando-> "+i)
@@ -36,14 +38,7 @@ async function removerAgregados(primero, items){
     }
     await document.getElementById(primero).remove();
 }
-// async function removerAgregados(items){
-//     // let itemS = [];
-//     // itemS = items;
-//     console.log("borrando "+items.length+" elementos de inicio");
-//     for(let i = items.length-1;i >0;i--){
-//         items[i].remove;
-//     }
-// }
+
 botonLogear.addEventListener("click",async function(){
     await agregarAlFinal("ultimo","elementoMenu0",elementosAagregar);
     await document.getElementById("elementoMenu0").addEventListener("click",async function(){

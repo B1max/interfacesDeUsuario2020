@@ -15,12 +15,7 @@ async function dibujarMenu(){
         inicial.insertAdjacentHTML("beforeend",item);
     })
     document.getElementById("btnMenu1a").addEventListener("click",menu)
-    document.getElementById("btnMenu1a").addEventListener("mouseover",function(){
-        dibujarBotones();
-        botones=true;
-    })
-
-
+    document.getElementById("btnMenu1a").addEventListener("mouseover",menu)
 }
 async function menu(){
     console.log("menu");
@@ -42,12 +37,14 @@ async function dibujarBotones(){
         console.log("agregando items de menu");
         await inicial.insertAdjacentHTML("beforeEnd",item);
     })
-    document.getElementById("btnMenu2a").addEventListener("click",console.log("nuevo"))
-    document.getElementById("btnMenu3a").addEventListener("click",console.log("modificar"))
-    document.getElementById("btnMenu4a").addEventListener("click",console.log("eliminar"))
-    document.getElementById("btnMenu5a").addEventListener("click",console.log("salir"))
+    document.getElementById("btnMenu2a").addEventListener("click",test)
+    document.getElementById("btnMenu3a").addEventListener("click",test)
+    document.getElementById("btnMenu4a").addEventListener("click",test)
+    document.getElementById("btnMenu5a").addEventListener("click",test)
 }
-
+function test(){
+    console.log("presionado")
+}
 async function borrarBotones(){
     console.log("borrando Botones");
     removerAgregados("btnMenu2a",itemsBotones);
