@@ -1,0 +1,19 @@
+{
+    "Solicitudes": [
+        {
+            "FechaSolicitud": "30/03/2020",
+            "Descripción": "Pedido de notebook",
+            "Estado": "Abierta"
+        },
+        {
+            "Fecha Solicitud": "03/04/2020",
+            "Descripción": "Cambio de horario",
+            "Estado": "En progreso"
+        },
+        {
+            "Fecha Solicitud": "12/05/2020",
+            "Descripción": "Pedido de una bicicleta para llegar a la universidad",
+            "Estado": "Cerrada"
+        }
+    ]
+}
