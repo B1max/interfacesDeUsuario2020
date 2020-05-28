@@ -14,10 +14,23 @@ async function dibujarMenu(){
     itemsMenu.forEach(await function(item){
         inicial.insertAdjacentHTML("beforeend",item);
     })
-    document.getElementById("btnMenu1a").addEventListener("click",function(){
-        console.log("menu");
-        if(botones){borrarBotones();botones=false;}else{dibujarBotones();botones=true;}
-    });
+    document.getElementById("btnMenu1a").addEventListener("click",menu)
+    document.getElementById("btnMenu1a").addEventListener("mouseover",function(){
+        dibujarBotones();
+        botones=true;
+    })
+
+
+}
+async function menu(){
+    console.log("menu");
+    if(botones){
+        borrarBotones();
+        botones=false;
+    }else{
+        dibujarBotones();
+        botones=true;
+    }
 }
 
 async function dibujarBotones(){
