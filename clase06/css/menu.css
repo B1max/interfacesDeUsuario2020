@@ -1,0 +1,152 @@
+/* botonMenu */
+
+.botonMenu{
+position: absolute;
+width: 231px;
+height: 39px;
+left: 20px;
+top: 230px;
+
+background: #519856;
+border: 2px solid #CB1DC4;
+box-sizing: border-box;
+border-radius: 0px 20px;
+}
+
+
+.botonNuevo{
+position: absolute;
+width: 231px;
+height: 39px;
+left: 261px;
+top: 230px;
+
+background: #519856;
+border: 2px solid #CB1DC4;
+box-sizing: border-box;
+border-radius: 0px 20px;
+}
+
+
+.botonModificar{
+position: absolute;
+width: 231px;
+height: 39px;
+left: 502px;
+top: 231px;
+
+background: #519856;
+border: 2px solid #CB1DC4;
+box-sizing: border-box;
+border-radius: 0px 20px;
+}
+
+
+.botonEliminar{
+    position: absolute;
+    width: 231px;
+    height: 39px;
+    left: 743px;
+    top: 233px;
+    background: #519856;
+    border: 2px solid #CB1DC4;
+    box-sizing: border-box;
+    border-radius: 0px 20px;
+}
+
+.botonSalir{
+position: absolute;
+width: 231px;
+height: 39px;
+left: 984px;
+top: 234px;
+
+background: #519856;
+border: 2px solid #CB1DC4;
+box-sizing: border-box;
+border-radius: 0px 20px;
+}
+
+
+.txtMenu{
+position: absolute;
+width: 231px;
+height: 28px;
+left: 20px;
+top: 236px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.txtNuevo{
+position: absolute;
+width: 231px;
+height: 28px;
+left: 261px;
+top: 236px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+
+.txtModificar{
+position: absolute;
+width: 231px;
+height: 28px;
+left: 502px;
+top: 237px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+color: #FFFFFF;
+}
+
+.txtEliminar{
+position: absolute;
+width: 231px;
+height: 28px;
+left: 733px;
+top: 239px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+color: #FFFFFF;
+}
+
+
+.txtSalir{
+
+position: absolute;
+width: 231px;
+height: 28px;
+left: 974px;
+top: 240px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+color: #FFFFFF;
+}
+

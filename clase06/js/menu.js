@@ -1,1 +1,3 @@
-const menu = document.getElementById("menu");
+function dibujarMenu(){
+    
+}

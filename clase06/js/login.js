@@ -1,17 +1,19 @@
+// import saludar from ("./index.js");
+
 const botonLogear = document.getElementById("BotonLogear");
 const usuariosLogin = [
     ['30337591','dario83']
 ];
 let elementosAagregar = [
-    "<div id='elementoMenu0' class='menu-fondo'>esto es del menu",
-    "<div id='elementoMenu1' class='ventanaColoreada'>",
-    "<div id='elementoMenu2' class='H1ModificarSolicitud'>MODIFICAR SOLICITUD",
-    "<div id='elementoMenu3' class='USUARIO_CONTRASEÑA'>USUARIO: <br>CONTRASEÑA: ",
+    "<div id='elementoMenu0' class='menu-fondo'>esto es del menu</div>",
+    "<div id='elementoMenu1' class='ventanaColoreada'></div>",
+    "<div id='elementoMenu2' class='txtIngresar'>INGRESAR</div>",
+    "<div id='elementoMenu3' class='USUARIO_CONTRASEÑA'>USUARIO: <br>CONTRASEÑA: </div>",
     "<input id='elementoMenu4' class='ingresoDeUsuario' type='text' name='usuario' id='usuario'>",
     "<input id='elementoMenu5' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
     "<p id='elementoMenu8' class='loginResultado'></p>",
-    "<div id='elementoMenu6' class='BotonAceptar'>",
-    "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div></div></div></div></div>"
+    "<div id='elementoMenu6' class='BotonAceptar'></div>",
+    "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div>"
 ];
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
     items.forEach(await function(item){
@@ -34,6 +36,14 @@ async function removerAgregados(primero, items){
     }
     await document.getElementById(primero).remove();
 }
+// async function removerAgregados(items){
+//     // let itemS = [];
+//     // itemS = items;
+//     console.log("borrando "+items.length+" elementos de inicio");
+//     for(let i = items.length-1;i >0;i--){
+//         items[i].remove;
+//     }
+// }
 botonLogear.addEventListener("click",async function(){
     await agregarAlFinal("ultimo","elementoMenu0",elementosAagregar);
     await document.getElementById("elementoMenu0").addEventListener("click",async function(){
@@ -72,6 +82,22 @@ function validarUsuarioCont(){
     let contValida = validarContraseña(cont);
     if(usuarioValido && contValida){
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido")
+        //borra los objetos de mas
+        // let elementosDeInicio = [
+            // document.getElementById("index0").remove;
+            // document.getElementById("index1").remove;
+            // document.getElementById("index2").remove;
+        // ]
+
+        // removerAgregados(elementosDeInicio)// a modificar la funcion
+        removerAgregados("index0",[]);
+        removerAgregados("index1",[]);
+        removerAgregados("index2",[]);
+        removerAgregados("BotonLogear",[]);
+        removerAgregados("elementoMenu0",elementosAagregar);
+        //llamada a la otra pantalla
+
+        saludar();
         return true;
     }else{
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
