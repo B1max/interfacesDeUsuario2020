@@ -115,9 +115,9 @@
 .loginResultado{
     position: absolute;
     width: 300px;
-    height: 25px;
-    left: 50%;
     margin-left: -150;
+    left: 50%;
+    height: 25px;
     top: 550px;
     font-family: Roboto;
     font-style: normal;
@@ -127,3 +127,4 @@
     text-align: center;
     color: #FFFFFF;
 }
+

@@ -85,7 +85,6 @@ function validarUsuarioCont(){
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla
         dibujarMenu();
-        saludar;
         return true;
     }else{
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
