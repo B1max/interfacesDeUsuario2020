@@ -1,8 +1,19 @@
-.conetenedorDeSolicitudes{
+.contenedorDeSolicitudes{
     position: absolute;
-    width: 1401px;
+    width: 1400px;
     height: 628px;
-    left: 20px;
+    margin-left: -700px;
+    left: 50%;
     top: 281px;
     background: rgba(255, 255, 255, 0.75);
+    display : inherit;
+}
+
+.listaSolicitud{
+    position: absolute;
+    width: 1400px;
+    height: 45px;
+    left: 20px;
+    top: 281px;
+    background: rgba(122, 122, 122, 0.746);
 }
