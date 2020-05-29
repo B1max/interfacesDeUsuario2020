@@ -6,12 +6,12 @@
             "Estado": "Abierta"
         },
         {
-            "Fecha Solicitud": "03/04/2020",
+            "FechaSolicitud": "03/04/2020",
             "Descripción": "Cambio de horario",
             "Estado": "En progreso"
         },
         {
-            "Fecha Solicitud": "12/05/2020",
+            "FechaSolicitud": "12/05/2020",
             "Descripción": "Pedido de una bicicleta para llegar a la universidad",
             "Estado": "Cerrada"
         }
