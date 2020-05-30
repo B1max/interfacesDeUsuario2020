@@ -4,7 +4,6 @@
 
 // let contenido = document.querySelector('#contenido');
 
-
 //obtengo el json
 const requestURL = '../json/tabla.json';
 
@@ -20,8 +19,13 @@ respuesta.send();
 
 respuesta.onload = function() {
   const tabla = respuesta.response;
-  populateHeader(tabla);
-  mostrarSolicitudes(tabla);
+  // let json = jsonObj['Solicitudes']
+  let fecha = JSON.parse(tabla['Fecha solicitud']);
+  let desc = JSON.parse(tabla['Descripción']);
+  let estado = JSON.parse(tabla['Estado']);
+  agregarSolicitud(fecha,desc,estado);
+  // populateHeader(tabla);
+  // mostrarSolicitudes(tabla);
 }
 
 //una vez obtenidos los datos de la tabla y convertidos en js , agrego las siguientes definiciones

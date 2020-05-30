@@ -6,8 +6,9 @@ let nodosMisSolicitudes = [
 
 document.getElementById("recargarTest").addEventListener("click",async function(){
     console.log("dibujando solicitud");
-    const inicial = document.getElementById("contenedorDeSolicitudes");
-    inicial.insertAdjacentHTML("beforeend","<div class='listaSolicitud'>testttt</div>");
+    // const inicial = document.getElementById("contenedorDeSolicitudes");
+    // inicial.insertAdjacentHTML("beforeend","<div class='listaSolicitud'>testttt</div>");
+    agregarSolicitud();
 })
 
 async function dibujarSolicitudes(){
@@ -31,6 +32,23 @@ async function actualizarPantalla(){
  console.log("")
 }
 
+
 async function modelo(){
     return true
+}
+
+async function agregarSolicitud(fecha,desc,estado){
+    const tabla = document.getElementById("tabla")
+    console.log("agregando desde el otro->"+fecha+"-"+desc+"-"+estado);
+    // const json = convertiR();
+    // let objetos = [];
+    // json.forEach(element => {
+    //     objetos.push(element)
+    // });
+    // for(let i = 0;i<objetos.length;i+=3){
+        await tabla.firstElementChild.insertAdjacentHTML("AfterEnd","<tr>"+
+        "<td class='colFecha'>"+fecha+"</td>"+
+        "<td class='colDescripcion'>"+desc+"</td>"+
+        "<td class='colEstado'>En "+estado+"</td></tr>")
+    // }
 }

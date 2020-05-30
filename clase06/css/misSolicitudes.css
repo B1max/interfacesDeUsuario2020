@@ -18,3 +18,45 @@
     background: rgba(6, 202, 32, 0.2);
     
 }
+
+.tabla{
+    position: relative;
+    left: 20px;
+    top:20px;
+    width: 1360px;
+    background-color: blue;
+}
+.table ,tr{
+    height: 45px;
+}
+
+.colFecha{
+    width: 20%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.colDescripcion{
+    width: 60%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.colEstado{
+    width: 20%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
