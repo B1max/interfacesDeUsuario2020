@@ -6,7 +6,7 @@ function traerDatos(){
 
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open('GET', 'tabla.json', true);
+  xhttp.open('GET', '../json/tabla.json', true);
   xhttp.send();
   
   xhttp.onreadystatechange = function() {
