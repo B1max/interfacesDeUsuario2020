@@ -15,16 +15,17 @@ function traerDatos(){
       let datos = JSON.parse(this.responseText); //con esto obtengo un array de objetos
       // console.log(datos);
       let res = document.querySelector('#res');
-      res.innerHTML = `
+      res.innerHTML = '';
       
-      <tr>
-        <td>${item.Solicitudes}</td>
-        
-      </tr>  
-        ` ;
       
       for(let item of datos){
         //console.log(item.Descripción)
+        res.innerHTML += `
+        <tr>
+          <td>${item.Solicitudes}</td>
+          
+        </tr>  
+          ` ;
       }
     }
     
