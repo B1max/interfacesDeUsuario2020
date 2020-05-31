@@ -38,17 +38,41 @@ async function modelo(){
 }
 
 async function agregarSolicitud(fecha,desc,estado){
-    const tabla = document.getElementById("tabla")
-    console.log("agregando desde el otro->"+fecha+"-"+desc+"-"+estado);
-    // const json = convertiR();
-    // let objetos = [];
-    // json.forEach(element => {
-    //     objetos.push(element)
-    // });
-    // for(let i = 0;i<objetos.length;i+=3){
-        await tabla.firstElementChild.insertAdjacentHTML("AfterEnd","<tr>"+
-        "<td class='colFecha'>"+fecha+"</td>"+
-        "<td class='colDescripcion'>"+desc+"</td>"+
-        "<td class='colEstado'>En "+estado+"</td></tr>")
-    // }
+    const json = fetch('./json/tabla.json')
+    .then(result=> result.json())
+    .then(async ar=>{
+        let arr = Array.from(ar['Solicitudes']);
+        arr.reverse;
+        console.log(arr[0]['Fecha Solicitud'])
+        const tabla = document.getElementById("tabla");
+        for(let i = 0;i<arr.length;i++){  
+            await tabla.firstElementChild.insertAdjacentHTML("AfterEnd","<tr>"+
+            "<td class='colFecha'>"+arr[i]['Fecha Solicitud']+"</td>"+
+            "<td class='colDescripcion'>"+arr[i]['Descripción']+"</td>"+
+            "<td class='colEstado'>En "+arr[i]['Estado']+"</td></tr>")
+        }
+    })
+    .then(console.log);
+    await agregarJson();
+}
+
+async function agregarJson(){
+
+    let http = new XMLHttpRequest();
+    let url = "./json/tabla.json";
+
+    let fecha = "fechaok";
+    let desc = "descripcionasdafafafaf";
+    let estado = "En progreso";
+    // let password = document.getElementById('pass');
+    http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    http.open("POST", url, true);
+
+    http.onreadystatechange = async function() {
+    if(http.readyState == 4 && http.status == 200) { 
+        //aqui obtienes la respuesta de tu peticion
+        alert(http.responseText);
+    }
+    }
+    http.send(JSON.stringify({'Fecha Solicitud':fecha, Descripción: desc, Estado: estado }));
 }

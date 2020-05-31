@@ -17,13 +17,14 @@ respuesta.open('GET', '../json/tabla.json', true);
 respuesta.responseType = 'json';
 respuesta.send();
 
-respuesta.onload = function() {
+respuesta.onload = async function() {
   const tabla = respuesta.response;
-  // let json = jsonObj['Solicitudes']
-  let fecha = JSON.parse(tabla['Fecha solicitud']);
-  let desc = JSON.parse(tabla['Descripción']);
-  let estado = JSON.parse(tabla['Estado']);
-  agregarSolicitud(fecha,desc,estado);
+  const solicitudes = tabla['Solicitudes'];
+  let fecha = solicitudes[0]['Fecha solicitud'];
+  let desc = solicitudes['Descripción'];
+  let estado = solicitudes['Estado'];
+  console.log("fecha"+fecha)
+  await agregarSolicitud(fecha,desc,estado);
   // populateHeader(tabla);
   // mostrarSolicitudes(tabla);
 }
