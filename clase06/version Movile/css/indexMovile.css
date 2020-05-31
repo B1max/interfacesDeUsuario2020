@@ -1,21 +1,41 @@
-.contenedor{
+/* .contenedor{
   position: relative;
   background-color: black;
-  margin-left: -720px;
+  margin-left: -321;
   left: 50%;
+} */
+
+.contenedor{
+  height:0px;
+  width:100%;
+  padding-top:56.25%; /* Relación: 16/9 = 56.25% */
+  position:relative;
 }
 
-.rectangulo-unico{
-  /* rectangulo-unico */
+/* rectangulo-inferior */
 
+.rectangulo-inferior{
 
-position: absolute;
-width: 360px;
-height: 640px;
-left: 0px;
-top: 0px;
+  position: absolute;
+  width: 360px;
+  height: 197px;
+  left: 0px;
+  top: 443px;
+  
+  background: #B78B5C;
+}
 
-background: #B78B5C;
+/* rectangulo-superior */
+
+.rectangulo-superior{
+
+  position: absolute;
+  width: 360px;
+  height: 197px;
+  left: 1px;
+  top: 0px;
+  
+  background: #B78B5C;
 }
 
 .img-fondo{
@@ -28,7 +48,7 @@ height: 602px;
 left: 0px;
 top: 0px;
 
-background: url(20200305_215539.jpg);
+background: url("../img/img-fondo.png");
 border-radius: 0px 75px;
 }
 
@@ -85,11 +105,12 @@ border-radius: 0px 75px;
   /* fondo-parrafo-superior */
 
   position: absolute;
+  justify-content: center;
   width: 342px;
   height: 200.7px;
   left: 8px;
   top: 222px;
-  
+
   background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
 }
 
@@ -113,14 +134,15 @@ border-radius: 0px 75px;
 
 .img-logo{
   /* img-logo */
-
+  
   position: absolute;
   width: 175px;
   height: 68.99px;
   left: 26px;
   top: 21px;
-  
-  background: url(images.png);
+
+
+  background: url("../img/logo.png");
   border-radius: 0px 15px;
 }
 
@@ -131,15 +153,15 @@ border-radius: 0px 75px;
   width: 338px;
   height: 32px;
   left: 12px;
-  top: 607px;
-  
+  top: 602px;
+
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
   text-align: center;
-  
+
   color: #FFFFFF;
 }
 
@@ -179,9 +201,6 @@ border-radius: 0px 75px;
   color: #FFFFFF;
 }
 
-
-
-
 .menu{
   /* menu */
 
@@ -197,18 +216,20 @@ border-radius: 0px 75px;
   /* texto-login */
 
 
-position: absolute;
-width: 126px;
-height: 20px;
-left: 196px;
-top: 26px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 19px;
-text-align: center;
-
-color: #FFFFFF;
+  position: absolute;
+  width: 126px;
+  height: 20px;
+  left: 212px;
+  top: 47px;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  
+  color: #FFFFFF;
+  
+  
 }
