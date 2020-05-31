@@ -1,5 +1,5 @@
 .contenedor{
-    position: relative;
+    position: absolute;
     background-color: black;
     margin-left: -720px;
     left: 50%;
@@ -72,8 +72,8 @@
     left: 39px;
     top: 68px;
     background-image: url("../img/logo.png") ;
-    border-radius: 0px 35px;
-    background-color: blue;
+    /* border-radius: 0px 35px; */
+    /* background-color: blue; */
 }
 .contacto{
     /* concacto */

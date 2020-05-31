@@ -1,4 +1,4 @@
-<html>
+<html >
 <head>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/login.css">
@@ -28,20 +28,40 @@
         <div id="index1" class="texto-rectangulo-inferior">Nuevos horarios de atención !!! <br> DE 2 A 3 AM !!!</div>
         <div class="img-logo"></div>
         <div id="ultimo"></div>
-        <div id="contenedorDeSolicitudes" class="contenedorDeSolicitudes">
-            <table id="tabla" class="tabla">
-                <tr>
-                    <td class="colFecha">hsdfs</td>
-                    <td class="colDescripcion">gsfgs</td>
-                    <td class="colEstado">sdfgsdfg</td>
+        <!-- <div id="contenedorDeSolicitudes" class="contenedorDeSolicitudes"> -->
+            <!-- <table id="tabla" class="tabla">
+                <tr id="encabezadoTabla">
+                    <td>
+                        <input type="checkbox" id="checkAll" class="check">
+                    </td>
+                    <td class="colFecha">
+                        Fecha
+                    </td>
+                    <td class="colDescripcion">Descripción</td>
+                    <td class="colEstado">Estado</td>
                 </tr>
-            </table>
-        </div>
+            </table> -->
+        <!-- </div> -->
     </div>
 </body>
 <script src="./js/index.js"></script>
 <script src="./js/menu.js"></script>
 <script src="./js/login.js"></script>
 <script src="./js/misSolicitudes.js"></script>
+<!-- <script>
+    function agregarJson(){
+    const json = fetch('http://127.0.0.1:5500/clase06/json/tabla.json',{
+        method : 'POST',
+        headers: {
+            'Content-Type': 'aplication/json'
+        },
+        body: JSON.stringify({
+            'Fecha Solicitud' : '2/4/2020',
+            'Descripcion': 'probandooooooooooooooooo',
+            'Estado': 'Aceptado'
+        })
+    })
+}
+</script> -->
 <!-- <script src="./js/json.js"></script> -->
 </html>

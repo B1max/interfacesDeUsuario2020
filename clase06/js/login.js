@@ -1,5 +1,5 @@
 // import saludar from ("./index.js");
-
+// falta ver si validar usuario concreto
 const botonLogear = document.getElementById("BotonLogear");
 const usuariosLogin = [
     ['30337591','dario83']
@@ -17,7 +17,7 @@ let elementosAagregar = [
 ];
 
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
-    items.forEach(await function(item){
+    items.forEach(function(item){
         document.body.lastElementChild.insertAdjacentHTML("afterend",item);
     })
     //agregado solo para esta pantalla
@@ -34,14 +34,14 @@ async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
 async function removerAgregados(primero, items){
     for(let i = items.length-1;i>0;i--){
         console.log("eliminando-> "+i)
-        await document.getElementById(primero).nextElementSibling.remove();
+        document.getElementById(primero).nextElementSibling.remove();
     }
-    await document.getElementById(primero).remove();
+    document.getElementById(primero).remove();
 }
 
 botonLogear.addEventListener("click",async function(){
     await agregarAlFinal("ultimo","elementoMenu0",elementosAagregar);
-    await document.getElementById("elementoMenu0").addEventListener("click",async function(){
+    document.getElementById("elementoMenu0").addEventListener("click",async function(){
         await removerAgregados("elementoMenu0",elementosAagregar);
     })
 })
@@ -85,6 +85,8 @@ function validarUsuarioCont(){
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla
         dibujarMenu();
+        //aca llamaria a missolicitudes
+        cargar_MisSolicitudes();
         return true;
     }else{
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
