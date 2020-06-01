@@ -4,12 +4,17 @@
   margin-left: -321;
   left: 50%;
 } */
-
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #B78B5C;
+}
 .contenedor{
-  height:0px;
+  /* height:0px; */
   width:100%;
-  padding-top:56.25%; /* Relación: 16/9 = 56.25% */
-  position:relative;
+  height: 100%;
+  /* padding-top:56.25%; Relación: 16/9 = 56.25% */
+  /* position:relative; */
 }
 
 /* rectangulo-inferior */
@@ -17,9 +22,9 @@
 .rectangulo-inferior{
 
   position: absolute;
-  width: 360px;
+  width:100%;
   height: 197px;
-  left: 0px;
+  /* left: 0px; */
   top: 443px;
   
   background: #B78B5C;
@@ -30,26 +35,29 @@
 .rectangulo-superior{
 
   position: absolute;
-  width: 360px;
+  width: 100%;
   height: 197px;
   left: 1px;
   top: 0px;
   
   background: #B78B5C;
 }
+@media only screen and (max-width: 390px){
+  .img-fondo{
+    width: 100px;
+    background: url("../img/img-fondo.png");
+
+  }
+}
 
 .img-fondo{
-/* img-fondo */
-
-
-position: absolute;
-width: 360px;
-height: 602px;
-left: 0px;
-top: 0px;
-
-background: url("../img/img-fondo.png");
-border-radius: 0px 75px;
+  position: absolute;
+  width: 1440px;
+  height: 850px;
+  left: 0px;
+  top: 31px;
+  background: url("../img/img-fondo.png");
+  border-radius: 0px 70px 0px 75px;
 }
 
 .rectangulo-info-inferior{
@@ -58,9 +66,10 @@ border-radius: 0px 75px;
   
   
   position: absolute;
-  width: 342px;
+  width: auto;
   height: 110px;
   left: 8px;
+  right: 8px;
   top: 483px;
   
   background: rgba(92, 183, 96, 0.65);
@@ -72,7 +81,7 @@ border-radius: 0px 75px;
   /* texto-rectangulo-inferior */
 
   position: absolute;
-  width: 331px;
+  width: 90%;
   height: 51px;
   left: 15px;
   top: 518px;
@@ -91,7 +100,7 @@ border-radius: 0px 75px;
   /* rectangulo-superior-flotante */
 
   position: absolute;
-  width: 342px;
+  width: 98%;
   height: 94px;
   left: 8px;
   top: 10px;
@@ -108,7 +117,8 @@ border-radius: 0px 75px;
   justify-content: center;
   width: 342px;
   height: 200.7px;
-  left: 8px;
+  margin-left: -171px;
+  left: 50%;
   top: 222px;
 
   background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
@@ -120,7 +130,8 @@ border-radius: 0px 75px;
   position: absolute;
   width: 318px;
   height: 179px;
-  left: 20px;
+  margin-left: -159px;
+  left: 50%;
   top: 237px;
   
   font-family: Roboto;
@@ -152,7 +163,8 @@ border-radius: 0px 75px;
   position: absolute;
   width: 338px;
   height: 32px;
-  left: 12px;
+  margin-left: -169px;
+  left: 50%;
   top: 602px;
 
   font-family: Roboto;
@@ -188,7 +200,8 @@ border-radius: 0px 75px;
   position: absolute;
   width: 342px;
   height: 82px;
-  left: 8px;
+  margin-left: -171px;
+  left: 50%;
   top: 123px;
   
   font-family: Roboto;
@@ -214,13 +227,12 @@ border-radius: 0px 75px;
 
 .texto-login{
   /* texto-login */
-
-
   position: absolute;
   width: 126px;
   height: 20px;
-  left: 212px;
-  top: 47px;
+  margin-right: 0px;
+  right: 20px;
+  top: 80px;
   
   font-family: Roboto;
   font-style: normal;
