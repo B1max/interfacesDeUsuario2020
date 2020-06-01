@@ -1,3 +1,14 @@
+.menu-fondo{
+    position: absolute;
+    background-color: black;
+    /* margin-left: -720px; */
+    left:0PX;
+    opacity: 50%;
+    width: 366PX;
+    height: 640px;
+    /* visibility: hidden; */
+}
+
 .ventanaColoreada{
     /* ventanaColoreada */
 

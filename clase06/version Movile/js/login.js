@@ -8,12 +8,13 @@ let elementosAagregar = [
     "<div id='elementoMenu0' class='menu-fondo'>esto es del menu</div>",
     "<div id='elementoMenu1' class='ventanaColoreada'></div>",
     "<div id='elementoMenu2' class='txtIngresar'>INGRESAR</div>",
-    "<div id='elementoMenu3' class='USUARIO_CONTRASEÑA'>USUARIO: <br>CONTRASEÑA: </div>",
-    "<input id='elementoMenu4' class='ingresoDeUsuario' type='text' name='usuario' id='usuario'>",
-    "<input id='elementoMenu5' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
-    "<p id='elementoMenu8' class='loginResultado'></p>",
-    "<div id='elementoMenu6' class='BotonAceptar'></div>",
-    "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div>"
+    "<div id='elementoMenu3' class='USUARIO'>USUARIO:</div>",
+    "<div id='elementoMenu4' class='CONTRASEÑA'>CONTRASEÑA:</div>",
+    "<input id='elementoMenu5' class='ingresoDeUsuario' type='text' name='usuario' id='usuario'>",
+    "<input id='elementoMenu6' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
+    "<p id='elementoMenu9' class='loginResultado'></p>",
+    "<div id='elementoMenu7' class='BotonAceptar'></div>",
+    "<div id='elementoMenu8' class='ACEPTAR'>ENTRAR</div>"
 ];
 
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
@@ -21,12 +22,12 @@ async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
         document.body.lastElementChild.insertAdjacentHTML("afterend",item);
     })
     //agregado solo para esta pantalla
-    document.getElementById("elementoMenu6").addEventListener("click", function(){
-        console.log("se apreto el boton aceptar");
+    document.getElementById("elementoMenu7").addEventListener("click", function(){
+        console.log("se apreto el boton entrar");
         validarUsuarioCont();
     })
-    document.getElementById("elementoMenu7").addEventListener("click", function(){
-        console.log("se apreto el boton aceptar");
+    document.getElementById("elementoMenu8").addEventListener("click", function(){
+        console.log("se apreto el boton entrar");
         validarUsuarioCont();
     })
 }
@@ -71,8 +72,8 @@ function validarContraseña(cont){
 }
 function validarUsuarioCont(){
     console.log("validando usuario y contraseña")
-    let usuario = document.getElementById("elementoMenu4");
-    let cont = document.getElementById("elementoMenu5");
+    let usuario = document.getElementById("elementoMenu5");
+    let cont = document.getElementById("elementoMenu6");
     let usuarioValido = validarUsuario(usuario);
     let contValida = validarContraseña(cont);
     if(usuarioValido && contValida){
@@ -95,7 +96,7 @@ function validarUsuarioCont(){
 
 function mostrarResultado(txt){
     console.log(txt)
-    const resultado = document.getElementById("elementoMenu8");
+    const resultado = document.getElementById("elementoMenu9");
     resultado.textContent = txt+"";
     setTimeout(function(){
         resultado.textContent = " ";
