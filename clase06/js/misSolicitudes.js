@@ -1,3 +1,4 @@
+let itemIndex = 0;
 let itemSeleccionados = [];
 let listaDeSolicitudes = [];
 let nodosMisSolicitudes = [
@@ -31,8 +32,6 @@ async function cargar_MisSolicitudes(){
     tabla = document.getElementById("tabla");
     await TABLA_dibujar_items();
     await MisSolicitudesEventos();
-    // TABLA_agregar_desde_DB();
-    // await cargarJson();
 }
 
 
@@ -40,28 +39,20 @@ async function MisSolicitudesEventos(){
     //temporal para pruebas...
     document.getElementById("recargarTest").addEventListener("click",async function(){
         console.log("dibujando solicitud");
-        // await visual_recargar_lista();
-        // await DB_borrar_JSON();
-        // listaDeSolicitudes = [];
-        // await DB_traer_JSON();
-        // await DB_agregar_item("local","localTest","localTest","localTest");//asi se aagrega un item
         console.log("array de solicitudes-> "+listaDeSolicitudes.length);
-        // await TABLA_dibujar_items(); //ok
-        await visual_recargar_lista();
-        // await TABLA_borrar_items();//ok
+        await TABLA_recargar_lista();
     })
     //normal...
-
     checkAll.addEventListener("click",check_All);
     
     for(let i = 0;i<listaDeSolicitudes.length;i++){
-        document.getElementById("check"+i).addEventListener("click",async function(){
+        document.getElementById("check"+listaDeSolicitudes[i][0]).addEventListener("click",async function(){
             if(document.getElementById("check"+i).checked){
-                itemSeleccionados.push(i);
+                itemSeleccionados.push(listaDeSolicitudes[i][0]);
                 console.log("all:checked");
             }else{
                 //sacar de la lista de seleccion
-                itemSeleccionados.splice(itemSeleccionados.indexOf(i),1)
+                itemSeleccionados.splice(itemSeleccionados.indexOf(listaDeSolicitudes[i][0],1));
                 console.log("all:unchecked");
             }
             console.log("se deselecciono el item->"+i);
@@ -71,13 +62,11 @@ async function MisSolicitudesEventos(){
 }
 function check_All(){
     if(this.checked){
-        //accion agregar a lista de seleccion
         console.log("all:checked");
     }else{
-        //sacar de la lista de seleccion
         console.log("all:unchecked");
     }
-    console.log("estado del check all-> "+checkAll.checked)
+    console.log("estado del check all-> "+checkAll.checked);
     return checkAll.checked;
 }
 
@@ -92,23 +81,24 @@ async function tabla_dibujar_encabezado(){
 async function TABLA_dibujar_items(){
     console.log("se van a agregar a la lista "+listaDeSolicitudes.length+" items");
     for(let i = 0;i<listaDeSolicitudes.length;i++){
-        let fecha = ""+listaDeSolicitudes[i][1];
-        let desc = ""+listaDeSolicitudes[i][2];
-        let estado = ""+listaDeSolicitudes[i][3];
+        let itemID = ""+listaDeSolicitudes[i][0]
+        let fecha = ""+listaDeSolicitudes[i][2];
+        let desc = ""+listaDeSolicitudes[i][3];
+        let estado = ""+listaDeSolicitudes[i][4];
         console.log("item->"+i+"-"+fecha+"-"+desc+"-"+estado);
-        agregarAlista(i,fecha,desc,estado);
+        agregarAlista(itemID,fecha,desc,estado);
     }
 }
 
 async function TABLA_agregar_desde_DB(){
     for(let i = 0;i<listaDeSolicitudes.length;i++){
         console.log("agregando item a lista desde DB-> "+i)
-        agregarAlista(i,listaDeSolicitudes[i][1],listaDeSolicitudes[i][2],listaDeSolicitudes[i][3]);
+        agregarAlista(listaDeSolicitudes[i][0],listaDeSolicitudes[i][2],listaDeSolicitudes[i][3],listaDeSolicitudes[i][4]);
     }
 }
 
-async function DB_agregar_item(origen,fecha,descripcion,estado){
-    listaDeSolicitudes.push([origen,fecha,descripcion,estado]);
+async function DB_agregar_item(id,origen,fecha,descripcion,estado){
+    listaDeSolicitudes.push([id,origen,fecha,descripcion,estado]);
     console.log("DB_agregar_item:"+listaDeSolicitudes.length)
     console.log("DB_agregar_item:->"+listaDeSolicitudes[listaDeSolicitudes.length-1])
     return listaDeSolicitudes.length-1;
@@ -117,7 +107,7 @@ async function DB_agregar_item(origen,fecha,descripcion,estado){
 function agregarAlista(id,fecha,descripcion,estado){
     // listaDeSolicitudes.push([fecha,descripcion,estado])
     //aca agregar el id para identificar el item
-    document.getElementById("tabla").insertAdjacentHTML("beforeEnd","<tr id='fila"+id+"'>"+
+    document.getElementById("tabla").insertAdjacentHTML("beforeEnd","<tr id='item"+id+"'>"+
     "<td class='colCheck'>"+
         "<input type='checkbox' id='check"+id+"' class='check'>"+
     "</td>"+
@@ -128,31 +118,33 @@ function agregarAlista(id,fecha,descripcion,estado){
 
 
 
-async function visual_recargar_lista(){
+async function TABLA_recargar_lista(){
     await TABLA_borrar_items_todos();
-    await DB_borrar_JSON();
-    // listaDeSolicitudes=[];//hasyta que no alla items normales no sirve
-    await DB_traer_JSON();// la agrega a la DB normal
     await TABLA_agregar_desde_DB();
     console.log("visual_recargar_lista->"+listaDeSolicitudes.length)
 }
 
 async function TABLA_borrar_items_todos(){
+
+    console.log("TABLA_borrar_items_todos->"+itemSeleccionados)
     for(let i = 0;i<listaDeSolicitudes.length;i++){
-        // console.log(document.getElementById("fila"+i));
-        console.log("hijos->"+document.getElementById("fila"+i).childElementCount);
-        let fila = document.getElementById("fila"+i);
-        await removerAgregados("fila"+i,[]);
+        console.log("todos-> eliminar-> "+listaDeSolicitudes[i][0])
     }
 }
-async function TABLA_borrar_seleccionados(){
+function DB_borrar_seleccionados(){
     console.log("borrando seleccionados");
     for(let i = 0;i<itemSeleccionados.length;i++){
         console.log("seleccion-> fila"+i)
         // TABLA_borrar_item("fila"+i);
-        listaDeSolicitudes.indexOf(itemSeleccionados[i]).
-        
+        for(let e = 0;e<listaDeSolicitudes.length;e++){
+            if(listaDeSolicitudes[e][0]==itemSeleccionados[i]){
+                listaDeSolicitudes.splice(e,1);
+            }
+        }
+        console.log("sel-borrado item->" + itemSeleccionados[i])
     }
+    itemSeleccionados = [];
+    // await TABLA_recargar_lista();
 }
 /*
 async function TABLA_borrar_item(item){
@@ -176,8 +168,10 @@ async function DB_traer_JSON(){
             let desc = ""+arr[i]['Descripción'];
             let estado = ""+arr[i]['Estado'];
             // console.log("agregando->"+fecha+"-"+desc+"-"+estado);
-            await DB_agregar_item("JSON",fecha,desc,estado);
+            await DB_agregar_item(itemIndex,"JSON",fecha,desc,estado);
+            itemIndex++;
         }
+        console.log(listaDeSolicitudes);
     })
     .then(console.log);
 
