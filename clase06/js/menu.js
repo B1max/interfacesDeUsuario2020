@@ -39,7 +39,7 @@ async function dibujarBotones(){
     })
     document.getElementById("btnMenu2a").addEventListener("click",test)
     document.getElementById("btnMenu3a").addEventListener("click",test)
-    document.getElementById("btnMenu4a").addEventListener("click",test)
+    document.getElementById("btnMenu4a").addEventListener("click",TABLA_borrar_seleccionados)
     document.getElementById("btnMenu5a").addEventListener("click",test)
 }
 function test(){

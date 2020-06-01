@@ -56,7 +56,10 @@ function validarUsuario(usuario){
 function validarContraseña(cont){
     console.log("validando contraseña:"+cont.value)
     let numeros = [1,2,3,4,5,6,7,8,9,0];
-    let letras = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','ñ','z','x','c','v','b','n','m'];
+    let letras = ['q','w','e','r','t','y','u','i','o','p','a','s','d',
+    'f','g','h','j','k','l','ñ','z','x','c','v','b','n','m','Q','W','E',
+    'R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Ñ',
+    'Z','X','C','V','B','N','M'];
     let tieneUnNumero = false
     let tieneUnaLetra = false
     let palabra = Array.from(cont.value);
