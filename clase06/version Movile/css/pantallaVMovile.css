@@ -1,0 +1,122 @@
+.menu-fondo{
+    position: absolute;
+    background-color: black;
+    /* margin-left: -720px; */
+    left:0PX;
+    opacity: 50%;
+    width: 366PX;
+    height: 640px;
+    /* visibility: hidden; */
+}
+
+.ventanaColoreada{
+    /* ventanaColoreada */
+
+    position: absolute;
+    width: 342px;
+    height: 299px;
+    left: 8px;
+    top: 120px;
+    
+    background: #5CB760;
+}
+
+.USUARIO{
+    /* USUARIO */
+
+    position: absolute;
+    width: 115px;
+    height: 26px;
+    left: 121px;
+    top: 138px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+
+.CONTRASEÑA{
+
+    /* CONTRASEÑA */
+    
+    position: absolute;
+    width: 174px;
+    height: 26px;
+    left: 93px;
+    top: 236px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+
+.ingresoDeUsuario{
+
+    /* ingresoDeUsuario */
+    
+    position: absolute;
+    width: 254px;
+    height: 33px;
+    left: 53px;
+    top: 175px;
+    
+    background: #FFFFFF;
+}
+
+.ingresoDeContraseña{
+
+    /* ingresoDeContraseña */
+    
+    position: absolute;
+    width: 254px;
+    height: 33px;
+    left: 53px;
+    top: 270px;
+    
+    background: #FFFFFF;
+}
+
+.BotonAceptar{
+
+    /* BotonAceptar */
+    
+    position: absolute;
+    width: 114px;
+    height: 29px;
+    left: 210px;
+    top: 351px;
+    
+    background: #5D5CB7;
+}
+
+.ACEPTAR{
+
+    /* ACEPTAR */
+    
+    position: absolute;
+    width: 101px;
+    height: 27px;
+    left: 216px;
+    top: 352px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    
+    color: #FFFFFF;
+}

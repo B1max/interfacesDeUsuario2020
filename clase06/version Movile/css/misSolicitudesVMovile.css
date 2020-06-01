@@ -1,0 +1,62 @@
+.contenedorDeSolicitudes{
+    position: absolute;
+    width: 1400px;
+    height: 550px;
+    /* margin-left: -18px; */
+    left: 18;
+    top: 281px;
+    background: rgba(255, 255, 255, 0.75);
+    display : inherit;
+}
+
+.listaSolicitud{
+    position: relative;
+    width: 1360px;
+    height: 45px;
+    left: 20px;
+    top: 20px;
+    background: rgba(6, 202, 32, 0.2);
+    
+}
+
+.tabla{
+    position: relative;
+    left: 20px;
+    top:20px;
+    width: 1360px;
+    background-color: blue;
+}
+.table ,tr{
+    height: 45px;
+}
+
+.colFecha{
+    width: 20%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.colDescripcion{
+    width: 60%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.colEstado{
+    width: 20%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
