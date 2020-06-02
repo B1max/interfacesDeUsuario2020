@@ -1,62 +1,123 @@
 .contenedorDeSolicitudes{
+    /* contenedorDeSolicitudes */
+
     position: absolute;
-    width: 1400px;
-    height: 550px;
-    /* margin-left: -18px; */
-    left: 18;
-    top: 281px;
-    background: rgba(255, 255, 255, 0.75);
-    display : inherit;
-}
+    width: 342px;
+    height: 319px;
+    left: 8px;
+    top: 104px;
+    background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
+    }
 
-.listaSolicitud{
-    position: relative;
-    width: 1360px;
-    height: 45px;
-    left: 20px;
-    top: 20px;
-    background: rgba(6, 202, 32, 0.2);
+
+
+.MIS_SOLICITUDES{
+    /* MIS_SOLICITUDES */
+
+    position: absolute;
+    width: 326px;
+    height: 26px;
+    left: 17px;
+    top: 104px;
     
-}
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    
+    color: #000000;
+    }
 
-.tabla{
-    position: relative;
-    left: 20px;
-    top:20px;
-    width: 1360px;
-    background-color: blue;
-}
-.table ,tr{
-    height: 45px;
-}
 
-.colFecha{
-    width: 20%;
+
+
+.conetenedorDeSolicitudes{
+    /* conetenedorDeSolicitudes */
+
+    position: absolute;
+    width: 334px;
+    height: 279px;
+    left: 13px;
+    top: 130px;
+    background: #FFFFFF;
+
+    }
+
+
+.pedido-texto{
+    /* pedido-texto */
+
+    position: absolute;
+    width: 287px;
+    height: 26px;
+    left: 51px;
+    top: 174px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    color: #FFFFFF;
-}
-.colDescripcion{
-    width: 60%;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    }
+
+
+.cuadroSolicitud{
+    /* cuadroSolicitud */
+
+    position: absolute;
+    width: 26px;
+    height: 23px;
+    left: 16px;
+    top: 172px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    }
+
+
+.selecionDeSolicitud{
+    /* selecionDeSolicitud */
+
+    position: absolute;
+    width: 26px;
+    height: 23px;
+    left: 16px;
+    top: 135px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    }
+
+
+.Vector{
+    /* Vector 5 */
+
+    position: absolute;
+    width: 319.5px;
+    height: 0px;
+    left: 18.5px;
+    top: 162px;
+    
+    border: 1px solid #000000;
+    }
+
+.Fecha_Descripción_Estado{
+    /* Fecha_Descripción_Estado */
+
+    position: absolute;
+    width: 292px;
+    height: 18px;
+    left: 51px;
+    top: 135px;
+
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    color: #FFFFFF;
-}
-.colEstado{
-    width: 20%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    color: #FFFFFF;
-}
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #000000;
+    }

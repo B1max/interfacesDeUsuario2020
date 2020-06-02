@@ -1,52 +1,28 @@
 .body{
     margin: 0;
-}
-
-/* .encabezado, .contenido, .contenido-lateral, .pie-pagina{
-    padding: 1em, 2em;
-}
-
-.contenido, .contenido-lateral, .pie-pagina{
-    float: left;
-    box-sizing: border-box;
-} */
-
-
-@media screen and (min-width: 780px) and (max-width:1024px){
-    .menu-fondo{
-        width: 100%;
-        height: 100%;
-    }
-    .ventanaColoreada{
-        width: 100%;    
-    }
-}
-
-.menu-fondo{
-    position: absolute;
-    background-color: black;
-    /* margin-left: -720px; */
-    left:0PX;
-    opacity: 50%;
-    width: 980PX;
-    height: 935px;
-    /* visibility: hidden; */
+    padding: 0;
 }
 
 .ventanaColoreada{
+    
     /* ventanaColoreada */
     position: absolute;
-    width: 342px;
-    height: 299px;
-    left: 8px;
-    top: 120px;
-    margin-left: 320;
+    width: 320px;
+    height: 420px;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
     background: #5CB760;
+    transform: translate(-50%, -50%); /* con esto queda en el medio*/
+    box-sizing: border-box;
+    padding: 70px 30px ;
+    /* margin-left: -160%;
+    margin-top: -210% ; */
 }
 
 .USUARIO{
-    /* USUARIO */
 
+    /* USUARIO */
     position: absolute;
     width: 115px;
     height: 26px;
@@ -64,30 +40,31 @@
 }
 
 
-.CONTRASEÑA{
 
+
+.CONTRASEÑA{
     /* CONTRASEÑA */
-    
+
     position: absolute;
     width: 174px;
     height: 26px;
     left: 93px;
     top: 236px;
-    
+
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-    
+
     color: #000000;
 }
-
 
 .ingresoDeUsuario{
 
     /* ingresoDeUsuario */
+    
     
     position: absolute;
     width: 254px;
@@ -101,7 +78,7 @@
 .ingresoDeContraseña{
 
     /* ingresoDeContraseña */
-    
+
     position: absolute;
     width: 254px;
     height: 33px;
@@ -118,21 +95,20 @@
     position: absolute;
     width: 114px;
     height: 29px;
-    left: 210px;
-    top: 351px;
+    left: 124px;
+    top: 347px;
     
     background: #5D5CB7;
 }
 
-.ACEPTAR{
+.ENTRAR{
 
-    /* ACEPTAR */
-    
+    /* ENTRAR */
     position: absolute;
     width: 101px;
     height: 27px;
-    left: 216px;
-    top: 352px;
+    left: 130px;
+    top: 348px;
     
     font-family: Roboto;
     font-style: normal;
@@ -143,3 +119,5 @@
     
     color: #FFFFFF;
 }
+
+
