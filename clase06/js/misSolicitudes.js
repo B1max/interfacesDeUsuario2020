@@ -25,7 +25,6 @@ let checkAllState = false;
 
 async function cargar_MisSolicitudes(){
     await DB_traer_JSON();
-    console.log("cargando, lista->"+listaDeSolicitudes.length);
     await tabla_dibujar_encabezado();
     checkAll = document.getElementById("checkAll");
     tabla = document.getElementById("tabla");
@@ -48,20 +47,16 @@ async function MisSolicitudesEventos(){
             if(document.getElementById("check"+i).checked){
                 itemSeleccionados.push(listaDeSolicitudes[i]);
             }else{
-                console.log("se deselecciono el item->"+i);
                 let indexI = itemSeleccionados.indexOf(listaDeSolicitudes[i][0])
-                console.log("voy a sacar de la lista seleccionados->"+indexI);
                 itemSeleccionados.splice(indexI,1);
 
             }
-            console.log("lista-> "+itemSeleccionados);
         });
     }
 }
 
 
 function check_All(){
-    console.log("checkeado todo")
     if(todosSeleccionados){
         itemSeleccionados = [];
         todosSeleccionados = false;
@@ -72,12 +67,10 @@ function check_All(){
     for(let i = 0;i<listaDeSolicitudes.length;i++){
         document.getElementById("check"+listaDeSolicitudes[i][0]).checked = todosSeleccionados;
     }
-    console.log("seleccionados todos->"+itemSeleccionados.length)
 }
 
 
 async function tabla_dibujar_encabezado(){
-    console.log("dibujando estructura de solicitudes");
     nodosMisSolicitudes.forEach(item =>{
         misSolicitudesInicial.insertAdjacentHTML("AfterEnd",item);
     })
@@ -85,13 +78,11 @@ async function tabla_dibujar_encabezado(){
 
 
 async function TABLA_dibujar_items(){
-    console.log("se van a agregar a la lista "+listaDeSolicitudes.length+" items");
     for(let i = 0;i<listaDeSolicitudes.length;i++){
         let itemID = ""+listaDeSolicitudes[i][0]
         let fecha = ""+listaDeSolicitudes[i][2];
         let desc = ""+listaDeSolicitudes[i][3];
         let estado = ""+listaDeSolicitudes[i][4];
-        console.log("item->"+i+"-"+fecha+"-"+desc+"-"+estado);
         agregarAlista(itemID,fecha,desc,estado);
     }
 }
@@ -100,7 +91,6 @@ async function TABLA_dibujar_items(){
 async function TABLA_agregar_desde_DB(){
     if(listaDeSolicitudes.length>0){
         for(let i = 0;i<listaDeSolicitudes.length;i++){
-            console.log("agregando item a lista desde DB-> "+i)
             agregarAlista(listaDeSolicitudes[i][0],listaDeSolicitudes[i][2],listaDeSolicitudes[i][3],listaDeSolicitudes[i][4]);
         }
     }else{
@@ -111,8 +101,6 @@ async function TABLA_agregar_desde_DB(){
 
 async function DB_agregar_item(id,origen,fecha,descripcion,estado){
     listaDeSolicitudes.push([id,origen,fecha,descripcion,estado]);
-    console.log("DB_agregar_item:"+listaDeSolicitudes.length)
-    console.log("DB_agregar_item:->"+listaDeSolicitudes[listaDeSolicitudes.length-1])
     return listaDeSolicitudes.length-1;
 }
 
@@ -132,15 +120,11 @@ async function TABLA_recargar_lista(){
     await TABLA_borrar_items_todos();
     await TABLA_agregar_desde_DB();
     itemSeleccionados = [];
-    console.log("visual_recargar_lista->"+listaDeSolicitudes.length)
 }
 
 
 async function TABLA_borrar_items_todos(){
-    console.log("TABLA_borrar_items_todos->"+listaDeSolicitudes)
     for(let i = 0;i<listaDeSolicitudes.length;i++){
-        console.log("todos-> eliminar-> "+listaDeSolicitudes[i][0]);
-        // document.getElementById("item"+listaDeSolicitudes[i][0]).style.backgroundColor = "red";
         document.getElementById("item"+listaDeSolicitudes[i][0]).remove();
     }
 }
@@ -151,16 +135,13 @@ function DB_borrar_seleccionados(){
     if(todosSeleccionados){
         document.getElementById("checkAll").checked = false;
     }
-    console.log("borrando seleccionados->"+itemSeleccionados);
     for(let i = 0;i<itemSeleccionados.length;i++){
-        console.log("seleccion-> fila"+i)
         for(let e = 0;e<listaDeSolicitudes.length;e++){
             if(listaDeSolicitudes[e][0]==itemSeleccionados[i][0]){
                 document.getElementById("item"+listaDeSolicitudes[e][0]).remove();
                 listaDeSolicitudes.splice(e,0);
             }
         }
-        console.log("sel-borrado item->" + itemSeleccionados[i])
     }
     itemSeleccionados = [];
 }
@@ -179,9 +160,8 @@ async function DB_traer_JSON(){
             await DB_agregar_item(itemIndex,"JSON",fecha,desc,estado);
             itemIndex++;
         }
-        console.log(listaDeSolicitudes);
     })
-    .then(console.log);
+    // .then(console.log);
 }
 
 
