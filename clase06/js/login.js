@@ -87,9 +87,7 @@ function validarUsuarioCont(){
         removerAgregados("BotonLogear",[]);
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla
-        dibujarMenu();
-        //aca llamaria a missolicitudes
-        cargar_MisSolicitudes();
+        posicion_MisSolicitudes();
         return true;
     }else{
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
