@@ -2,18 +2,19 @@
 let botones = false;
 const itemsMenu = [
 "<div id='btnMenu1a' class='botonMenu'>MENU</div>"];
-let itemsBotones = [
+// let itemsBotones = [
+let BOTONES_mis_solicitudes=[
 "<div id='btnMenu2a' class='botonNuevo'>NUEVO</div>",
 "<div id='btnMenu3a' class='botonModificar'>MODIFICAR</div>",
 "<div id='btnMenu4a' class='botonEliminar'>ELIMINAR</div>",
 "<div id='btnMenu5a' class='botonSalir'>SALIR</div>"];
 
-let itemsBotones = [
+let BOTONES_solicitud = [
     "<div id='btnMenu2a' class='botonNuevo'>NUEVO</div>",
     "<div id='btnMenu3a' class='botonModificar'>MODIFICAR</div>",
     "<div id='btnMenu4a' class='botonEliminar'>ELIMINAR</div>",
     "<div id='btnMenu5a' class='botonSalir'>SALIR</div>"];
-    
+
 async function dibujarMenu(){
     console.log("dibujando Menu");
     const inicial = document.getElementById("ultimo").parentNode;
@@ -39,7 +40,7 @@ async function dibujarBotones(){
     const inicial = document.getElementById("ultimo").parentNode;
 
     console.log("dibujando Botones");
-    itemsBotones.forEach(async function(item){
+    BOTONES_mis_solicitudes.forEach(async function(item){
         console.log("agregando items de menu");
         await inicial.insertAdjacentHTML("beforeEnd",item);
     })
@@ -54,5 +55,5 @@ function test(){
 async function borrarBotones(){
     botones = false;
     console.log("borrando Botones");
-    removerAgregados("btnMenu2a",itemsBotones);
+    removerAgregados("btnMenu2a",BOTONES_mis_solicitudes);
 }
