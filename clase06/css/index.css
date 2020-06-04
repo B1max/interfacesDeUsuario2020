@@ -12,6 +12,10 @@
 */
     body{
         background-color: rgb(196, 58, 122);
+        left: 0px;
+        right: 0px;
+        padding: 0px, 0px, 0px, 0px;
+        margin: 0px;
 
         /*width: 100%;
         height: auto;
@@ -21,10 +25,16 @@
         bottom: 0px;*/
     }
 
+    .contenedor{
+        /* min-height: 781px; 
+        max-height: 1440px; */
+        background-color: aqua;
+     }
+
 
     .rectangulo-superior{
         position: absolute;
-        width: 1440px;
+        width: 100%;
         max-width: 1440px;
 
         height: 144px;
@@ -132,14 +142,12 @@
     }
     .img-fondo{
         position: absolute;
-        width: 1550;
-        max-width: 1440px;
-        min-width: 800px;
-        height: 1000;
-        margin-left: -720px;
-        left: 50%;
+        width: auto;
+        height: auto;
+        left: 0px;
         top: 30px;
         bottom: 30px;
+        margin: 0px;
         background: url("../img/img-fondo.png");
         border-radius: 0px 70px 0px 75px;
         background-size: cover;
@@ -196,10 +204,13 @@
     @media all and (max-width: 360px){
 
         body{
-            background-color: rgb(116, 139, 13);
-            min-height: 814px; 
-            max-height: 825px;
-
+            /* background-color: rgb(116, 139, 13); */
+            /* min-height: 814px; 
+            max-height: 825px; */
+            left: 0px;
+            right: 0px;
+            padding: 0px, 0px, 0px, 0px;
+            margin: 0px;
         }
         html{
             background-color: rgb(116, 139, 13);
@@ -208,8 +219,12 @@
         }
 
         .contenedor{
-           min-height: 814px; 
-           max-height: 825px;
+           /* min-height: 780px; 
+           max-height: 780px; */
+           width: 359px;
+           height: 780px;
+           margin: 0px;
+           padding: 0px;
         }
 
         .rectangulo-superior{
