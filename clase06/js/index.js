@@ -1,5 +1,4 @@
 let ultimaPosicion;
-
 document.body.addEventListener("load",function(){
     try {
         ultimaPosicion();

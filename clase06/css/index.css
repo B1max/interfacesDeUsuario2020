@@ -10,7 +10,7 @@
         bottom: 0px;
     }
 */
-    body{
+    /* body{
         background-color: rgb(196, 58, 122);
         left: 0px;
         right: 0px;
@@ -23,12 +23,13 @@
         right: 0px;
         top:0px;
         bottom: 0px;*/
-    }
+    /*}*/
 
     .contenedor{
-        /* min-height: 781px; 
-        max-height: 1440px; */
-        background-color: aqua;
+        width: auto;
+        min-width: 481px;
+        height: auto;
+        height : 900px
      }
 
 
@@ -43,7 +44,7 @@
         right: 0px;
         top: 0px;
         background: #B78B5C;
-        border-radius: 0px 80px;
+        /* border-radius: 0px 80px; */
     }
 
 
@@ -131,15 +132,6 @@
         color: #FFFFFF;
     }
 
-    .rectangulo-superior-flotante{
-        position: absolute;
-        height: 141px;
-        left: 20px;
-        right: 20px;
-        top: 2px;
-        background: rgba(92, 183, 96, 0.8);
-        border-radius: 0px 60px;
-    }
     .img-fondo{
         position: absolute;
         width: auto;
@@ -201,43 +193,39 @@
     }
 
     /*------------------------------------------------------------------*/
-    @media all and (max-width: 360px){
+    @media all and (max-device-width: 480px){
 
         body{
-            /* background-color: rgb(116, 139, 13); */
-            /* min-height: 814px; 
-            max-height: 825px; */
-            left: 0px;
-            right: 0px;
-            padding: 0px, 0px, 0px, 0px;
-            margin: 0px;
+            overflow: hidden;
         }
         html{
-            background-color: rgb(116, 139, 13);
-            min-height: 814px; 
-            max-height: 825px;
+           overflow: hidden;
         }
 
         .contenedor{
-           /* min-height: 780px; 
-           max-height: 780px; */
-           width: 359px;
-           height: 780px;
+           width: 480px;
+           max-width: 480px;
+           height: 640px;
+           max-height: 640px;
            margin: 0px;
            padding: 0px;
-        }
+           overflow: hidden;
+        } 
 
         .rectangulo-superior{
             position: absolute;
             width: auto;
-            height: 60px;
+            height: 100%;
             left: 0px;
             right: 0px;
             top: 0px;
             background: #B78B5C;
+
+            margin: 0px;
+            padding: 0px;
         }
 
-        .rectangulo-inferior{
+        /* .rectangulo-inferior{
             position: absolute;
             width: auto;
             height: 80px;
@@ -247,35 +235,41 @@
             right: 0px;
             background: #B78B5C;
             
-
+            margin: 0px;
+            padding: 0px;
+        } */
+        .contenedor-img-fondo{
+            border-radius: 0px 15px 0px 15px;
+            bottom: 5px;
+            top: 5px;
         }
-
         .img-fondo{
             position: absolute;
             width: auto;
             height: auto;
             left: 0px;
             right: 0px;
-            top: 30px;
-            bottom: 0px;
+            /* top: 0px; */
+            /* bottom: 0px; */
             background: url("../img/img-fondo.png");
-            border-radius: 0px 30px 0px 30px;
             background-size: cover;
+            margin: 0px;
+            padding: 0px;
         }
 
 
 
         .rectangulo-superior-flotante{
             position: absolute;
-            height: 350px;
-            left: 10px;
-            right: 10px;
-            top: 180px;
-            background: rgba(92, 183, 96, 0.8);
-            border-radius: 0px 20px;
+            width: auto;
+            height: auto;
+            left: 8px;
+            right: 8px;
+            top: 0px;
+            background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
         }
+
         .rectangulo-info-inferior{
-        
             position: absolute;
             width:auto;
             height: 169px;
@@ -284,17 +278,20 @@
             right: 10px;
             background: rgba(92, 183, 96, 0.65);
             border-radius: 0px 30px 0px 30px;
-
+            margin: 0px;
+            padding: 0px;
         }
 
         .img-logo{
             position: absolute;
-            width: 300px;
-            height: 125px;
-            left: 50%;
-            margin-left: -150px;
-            top: 190px;
+            width: 150px;
+            height: 62px;
+            left: 5%;
+            top: 15px;
             background-image: url("../img/logo.png") ;
+            margin: 0px;
+            padding: 0px;
+            background-size: cover;
         }
 
         .parrafoSuperior{
@@ -303,59 +300,50 @@
             height: auto;
             left: 20px;
             right: 20px;
-            top: 310px;
+            top: 330px;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
             font-size: 12px;
             line-height: 14px;
             color: #FFFFFF;
+
+            margin: 0px;
+            padding: 0px;
         }
 
 
         .texto-login{
             position: absolute;
             width: 126px;
-            left: 50%;
+            right: 35px;
             height: 20px;
-            top: 280px;
-            margin-left:-63px ;
+            top: 35px;
+
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 18px;
+            font-size: 24px;
             line-height: 21px;
             text-align: center;
             color: #FFFFFF;
+            margin: 0px;
+            padding: 0px;
         }
-
-        .texto-bienvenida{
-            position: absolute;
-            width: 340px;
-            height: auto;
-            left: 50%;
-            top: 0px;
-            margin-left: -170px;
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 26px;
-            line-height: 20px;
-            text-align: center;
-            color: #FFFFFF;
-        }
-
         .rectangulo-Bienvenida{
             position: absolute;
-            background-color: #5CB760;
-            height: 100px;
-            width: 340px;
-            left: 10px;
-            right:10px ;
-            top: 70px;
+            width: auto;
+            height: 94px;
+            left: 8px;
+            right: 8px;
+            top: 40px;
 
-
+            background: #5CB760;
+            border-radius: 0px 75px 0px 0px;
         }
+        
+
+  
         .texto-rectangulo-inferior{
             position: absolute;
             width: auto;
@@ -371,6 +359,9 @@
             line-height: 75px;
             text-align: center;
             color: #FFFFFF;
+
+            margin: 0px;
+            padding: 0px;
         }
         .contacto{
             position: absolute;
@@ -386,6 +377,36 @@
             font-size: 14px;
             text-align: center;
             color: #FFFFFF;
+            margin: 0px;
+            padding: 0px;
+        }
+        .contenedor-parrafo-bienvenida{
+            position: absolute;
+            width: auto;
+            height: 100px;
+            left: 8px;
+            right: 8px;
+            top:150px;
+            background: #5CB760;
+        }
+        .texto-bienvenida{
+            position: absolute;
+            width: auto;
+            height: auto;
+            left: 8px;
+            right: 8px;
+            top: 20px;
+            margin-left: -170px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 26px;
+            line-height: 20px;
+            text-align: center;
+            color: #FFFFFF;
+
+            margin: 0px;
+            padding: 0px;
         }
     }
 
