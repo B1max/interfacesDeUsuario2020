@@ -35,26 +35,45 @@
 
     .rectangulo-superior{
         position: absolute;
-        width: 100%;
-        max-width: 1440px;
-
-        height: 144px;
-        margin-left: -720px;
-        left: 50%;
+        width: auto;
+        /* max-width: 2150px; */
+        height: 100%;
+        /* margin-left: -720px; */
+        left: 0px;
         right: 0px;
         top: 0px;
         background: #B78B5C;
+        margin: 0px;
+        padding: 0px;
         /* border-radius: 0px 80px; */
+    }
+    .rectangulo-superior-flotante{
+        
+        /* rectangulo-superior-flotante */
+    
+    
+    position: absolute;
+    width: auto;
+    height: 122px;
+    left: 0px;
+    right: 16px;
+    top: 25px;
+    
+    background: rgba(92, 183, 96, 0.8);
+    border-radius: 0px 60px;
     }
 
 
     .rectangulo-inferior{
         position: absolute;
-        width: 1440px;
+        width: auto;
         max-width: 1440px;
-
+        right: 0px;
+        top: 0px;
         height: 200px;
-        margin-left: -720px;
+        /* margin-left: -720px; */
+        margin: 0px;
+        padding: 0px;
         left: 50%;
         right: 0px;
         background: #B78B5C;
@@ -110,11 +129,15 @@
 
     .img-logo{
         position: absolute;
-        width: 300px;
-        height: 110px;
-        left: 50px;
-        top: 20px;
+        width: 260px;
+        height: 100px;
+        left: 20px;
+        top: 37px;
+        right: 0px;
+        margin: 0px;
+        padding: 0px;
         background-image: url("../img/logo.png") ;
+        background-size: cover;
     }
 
     .parrafoSuperior{
@@ -135,11 +158,14 @@
     .img-fondo{
         position: absolute;
         width: auto;
-        height: auto;
+        height: 1442px;
+        min-height: 800px;
         left: 0px;
-        top: 30px;
-        bottom: 30px;
+        right: 0px;
+        /* top: 0px;
+        bottom: 30px; */
         margin: 0px;
+        padding: 0px;
         background: url("../img/img-fondo.png");
         border-radius: 0px 70px 0px 75px;
         background-size: cover;
@@ -234,11 +260,9 @@
         .img-fondo{
             position: absolute;
             width: auto;
-            height: auto;
+            height: 100%;
             left: 0px;
             right: 0px;
-            /* top: 0px; */
-            /* bottom: 0px; */
             background: url("../img/img-fondo.png");
             background-size: cover;
             margin: 0px;
