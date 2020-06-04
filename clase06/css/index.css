@@ -210,6 +210,7 @@
            margin: 0px;
            padding: 0px;
            overflow: hidden;
+           /* background: #B78B5C; */
         } 
 
         .rectangulo-superior{
@@ -219,25 +220,12 @@
             left: 0px;
             right: 0px;
             top: 0px;
-            background: #B78B5C;
 
             margin: 0px;
             padding: 0px;
         }
 
-        /* .rectangulo-inferior{
-            position: absolute;
-            width: auto;
-            height: 80px;
-            top: 810px;
-            margin-top: -80px ;
-            left: 0px;
-            right: 0px;
-            background: #B78B5C;
-            
-            margin: 0px;
-            padding: 0px;
-        } */
+
         .contenedor-img-fondo{
             border-radius: 0px 15px 0px 15px;
             bottom: 5px;
@@ -262,22 +250,26 @@
         .rectangulo-superior-flotante{
             position: absolute;
             width: auto;
-            height: auto;
+            height: 150px;
             left: 8px;
             right: 8px;
-            top: 0px;
+            top: 265px;
             background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
         }
 
         .rectangulo-info-inferior{
             position: absolute;
             width:auto;
-            height: 169px;
-            top: 550px;
+            height: auto;
+            min-height: 150px;
+            top: 430px;
             left: 10px;
             right: 10px;
+            bottom: auto;
+
+
             background: rgba(92, 183, 96, 0.65);
-            border-radius: 0px 30px 0px 30px;
+            border-radius: 0px 85px 0px 85px;
             margin: 0px;
             padding: 0px;
         }
@@ -300,7 +292,9 @@
             height: auto;
             left: 20px;
             right: 20px;
-            top: 330px;
+            max-height: 180px;
+            top: 10px;
+
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
@@ -347,16 +341,15 @@
         .texto-rectangulo-inferior{
             position: absolute;
             width: auto;
-            height: 180px;
-            margin-left: -532px;
-            left: 50%;
-            margin-right: -532px;
-            right: 50%;
+            height: 50px;
+            left: 5px;
+            right: 5px;
+            top: 35px;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 25px;
-            line-height: 75px;
+            font-size: 18px;
+            line-height: 30px;
             text-align: center;
             color: #FFFFFF;
 
