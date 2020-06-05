@@ -137,8 +137,8 @@
     
     .botonNuevo{
         position: absolute;
-        width: 28%; /*75px*/
-        height: 25px;
+        width: 32%; /*75px*/
+        height: 45px;
         left: 215px;
         top: 130px;
         /* margin-inline-start: 0px; */
@@ -151,7 +151,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
@@ -160,21 +160,21 @@
     
     .botonModificar{
         position: absolute;
-        width: 28%; /*95px*/
-        height: 25px;
+        width: 32%; /*95px*/
+        height: 45px;
         left: 215px;
-        top: 170px;
+        top: 190px;
         /* margin-inline-start: 241px; */
     
         background: #519856;
         border: 2px solid #CB1DC4;
         box-sizing: border-box;
-        border-radius: 0px 20px;
+        border-radius: 0px 28px;
     
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
@@ -182,10 +182,10 @@
     
     .botonEliminar{ 
         position: absolute;
-        width: 28%; /*85px*/
-        height: 25px;
+        width: 32%; /*85px*/
+        height: 45px;
         left: 215px;
-        top: 210px;
+        top: 250px;
         /* margin-inline-start: 241px; */
     
         background: #519856;
@@ -196,7 +196,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
@@ -204,10 +204,10 @@
     
     .botonSalir{
         position: absolute;
-        width: 28%;
-        height: 25px;
+        width: 32%;
+        height: 45px;
         left: 215px;
-        top: 250px;/*650px*/
+        top: 310px;/*650px*/
         margin-top: 1%;
         /* margin-inline-start: 241px; */
     
@@ -219,7 +219,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;

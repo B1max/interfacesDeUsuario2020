@@ -110,11 +110,11 @@
 
     .contenedorDeSolicitudes{
         position: absolute;
-        width: 97%;  /* 445*/
-        height: 450px;
+        width: 100%;  /* 445*/
+        height: 600px;
         /* margin-left: -18px; */
         left: 5px;
-        top: 281px;
+        top: 140px;
         background: rgba(255, 255, 255, 0.75);
         display : inherit;
         max-width: 455px;
@@ -123,11 +123,11 @@
 
     .tabla{
         position: absolute;
-        left: 2px;
+        left: 5px;
         top: 5px;
-        width: 98%; /*309px*/
+        width: 100%; /*309px*/
         background-color: blue;
-        max-width: 445px;
+        max-width: 405px;
     }
     .table ,tr{
         height: 6px;
