@@ -99,7 +99,7 @@ function validarUsuarioCont(){
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla
         try{
-            document.getElementById("rectangulo-superior-flotante").remove();
+            // document.getElementById("rectangulo-superior-flotante").remove();
             document.getElementById("contenedor-parrafo-bienvenida").remove();
             
         }catch(err){

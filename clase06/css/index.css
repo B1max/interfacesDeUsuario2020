@@ -129,7 +129,7 @@
         right: 50%;
         margin-left: -590px;
         left: 50%;
-        top: 200px;
+        top: 50%;
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -221,7 +221,8 @@
         margin-left: 30%;
         left: 8px;
         bottom: 25px;
-        top: 692px;
+        margin-bottom: 25px;
+        top: 700px;
         
         
         /* line-height: 13px; */
@@ -415,13 +416,13 @@
             width: 884px;
             height: 40px;
             margin-left: -442px;
-            left: 50%;
+            left: -210px;
             top: 730px;
             bottom: 0px;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 14px;
+            font-size: 10px;
             text-align: center;
             color: #FFFFFF;
             margin: 0px;
