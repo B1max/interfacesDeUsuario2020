@@ -33,17 +33,28 @@ async function dibujarPantallaModificar(){
     let item = htmlPantallaModificar(fecha,desc,estado);
     inicial.insertAdjacentHTML("beforeEnd",item);
     document.getElementById("NUEVA-INPUT-FECHA").defaultValue = fecha;
+    document.getElementById("NUEVA-INPUT-FECHA").value = fecha;
     document.getElementById("NUEVA-TXTTAREA-DESCRIPCION").value = desc;
     document.getElementById("NUEVA-INPUTLIST-ESTADO").value = estado;
 
     document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",BORRAR_PANTALLA_MODIFICAR);
+    document.getElementById("NUEVA-TXT-FECHA").addEventListener("click",function(){
+        console.log("se cambio la fecha a -> "+document.getElementById("NUEVA-INPUT-FECHA").value);
+    });
     document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",async function(){
+
+        let val = document.getElementById("NUEVA-INPUT-FECHA").value;
+        // let mfecha;
+        // if(val!=undefined || val!=""){
+        //     mfecha = document.getElementById("NUEVA-INPUT-FECHA").defaultValue;
+        // }else{
+        //     mfecha = val;
+        // }
+        let mfecha = ""+val;
         
-        let mfecha = await document.getElementById("NUEVA-INPUT-FECHA").value;
         console.log("la fecha en el documento es->"+mfecha+"-seleccion: "+SELECCION_A_MODIFICAR[2]);
-        if(mfecha!=undefined){
-            mfecha = fecha;
-        }
+        console.log("datos del input->"+val);
+ 
         let mdesc = await document.getElementById("NUEVA-TXTTAREA-DESCRIPCION").value;
         let mestado = await document.getElementById("NUEVA-INPUTLIST-ESTADO").value;
         if(mfecha!="" && mfecha!=undefined && mdesc !="" && mestado !=""){
