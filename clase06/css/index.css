@@ -26,22 +26,32 @@
     /*}*/
 
     .contenedor{
-        width: auto;
-        min-width: 481px;
-        height: auto;
-        height : 900px
+        width: 80%;
+        /* min-width: 481px; */
+        max-width:1000px ;
+        margin: 0 auto;
+        overflow: hidden;
+        /* height: auto;
+        height : 900px */
      }
+
+    body{
+        overflow: hidden;
+    }
+    html{
+       overflow: hidden;
+    }
 
 
     .rectangulo-superior{
         position: absolute;
         width: auto;
-        /* max-width: 2150px; */
         height: 100%;
-        /* margin-left: -720px; */
         left: 0px;
         right: 0px;
         top: 0px;
+        margin: 0px;
+        padding: 0px;
         background: #B78B5C;
         margin: 0px;
         padding: 0px;
@@ -114,14 +124,16 @@
     .texto-bienvenida{
         position: absolute;
         width: 1180px;
-        height: 235px;
+        /* height: 235px; */
+        height: auto;
+        right: 50%;
         margin-left: -590px;
         left: 50%;
         top: 200px;
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 64px;
+        font-size: 60px;
         line-height: 75px;
         text-align: center;
         color: #5CB760;
@@ -157,9 +169,10 @@
 
     .img-fondo{
         position: absolute;
-        width: auto;
-        height: 1442px;
+        width: 100%;
+        height: auto;
         min-height: 800px;
+        max-height: 70%;
         left: 0px;
         right: 0px;
         /* top: 0px;
@@ -204,12 +217,14 @@
 
     .contacto{
         position: absolute;
-        width: 884px;
+        width: 338px;
         height: 40px;
-        margin-left: -442px;
-        left: 50%;
+        /* margin-left: -442px; */
+        left: 8px;
         bottom: -280px;
-
+        top: 600px;
+        
+        line-height: 13px;
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -259,8 +274,8 @@
         }
         .img-fondo{
             position: absolute;
-            width: auto;
-            height: 100%;
+            width: 100%;
+            height: auto;
             left: 0px;
             right: 0px;
             background: url("../img/img-fondo.png");

@@ -78,3 +78,82 @@
     top: auto;
     /* background-image: url("../img/checkUnchecked.png") ; */
 }
+
+
+@media all and (max-device-width: 480px){
+
+    .contenedorDeSolicitudes{
+        position: absolute;
+        width: 400px;
+        height: 450px;
+        /* margin-left: -18px; */
+        left: 18;
+        top: 281px;
+        background: rgba(255, 255, 255, 0.75);
+        display : inherit;
+    }
+
+    .tabla{
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 390px;
+        background-color: blue;
+    }
+    .table ,tr{
+        height: 6px;
+    }
+    
+    .colFecha{
+        width: 3%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .colDescripcion{
+        width: 60%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .colEstado{
+        width: 90%;
+        right: 70%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .colCheck{
+        width: 1%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .check{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        left: 5px;
+        top: auto;
+        /* background-image: url("../img/checkUnchecked.png") ; */
+    }
+
+
+
+}
