@@ -1,6 +1,6 @@
 .contenedorDeSolicitudes{
     position: absolute;
-    width: 1400px;
+    width: 97%;/*1400px*/
     height: 450px;
     /* margin-left: -18px; */
     left: 18;
@@ -23,7 +23,7 @@
     position: relative;
     left: 20px;
     top:20px;
-    width: 1360px;
+    width: 95%; /*1360px*/
     background-color: blue;
 }
 .table ,tr{
@@ -126,8 +126,9 @@
         left: 5px;
         top: 5px;
         width: 100%; /*309px*/
+        height: 270px;
         background-color: blue;
-        max-width: 405px;
+        max-width: 98%;
     }
     .table ,tr{
         height: 6px;
