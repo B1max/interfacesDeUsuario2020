@@ -28,7 +28,7 @@
     .contenedor{
         width: 80%;
         /* min-width: 481px; */
-        max-width:1000px ;
+        max-width: 1000px ;
         margin: 0 auto;
         overflow: hidden;
         /* height: auto;
@@ -171,12 +171,11 @@
         position: absolute;
         width: 100%;
         height: auto;
-        min-height: 800px;
-        max-height: 70%;
+        min-height: 100%;
+        max-height: 100%;
         left: 0px;
         right: 0px;
-        /* top: 0px;
-        bottom: 30px; */
+        bottom: 40px;
         margin: 0px;
         padding: 0px;
         background: url("../img/img-fondo.png");
@@ -193,7 +192,7 @@
         
         left: 15px;
         right: 15px;
-        bottom: 30px;
+        bottom: 45px;
         background: rgba(92, 183, 96, 0.65);
         border-radius: 0px 75px;
     }
@@ -217,21 +216,28 @@
 
     .contacto{
         position: absolute;
-        width: 338px;
+        width: auto;
         height: 40px;
-        /* margin-left: -442px; */
+        margin-left: 30%;
         left: 8px;
-        bottom: -280px;
-        top: 600px;
+        bottom: 25px;
+        top: 692px;
         
-        line-height: 13px;
+        
+        /* line-height: 13px; */
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        font-size: 15px;
         text-align: center;
         color: #FFFFFF;
     }
+
+    .contenedor-img-fondo{
+            border-radius: 0px 15px 0px 15px;
+            bottom: 5px;
+            top: 5px;
+        }
 
     /*------------------------------------------------------------------*/
     @media all and (max-device-width: 480px){
@@ -349,14 +355,15 @@
         .texto-login{
             position: absolute;
             width: 126px;
-            right: 35px;
+            right: 5px;
             height: 20px;
             top: 35px;
+            /* left: 190px; */
 
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 24px;
+            font-size: 22px;
             line-height: 21px;
             text-align: center;
             color: #FFFFFF;
@@ -402,7 +409,7 @@
             margin-left: -442px;
             left: 50%;
             top: 730px;
-    
+            bottom: 0px;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
