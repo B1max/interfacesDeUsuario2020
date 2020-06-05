@@ -248,7 +248,11 @@
             top:150px;
             
     }
-    /*------------------------------------------------------------------*/
+
+
+
+    
+   /* \\\\\\ ----> LA VERSION MOVIL ESTA DISEÑADA PARA UNA RESOLUCION DE 320 X 579  PX   <----////////     */
     @media all and (max-device-width: 480px){
 
         body{
