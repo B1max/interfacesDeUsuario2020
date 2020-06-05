@@ -1,7 +1,7 @@
 'use strict';
 let botones = false;
 const itemsMenu = [
-"<div id='btnMenu1a' class='botonMenu'>MENU</div>"];
+"<div id='btnMenu1a' class='botonMenu'></div>"];
 // let itemsBotones = [
 let BOTONES_mis_solicitudes=[
 "<div id='btnMenu2a' class='botonNuevo'>NUEVO</div>",
