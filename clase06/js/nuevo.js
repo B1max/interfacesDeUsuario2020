@@ -1,12 +1,12 @@
 let PANTALLA_NUEVO = false;
 let htmlPantallaNuevo = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGULO-FONDO'>"+
 "<P id='NUEVA-TXT-TITULO' class='NUEVA-TXT-TITULO'>NUEVA SOLICITUD</P>"+
-"<P  id='NUEVA-TXT-FECHA' class='NUEVA-TXT-FECHA'>FECHA:</P>"+
-"<INPUT type='date'  id='NUEVA-INPUT-FECHA' class='NUEVA-INPUT-FECHA'> </INPUT>"+
+"<P  id='NUEVA-TXT-FECHA' class='NUEVA-TXT-FECHA' required>FECHA:</P>"+
+"<INPUT type='date'  id='NUEVA-INPUT-FECHA' class='NUEVA-INPUT-FECHA' > </INPUT>"+
 "<P  id='NUEVA-TXT-DESCRIPCION' class='NUEVA-TXT-DESCRIPCION'>DESCRIPCÍON:</P>"+
-"<textarea  id='NUEVA-TXTTAREA-DESCRIPCION' class='NUEVA-TXTTAREA-DESCRIPCION' cols='30' rows='10' maxlength='100'></textarea>"+
+"<textarea  id='NUEVA-TXTTAREA-DESCRIPCION' class='NUEVA-TXTTAREA-DESCRIPCION' cols='30' rows='10' maxlength='100' required></textarea>"+
 "<p  id='NUEVA-TXT-ESTADO' class='NUEVA-TXT-ESTADO'>ESTADO:</p>"+
-"<select  id='NUEVA-INPUTLIST-ESTADO' class='NUEVA-INPUTLIST-ESTADO'>"+
+"<select  id='NUEVA-INPUTLIST-ESTADO' class='NUEVA-INPUTLIST-ESTADO' required>"+
 "    <option value='Abierta'>Abierta</option>"+
 "    <option value='En progreso'>En progreso</option>"+
 "    <option value='Cerrada'>Cerrada</option>"+
@@ -17,6 +17,7 @@ let htmlPantallaNuevo = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGU
 
 async function CARGAR_PANTALLA_NUEVO(){
     await dibujarPantallaNuevo();
+    await EVENTOS_PANTALLA_NUEVO();
 }
 
 function dibujarPantallaNuevo(){
@@ -30,11 +31,32 @@ function dibujarPantallaNuevo(){
 }
 
 async function BORRAR_PANTALLA_NUEVO(){
-    document.getElementById("NUEVA-RECTANGULO-FONDO").remove();
+    try{
+        document.getElementById("NUEVA-RECTANGULO-FONDO").remove();
+    }catch{
+        console.log("");
+    }
 }
 
 function EVENTOS_PANTALLA_NUEVO(){
-    document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR");
+    document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",async function(){
+        let fecha = document.getElementById("NUEVA-INPUT-FECHA").value;
+        console.log("la fecha es->"+fecha);
+
+        let desc = document.getElementById("NUEVA-TXTTAREA-DESCRIPCION").value;
+        console.log("la descripción es->"+desc);
+
+        let estado = document.getElementById("NUEVA-INPUTLIST-ESTADO").value;
+        console.log("la estado es->"+estado);
+        if(fecha == "" || desc=="" || estado==""){
+            console.log("no se cargaron todos los datos");
+        }else{
+            await DB_agregar_item("nuevo",fecha,desc,estado);
+            await BORRAR_PANTALLA_NUEVO();
+            await TABLA_recargar_lista();
+        }
+
+    });
     document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR");
 }
 

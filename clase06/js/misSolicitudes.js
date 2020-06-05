@@ -43,6 +43,7 @@ async function MisSolicitudesEventos(){
     checkAll.addEventListener("click",check_All);
     
     for(let i = 0;i<listaDeSolicitudes.length;i++){
+        await document.getElementById("check"+listaDeSolicitudes[i][0]).removeEventListener("click",function(){});
         document.getElementById("check"+listaDeSolicitudes[i][0]).addEventListener("click",async function(){
             if(document.getElementById("check"+i).checked){
                 itemSeleccionados.push(listaDeSolicitudes[i]);
@@ -94,13 +95,15 @@ async function TABLA_agregar_desde_DB(){
             agregarAlista(listaDeSolicitudes[i][0],listaDeSolicitudes[i][2],listaDeSolicitudes[i][3],listaDeSolicitudes[i][4]);
         }
     }else{
-        console.log("nada que borrar")
+        console.log("nada que agregar")
     }
 }
 
 
-async function DB_agregar_item(id,origen,fecha,descripcion,estado){
-    listaDeSolicitudes.push([id,origen,fecha,descripcion,estado]);
+async function DB_agregar_item(origen,fecha,descripcion,estado){
+    listaDeSolicitudes.push([itemIndex,origen,fecha,descripcion,estado]);
+    console.log("se agrego el item->"+itemIndex+"-"+origen+"-"+fecha+"-"+descripcion+"-"+estado)
+    itemIndex++;
     return listaDeSolicitudes.length-1;
 }
 
@@ -112,21 +115,32 @@ function agregarAlista(id,fecha,descripcion,estado){
     "</td>"+
     "<td id='colFecha"+id+"' class='colFecha'>"+fecha+"</td>"+
     "<td id='colDescripcion"+id+"' class='colDescripcion'>"+descripcion+"</td>"+
-    "<td id='colEstado"+id+"' class='colEstado'>En "+estado+"</td></tr>");
+    "<td id='colEstado"+id+"' class='colEstado'>"+estado+"</td></tr>");
 }
 
 
 async function TABLA_recargar_lista(){
-    await TABLA_borrar_items_todos();
-    await TABLA_agregar_desde_DB();
     itemSeleccionados = [];
+    try {
+        TABLA_borrar_items_todos();
+    } catch (error) {
+        console.log("no hay nada que borrar(error)")
+    }
+    TABLA_agregar_desde_DB();
+    MisSolicitudesEventos();
 }
 
 
 async function TABLA_borrar_items_todos(){
+    console.log("borrando lista->"+listaDeSolicitudes)
     for(let i = 0;i<listaDeSolicitudes.length;i++){
-        document.getElementById("item"+listaDeSolicitudes[i][0]).remove();
+        try{
+            document.getElementById("item"+listaDeSolicitudes[i][0]).remove();
+        }catch{
+            console.log("no se pudo eliminar -> " +"item"+listaDeSolicitudes[i][0]);
+        }
     }
+
 }
 
 
@@ -138,12 +152,14 @@ function DB_borrar_seleccionados(){
     for(let i = 0;i<itemSeleccionados.length;i++){
         for(let e = 0;e<listaDeSolicitudes.length;e++){
             if(listaDeSolicitudes[e][0]==itemSeleccionados[i][0]){
+                console.log("borrando item-> "+"item"+listaDeSolicitudes[e][0])
                 document.getElementById("item"+listaDeSolicitudes[e][0]).remove();
-                listaDeSolicitudes.splice(e,0);
+                listaDeSolicitudes.splice(e,1);
             }
         }
     }
     itemSeleccionados = [];
+    // TABLA_recargar_lista();
 }
 
 
@@ -154,11 +170,10 @@ async function DB_traer_JSON(){
         let arr = Array.from(ar['Solicitudes']);
         arr.reverse;
         for(let i = 0;i<arr.length;i++){  
-            let fecha = ""+arr[i]['Fecha Solicitud'];
-            let desc = ""+arr[i]['Descripción'];
-            let estado = ""+arr[i]['Estado'];
-            await DB_agregar_item(itemIndex,"JSON",fecha,desc,estado);
-            itemIndex++;
+            let fecha = arr[i]['Fecha Solicitud'];
+            let desc = arr[i]['Descripción'];
+            let estado = arr[i]['Estado'];
+            await DB_agregar_item("JSON",fecha,desc,estado);
         }
     })
     // .then(console.log);

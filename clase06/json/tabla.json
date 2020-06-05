@@ -14,16 +14,6 @@
             "Fecha Solicitud": "12/05/2020",
             "Descripción": "Pedido de una bicicleta para llegar a la universidad",
             "Estado": "Cerrada"
-        },
-        {
-            "Fecha Solicitud": "test2",
-            "Descripción": "test2",
-            "Estado": "En progreso"
-        },
-        {
-            "Fecha Solicitud": "test2",
-            "Descripción": "test2",
-            "Estado": "En progreso"
         }
     ]
 }
