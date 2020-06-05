@@ -1,4 +1,4 @@
-let htmlPantallaNuevo = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGULO-FONDO'>"+
+let htmlPantallaModificar = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGULO-FONDO'>"+
 "<P id='NUEVA-TXT-TITULO' class='NUEVA-TXT-TITULO'>NUEVA SOLICITUD</P>"+
 "<P  id='NUEVA-TXT-FECHA' class='NUEVA-TXT-FECHA' required>FECHA:</P>"+
 "<INPUT type='date'  id='NUEVA-INPUT-FECHA' class='NUEVA-INPUT-FECHA' > </INPUT>"+
