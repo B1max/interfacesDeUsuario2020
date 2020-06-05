@@ -110,3 +110,117 @@
     color: #FFFFFF;
 }
 
+@media all and (max-device-width: 480px){
+
+    .botonMenu{
+        position: absolute;
+        width: 100px;
+        height: 39px;
+        left: 10px;
+        top: 238px;
+    
+        background: #519856;
+        border: 2px solid #CB1DC4;
+        box-sizing: border-box;
+        border-radius: 0px 20px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    
+    
+    .botonNuevo{
+        position: absolute;
+        width: 100px;
+        height: 39px;
+        left: 116px;
+        top: 238px;
+        /* margin-inline-start: 0px; */
+    
+        background: #519856;
+        border: 2px solid #CB1DC4;
+        box-sizing: border-box;
+        border-radius: 0px 20px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    
+    
+    .botonModificar{
+        position: absolute;
+        width: 120px;
+        height: 39px;
+        left: 220px;
+        top: 238px;
+        /* margin-inline-start: 241px; */
+    
+        background: #519856;
+        border: 2px solid #CB1DC4;
+        box-sizing: border-box;
+        border-radius: 0px 20px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    
+    .botonEliminar{
+        position: absolute;
+        width: 105px;
+        height: 39px;
+        left: 343px;
+        top: 238px;
+        /* margin-inline-start: 241px; */
+    
+        background: #519856;
+        border: 2px solid #CB1DC4;
+        box-sizing: border-box;
+        border-radius: 0px 20px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    
+    .botonSalir{
+        position: absolute;
+        width: 231px;
+        height: 39px;
+        left: 100px;
+        top: 690px;
+        /* margin-inline-start: 241px; */
+    
+        background: #519856;
+        border: 2px solid #CB1DC4;
+        box-sizing: border-box;
+        border-radius: 0px 20px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+}
