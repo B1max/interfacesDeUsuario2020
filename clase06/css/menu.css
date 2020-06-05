@@ -110,13 +110,20 @@
     color: #FFFFFF;
 }
 
+
+
+
+
+
+/* }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}} */
+
 @media all and (max-device-width: 480px){
 
     .botonMenu{
         position: absolute;
-        width: 100px;
-        height: 39px;
-        left: 10px;
+        width: 15%; /*75px*/
+        height: 25px;
+        left: 14px;
         top: 238px;
     
         background: #519856;
@@ -127,7 +134,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
@@ -136,9 +143,9 @@
     
     .botonNuevo{
         position: absolute;
-        width: 100px;
-        height: 39px;
-        left: 116px;
+        width: 20%; /*75px*/
+        height: 25px;
+        left: 68px;
         top: 238px;
         /* margin-inline-start: 0px; */
     
@@ -150,7 +157,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
@@ -159,9 +166,9 @@
     
     .botonModificar{
         position: absolute;
-        width: 120px;
-        height: 39px;
-        left: 220px;
+        width: 28%; /*95px*/
+        height: 25px;
+        left: 140px;
         top: 238px;
         /* margin-inline-start: 241px; */
     
@@ -173,17 +180,17 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
     }
     
-    .botonEliminar{
+    .botonEliminar{ 
         position: absolute;
-        width: 105px;
-        height: 39px;
-        left: 343px;
+        width: 24%; /*85px*/
+        height: 25px;
+        left: 240px;
         top: 238px;
         /* margin-inline-start: 241px; */
     
@@ -195,7 +202,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
@@ -203,10 +210,11 @@
     
     .botonSalir{
         position: absolute;
-        width: 231px;
+        width: 75px;
         height: 39px;
-        left: 100px;
-        top: 690px;
+        left: 140px;
+        top: 650px;/*650px*/
+        margin-top: 1%;
         /* margin-inline-start: 241px; */
     
         background: #519856;
@@ -217,7 +225,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 24px;
+        font-size: 15px;
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;

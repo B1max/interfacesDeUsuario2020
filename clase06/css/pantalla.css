@@ -150,16 +150,16 @@
       .USUARIO_CONTRASEÑA{
         /* USUARIO_CONTRASEÑA */
             position: absolute;
-            width: 150px;
-            margin-left: -261px;
-            left: 60%;
+            width: 1px;
+            margin-left: -265px;
+            left: 85%;
             height: 126px;
             top: 216px;
             font-family: Roboto Mono;
             font-style: normal;
             font-weight: bold;
             font-size: 16px;
-            line-height: 44px;
+            line-height: 40px;
             text-align: right;
             color: #FFFFFF;
         }
@@ -194,11 +194,11 @@
         .ingresoDeUsuario{
             /* ingresoDeUsuario */   
             position: absolute;
-            width: 205px;
+            width: 160px;
             margin-left: 40px;
             height: 35px;
-            left: 30%;
-            top: 224px;
+            left: 35%;
+            top: 220px;
             background: #FFFFFF;
             font-size: 24px;
         }
@@ -206,11 +206,11 @@
         .ingresoDeContraseña{
             /* ingresoDeContraseña */
             position: absolute;
-            width: 205px;
+            width: 160px;
             margin-left: 40px;
             height: 35px;
-            left: 30%;
-            top: 266px;
+            left: 35%;
+            top: 260px;
             background: #FFFFFF;
             font-size: 24px;
         }
@@ -245,5 +245,16 @@
                 text-align: center;
                 text-decoration-line: underline;
                 color: #FFFFFF;
+            }
+            .menu-fondo{
+                position: absolute;
+                background-color: black;
+                /* margin-left: -720px; */
+                left:0PX;
+                opacity: 50%;
+                width: 500PX;
+                height: 100%;
+                bottom: 0px;
+                /* visibility: hidden; */
             }
 }
