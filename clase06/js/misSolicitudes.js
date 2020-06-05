@@ -24,6 +24,12 @@ let checkAllState = false;
 
 
 async function cargar_MisSolicitudes(){
+    try{
+        await document.getElementById("recargarTest").remove();
+        await document.getElementById("rectangulo-superior-flotante").remove();
+    }catch{
+        console.log();
+    }
     await DB_traer_JSON();
     await tabla_dibujar_encabezado();
     checkAll = document.getElementById("checkAll");
