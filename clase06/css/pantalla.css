@@ -135,10 +135,10 @@
     .ventanaColoreada{
 
         position: absolute;
-        width: 524px;
+        width: 320px;
         height: 250px;
         margin-left: -300px;
-        left: 50%;
+        left: 301px;
         top: 150px;
         
         background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
