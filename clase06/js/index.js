@@ -45,3 +45,7 @@ async function posicion_MisSolicitudes(){
         await cargar_MisSolicitudes();
     }
 }
+
+async function posicion_MisSolicitudes_modificar(){
+    dibujarPantallaModificar
+}

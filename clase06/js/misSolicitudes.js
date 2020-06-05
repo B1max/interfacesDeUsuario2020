@@ -4,6 +4,7 @@ let itemSeleccionados = [];
 let listaDeSolicitudes = [];
 let nodosMisSolicitudes = [
     "<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
+    
     "<table id='tabla' class='tabla'>"+
                 "<tr>"+
                     "<td class='colCheck'>"+

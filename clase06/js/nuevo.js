@@ -34,7 +34,7 @@ async function BORRAR_PANTALLA_NUEVO(){
     try{
         document.getElementById("NUEVA-RECTANGULO-FONDO").remove();
     }catch{
-        console.log("");
+        console.log("no se puedo borrar la pantalla de 'NUEVO'");
     }
 }
 
@@ -57,6 +57,6 @@ function EVENTOS_PANTALLA_NUEVO(){
         }
 
     });
-    document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR");
+    document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",BORRAR_PANTALLA_NUEVO);
 }
 

@@ -1,3 +1,5 @@
+let SELECCION_A_MODIFICAR;
+
 function htmlPantallaModificar(fecha,desc,estado){ 
     return ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGULO-FONDO'>"+
 "<P id='NUEVA-TXT-TITULO' class='NUEVA-TXT-TITULO'>MODIFICAR SOLICITUD</P>"+
@@ -17,15 +19,43 @@ function htmlPantallaModificar(fecha,desc,estado){
 "</div>"];
 };
 
+async function CARGAR_PANTALLA_MODIFICAR(){
+    await dibujarPantallaModificar();
+}
+
 function dibujarPantallaModificar(){
     const inicial = document.getElementById("ultimo").parentNode;
-
     console.log("dibujando pantalla nuevo");
+
     htmlPantallaModificar("25/5/85","teeesssstttt","Aceptado").forEach(async function(item){
         console.log("agregando items de pantalla nuevo");
         await inicial.insertAdjacentHTML("beforeEnd",item);
     })
+
     document.getElementById("NUEVA-TXT-FECHA").defaultValue = "1985/5/5";
     // document.getElementById("NUEVA-TXTTAREA-DESCRIPCION").value = "teeesssstttt";
     document.getElementById("NUEVA-INPUTLIST-ESTADO").value = "En progreso";
+}
+
+function SELECCCION_MODIFICAR(){
+    if(itemSeleccionados.length>0){
+        SELECCION_A_MODIFICAR = itemSeleccionados[0];
+    }else{
+        return false;
+    }
+}
+
+function MODIFICAR_SELECCION(){
+    
+
+        for(let e = 0;e<listaDeSolicitudes.length;e++){
+            if(listaDeSolicitudes[e][0]==SELECCCION_MODIFICAR[0]){
+                console.log("borrando item-> "+"item"+SELECCCION_MODIFICAR[0])
+                // document.getElementById("item"+listaDeSolicitudes[e][0]).remove();
+                listaDeSolicitudes[e][2] = 
+                listaDeSolicitudes[e][2] = 
+                listaDeSolicitudes[e][2] = 
+            }
+        }
+
 }
