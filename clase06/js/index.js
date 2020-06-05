@@ -35,13 +35,13 @@ function fkey(e){
 }
 
 
-function posicion_MisSolicitudes(){
+async function posicion_MisSolicitudes(){
     if(ultimaPosicion!="posicion_MisSolicitudes"){
     //     console.log("recargando tabla");
     //     TABLA_recargar_lista();
     // }else{
         ultimaPosicion = "posicion_MisSolicitudes";
-        dibujarMenu();
-        cargar_MisSolicitudes();
+        await dibujarMenu();
+        await cargar_MisSolicitudes();
     }
 }

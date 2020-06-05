@@ -34,9 +34,19 @@ async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
 async function removerAgregados(primero, items){
     for(let i = items.length-1;i>0;i--){
         console.log("eliminando-> "+i)
-        document.getElementById(primero).nextElementSibling.remove();
+        try {
+            document.getElementById(primero).nextElementSibling.remove();
+            
+        } catch (error) {
+        console.log("nose pudo eliminar-> "+primero);
+        }
     }
-    document.getElementById(primero).remove();
+    try{
+        document.getElementById(primero).remove();
+    }catch{
+        console.log("nose pudo eliminar-> "+primero);
+
+    }
 }
 
 botonLogear.addEventListener("click",async function(){
@@ -88,6 +98,13 @@ function validarUsuarioCont(){
         removerAgregados("BotonLogear",[]);
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla
+        try{
+            document.getElementById("rectangulo-superior-flotante").remove();
+            document.getElementById("contenedor-parrafo-bienvenida").remove();
+            
+        }catch(err){
+            console.log("no se pudo eliminar algo->"+err);
+        }
         posicion_MisSolicitudes();
         return true;
     }else{

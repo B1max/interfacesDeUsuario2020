@@ -237,8 +237,16 @@
             border-radius: 0px 15px 0px 15px;
             bottom: 5px;
             top: 5px;
-        }
-
+        }      
+    .contenedor-parrafo-bienvenida{
+            position: absolute;
+            width: auto;
+            height: 100px;
+            left: 8px;
+            right: 8px;
+            top:150px;
+            
+    }
     /*------------------------------------------------------------------*/
     @media all and (max-device-width: 480px){
 
@@ -427,7 +435,7 @@
             right: 8px;
             top:150px;
             background: #5CB760;
-        }
+       }
         .texto-bienvenida{
             position: absolute;
             width: auto;

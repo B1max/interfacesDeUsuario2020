@@ -24,12 +24,13 @@ let checkAllState = false;
 
 
 async function cargar_MisSolicitudes(){
-    try{
-        await document.getElementById("recargarTest").remove();
-        await document.getElementById("rectangulo-superior-flotante").remove();
-    }catch{
-        console.log();
-    }
+    // try{
+    //     await document.getElementById("recargarTest").remove();
+    //     await document.getElementById("rectangulo-superior-flotante").remove();
+    //     await document.getElementById("contenedor-parrafo-bienvenida").remove();
+    // }catch{
+    //     console.log("noi se pudo eliminar algo");
+    // }
     await DB_traer_JSON();
     await tabla_dibujar_encabezado();
     checkAll = document.getElementById("checkAll");
