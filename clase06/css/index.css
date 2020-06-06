@@ -263,6 +263,7 @@
 
         .contenedor-img-fondo{
             border-radius: 0px 15px 0px 15px;
+            height: auto;
             bottom: 25px;
             top: 25px;
         }
@@ -271,8 +272,8 @@
             position: absolute;
             width: auto;
             height: auto;
-            top: 0px;
             bottom: 25px;
+            top: 25px;
             left: 0px;
             right: 0px;
             background-size: cover;
