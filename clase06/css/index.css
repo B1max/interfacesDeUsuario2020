@@ -1,31 +1,4 @@
-    
-    /*
-    html{
-
-        width: 100%;
-        height: auto;
-        left:0px;
-        right: 0px;
-        top:0px;
-        bottom: 0px;
-    }
-*/
-    /* body{
-        background-color: rgb(196, 58, 122);
-        left: 0px;
-        right: 0px;
-        padding: 0px, 0px, 0px, 0px;
-        margin: 0px;
-
-        /*width: 100%;
-        height: auto;
-        left:0px;
-        right: 0px;
-        top:0px;
-        bottom: 0px;*/
-    /*}*/
-
-    .contenedor{
+ .contenedor{
         width: 80%;
         /* min-width: 481px; */
         max-width: 1000px ;
@@ -375,8 +348,7 @@
             width: 126px;
             right: 5px;
             height: 20px;
-            top: 35px;
-            /* left: 190px; */
+            top: 45px;
 
             font-family: Roboto;
             font-style: normal;

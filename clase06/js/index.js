@@ -6,7 +6,7 @@ async function CARGAR_INDEX(){
     "</p>"+
     "</div>");
 
-    await document.getElementById("rectangulo-Bienvenida").insertAdjacentHTML("beforebegin",
+    await document.getElementById("rectangulo-Bienvenida").insertAdjacentHTML("afterbegin",
     "<div id='BotonLogear' class='texto-login' >LOGEAR</div>"
     )
 
