@@ -6,14 +6,15 @@ const usuariosLogin = [
 ];
 let elementosAagregar = [
     "<div id='elementoMenu0' class='menu-fondo'>esto es del menu</div>",
-    "<div id='elementoMenu1' class='ventanaColoreada'></div>",
+    "<div id='elementoMenu1' class='ventanaColoreada'>",
     "<div id='elementoMenu2' class='txtIngresar'>INGRESAR</div>",
     "<div id='elementoMenu3' class='USUARIO_CONTRASEÑA'>USUARIO: <br>CONTRASEÑA: </div>",
     "<input id='elementoMenu4' class='ingresoDeUsuario' type='text' name='usuario' id='usuario'>",
     "<input id='elementoMenu5' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
     "<p id='elementoMenu8' class='loginResultado'></p>",
     "<div id='elementoMenu6' class='BotonAceptar'></div>",
-    "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div>"
+    "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div>"
+    
 ];
 
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){

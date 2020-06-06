@@ -158,7 +158,10 @@
         height: auto;
         left: 35%;
         right: 20%;
+        bottom: 0px;
         top: 20px;
+        overflow-y: hidden;
+        overflow-x: hidden;
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -252,7 +255,7 @@
 
 
     
-   /* \\\\\\ ----> LA VERSION MOVIL ESTA DISEÑADA PARA UNA RESOLUCION DE 320 X 579  PX   <----////////     */
+   /* \\\\\\ ----> LA VERSION MOVIL ESTA DISEÑADA PARA UNA RESOLUCION DE 320 X 620  PX   <----////////     */
     @media all and (max-device-width: 480px){
 
         body{
@@ -264,13 +267,11 @@
 
         .contenedor{
            width: 480px;
+           height: 540px;
            max-width: 480px;
-           height: 640px;
-           max-height: 640px;
            margin: 0px;
            padding: 0px;
            overflow: hidden;
-           /* background: #B78B5C; */
         } 
 
         .rectangulo-superior{
@@ -289,17 +290,20 @@
 
         .contenedor-img-fondo{
             border-radius: 0px 15px 0px 15px;
-            bottom: 5px;
-            top: 5px;
+            bottom: 25px;
+            top: 25px;
         }
+
         .img-fondo{
             position: absolute;
-            width: 100%;
+            width: auto;
             height: auto;
+            top: 0px;
+            bottom: 25px;
             left: 0px;
             right: 0px;
-            background: url("../img/img-fondo.png");
             background-size: cover;
+            background: url("../img/img-fondo.png");
             margin: 0px;
             padding: 0px;
         }
@@ -423,7 +427,7 @@
             /* margin-left: -442px; */
             /* left: -150px; */
             left: -10px;
-            top: 550px;
+            margin-bottom: -50px ;
             bottom: 0px;
             font-family: Roboto;
             font-style: normal;

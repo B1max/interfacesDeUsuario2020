@@ -1,7 +1,7 @@
 
 .botonMenu{
     position: absolute;
-    width: 15%;/*231px*/
+    width: 15%;
     height: 39px;
     left: 20px;
     top: 238px;
@@ -80,7 +80,7 @@
 
 .botonSalir{
     position: absolute;
-    width: 15%;
+    width: 20%;
     height: 39px;
     left: 956px;
     top: 238px;
@@ -96,10 +96,6 @@
     text-align: center;
     color: #FFFFFF;
 }
-
-
-
-
 
 
 /* \\\\\\ ----> LA VERSION MOVIL ESTA DISEÑADA PARA UNA RESOLUCION DE 320 X 579  PX   <----////////     */
@@ -120,7 +116,7 @@
     
     .botonNuevo{
         position: absolute;
-        width: 33%; /*75px*/
+        width: 33%; 
         height: 45px;
         left: 215px;
         top: 130px;
@@ -140,7 +136,7 @@
     
     .botonModificar{
         position: absolute;
-        width: 33%; /*95px*/
+        width: 33%; 
         height: 45px;
         left: 215px;
         top: 190px;
@@ -159,7 +155,7 @@
     
     .botonEliminar{ 
         position: absolute;
-        width: 32%; /*85px*/
+        width: 32%; 
         height: 45px;
         left: 217px;
         top: 250px;
@@ -181,7 +177,7 @@
         width: 32%;
         height: 45px;
         left: 217px;
-        top: 310px;/*650px*/
+        top: 310px;
         margin-top: 1%;
         background: #519856;
         border: 2px solid #CB1DC4;
