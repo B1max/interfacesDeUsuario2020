@@ -23,7 +23,18 @@ async function CARGAR_INDEX(){
             await removerAgregados("elementoMenu0",elementosAagregar);
         })
     })
+    TABLA_borrar_items_todos();
+    document.getElementById("tabla").remove();
     document.getElementById("contenedorDeSolicitudes").remove();
     borrarBotones();
     document.getElementById("btnMenu1a").remove();
+    itemIndex=0;
+    itemSeleccionados=[];
+    listaDeSolicitudes=[];
+    /*---------------------------------------*/
+    //aca se abre el login
+    await agregarAlFinal("ultimo","elementoMenu0",elementosAagregar);
+    document.getElementById("elementoMenu0").addEventListener("click",async function(){
+        await removerAgregados("elementoMenu0",elementosAagregar);
+    })
 }
