@@ -44,7 +44,11 @@ async function dibujarBotones(){
         console.log("agregando items de menu");
         await inicial.insertAdjacentHTML("beforeEnd",item);
     })
-    document.getElementById("btnMenu2a").addEventListener("click",CARGAR_PANTALLA_NUEVO);
+    document.getElementById("btnMenu2a").addEventListener("click",async function(){
+        await CARGAR_PANTALLA_NUEVO();
+        // await dibujarPantallaNuevo();
+        await dibujarMenuMS();
+    });
     document.getElementById("btnMenu3a").addEventListener("click",CARGAR_PANTALLA_MODIFICAR);
     document.getElementById("btnMenu4a").addEventListener("click",DB_borrar_seleccionados)
     document.getElementById("btnMenu5a").addEventListener("click",test);

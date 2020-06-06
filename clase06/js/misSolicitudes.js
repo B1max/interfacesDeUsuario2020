@@ -4,7 +4,7 @@ let itemSeleccionados = [];
 let listaDeSolicitudes = [];
 let nodosMisSolicitudes = [
     "<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
-    
+
     "<table id='tabla' class='tabla'>"+
                 "<tr>"+
                     "<td class='colCheck'>"+
@@ -25,13 +25,7 @@ let checkAllState = false;
 
 
 async function cargar_MisSolicitudes(){
-    // try{
-    //     await document.getElementById("recargarTest").remove();
-    //     await document.getElementById("rectangulo-superior-flotante").remove();
-    //     await document.getElementById("contenedor-parrafo-bienvenida").remove();
-    // }catch{
-    //     console.log("noi se pudo eliminar algo");
-    // }
+    await dibujarMenu();
     await DB_traer_JSON();
     await tabla_dibujar_encabezado();
     checkAll = document.getElementById("checkAll");
@@ -42,12 +36,6 @@ async function cargar_MisSolicitudes(){
 
 
 async function MisSolicitudesEventos(){
-    // document.getElementById("recargarTest").addEventListener("click",async function(){
-    //     console.log("dibujando solicitud");
-    //     console.log("array de solicitudes-> "+listaDeSolicitudes.length);
-    //     console.log("seleccionados->"+seleccionados);
-
-    // })
     checkAll.addEventListener("click",check_All);
     
     for(let i = 0;i<listaDeSolicitudes.length;i++){
@@ -167,7 +155,6 @@ function DB_borrar_seleccionados(){
         }
     }
     itemSeleccionados = [];
-    // TABLA_recargar_lista();
 }
 
 
@@ -184,7 +171,6 @@ async function DB_traer_JSON(){
             await DB_agregar_item("JSON",fecha,desc,estado);
         }
     })
-    // .then(console.log);
 }
 
 

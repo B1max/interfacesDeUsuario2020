@@ -1,4 +1,4 @@
-let ultimaPosicion;
+/*let ultimaPosicion;
 if (ultimaPosicion !=null){
     ultimaPosicion();
 }
@@ -49,3 +49,7 @@ async function posicion_MisSolicitudes(){
 async function posicion_MisSolicitudes_modificar(){
     dibujarPantallaModificar
 }
+*/
+
+
+/**------------------------------------------- */

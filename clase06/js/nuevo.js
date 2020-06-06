@@ -21,6 +21,7 @@ async function CARGAR_PANTALLA_NUEVO(){
 }
 
 function dibujarPantallaNuevo(){
+    dibujarMenuMS;
     const inicial = document.getElementById("ultimo").parentNode;
 
     console.log("dibujando pantalla nuevo");

@@ -105,7 +105,7 @@ function validarUsuarioCont(){
         }catch(err){
             console.log("no se pudo eliminar algo->"+err);
         }
-        posicion_MisSolicitudes();
+        cargar_MisSolicitudes();
         return true;
     }else{
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido")
