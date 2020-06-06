@@ -94,7 +94,6 @@ function validarUsuarioCont(){
         removerAgregados("index0",[]);
         removerAgregados("index1",[]);
         removerAgregados("index2",[]);
-        // removerAgregados("recargarTest",[]);
         removerAgregados("BotonLogear",[]);
         removerAgregados("elementoMenu0",elementosAagregar);
         //llamada a la otra pantalla

@@ -51,7 +51,10 @@ async function dibujarBotones(){
     });
     document.getElementById("btnMenu3a").addEventListener("click",CARGAR_PANTALLA_MODIFICAR);
     document.getElementById("btnMenu4a").addEventListener("click",DB_borrar_seleccionados)
-    document.getElementById("btnMenu5a").addEventListener("click",test);
+    document.getElementById("btnMenu5a").addEventListener("click",async function(){
+        borr
+        CARGAR_INDEX();
+    });
 }
 function test(){
     console.log("presionado")

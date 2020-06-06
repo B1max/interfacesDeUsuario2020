@@ -44,6 +44,7 @@ async function dibujarBotonesMS(){
     document.getElementById("MSbtnSalir").addEventListener("click",async function(){
         await borrarBotonesMS();
         await BORRAR_PANTALLA_NUEVO();
+        CARGAR_INDEX();
     });
 }
 
