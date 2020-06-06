@@ -16,6 +16,12 @@ let elementosAagregar = [
     "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div>"
 ];
 
+botonLogear.addEventListener("click",async function(){
+    await agregarAlFinal("ultimo","elementoMenu0",elementosAagregar);
+    document.getElementById("elementoMenu0").addEventListener("click",async function(){
+        await removerAgregados("elementoMenu0",elementosAagregar);
+    })
+})
 async function agregarAlFinal(itemAnterior,itemEventoSalir, items){
     items.forEach(function(item){
         document.body.lastElementChild.insertAdjacentHTML("afterend",item);
@@ -38,23 +44,17 @@ async function removerAgregados(primero, items){
             document.getElementById(primero).nextElementSibling.remove();
             
         } catch (error) {
-        console.log("nose pudo eliminar-> "+primero);
+            console.log("nose pudo eliminar-> "+primero);
         }
     }
     try{
         document.getElementById(primero).remove();
     }catch{
         console.log("nose pudo eliminar-> "+primero);
-
+        
     }
 }
 
-botonLogear.addEventListener("click",async function(){
-    await agregarAlFinal("ultimo","elementoMenu0",elementosAagregar);
-    document.getElementById("elementoMenu0").addEventListener("click",async function(){
-        await removerAgregados("elementoMenu0",elementosAagregar);
-    })
-})
 function validarUsuario(usuario){
     console.log("validando usuario:"+usuario.value)
     if((usuario.value.length == 8) && !isNaN(usuario.value)){
