@@ -16,6 +16,7 @@ let htmlPantallaNuevo = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGU
 "</div>"];
 
 async function CARGAR_PANTALLA_NUEVO(){
+    //evento del boton "nuevo"
     await dibujarPantallaNuevo();
     await EVENTOS_PANTALLA_NUEVO();
 }
@@ -54,6 +55,8 @@ function EVENTOS_PANTALLA_NUEVO(){
         }else{
             await DB_agregar_item("nuevo",fecha,desc,estado);
             await BORRAR_PANTALLA_NUEVO();
+            let ultimoItem = listaDeSolicitudes.length;
+            agregarAlista(ultimoItem,fecha,desc,estado);
             await TABLA_recargar_lista();
         }
 

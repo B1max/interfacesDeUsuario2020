@@ -23,7 +23,8 @@ async function CARGAR_INDEX(){
             await removerAgregados("elementoMenu0",elementosAagregar);
         })
     })
-    TABLA_borrar_items_todos();
+    // TABLA_borrar_items_todos();
+    
     document.getElementById("tabla").remove();
     document.getElementById("contenedorDeSolicitudes").remove();
     borrarBotones();

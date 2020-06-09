@@ -27,7 +27,7 @@ let checkAllState = false;
 async function cargar_MisSolicitudes(){
     await dibujarMenu();
     await DB_traer_JSON();
-    await tabla_dibujar_encabezado();
+    await TABLA_dibujarEstructura();
     checkAll = document.getElementById("checkAll");
     tabla = document.getElementById("tabla");
     await TABLA_dibujar_items();
@@ -36,20 +36,24 @@ async function cargar_MisSolicitudes(){
 
 
 async function MisSolicitudesEventos(){
-    checkAll.addEventListener("click",check_All);
-    
-    for(let i = 0;i<listaDeSolicitudes.length;i++){
-        await document.getElementById("check"+listaDeSolicitudes[i][0]).removeEventListener("click",function(){});
-        document.getElementById("check"+listaDeSolicitudes[i][0]).addEventListener("click",async function(){
-            if(document.getElementById("check"+i).checked){
-                itemSeleccionados.push(listaDeSolicitudes[i]);
-            }else{
-                let indexI = itemSeleccionados.indexOf(listaDeSolicitudes[i][0])
-                itemSeleccionados.splice(indexI,1);
-
-            }
-        });
-    }
+    UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
+    UTIL_agregarEvento_pID(["checkAll","click",check_All]);
+    let checks = [];
+    // for(let i = 0;i<listaDeSolicitudes.length;i++){
+    //     let id = listaDeSolicitudes[i][0];
+    //         let checkStr ="check"+id;
+    //         document.getElementById(checkStr).addEventListener("click",function(){
+    //             console.log("item seleccionado y agregado");
+    //             if(document.getElementById(checkStr).checked){
+    //                 itemSeleccionados.push(i);
+    //             }else{
+    //                 itemSeleccionados.splice(id,1);
+    //             }
+    //             console.log(itemSeleccionados);
+    //         })
+    // }
+    console.log(checks);
+    // UTIL_agregarEvento_pID(checks,"MisSolicitudesEventos");
 }
 
 
@@ -67,12 +71,15 @@ function check_All(){
 }
 
 
-async function tabla_dibujar_encabezado(){
+async function TABLA_dibujarEstructura(){
     nodosMisSolicitudes.forEach(item =>{
         misSolicitudesInicial.insertAdjacentHTML("AfterEnd",item);
-    })
+    });
 }
 
+function TABLA_borrar(){
+    UTIL_BORRAR_HTML_pID(["tabla"]);
+}
 
 async function TABLA_dibujar_items(){
     for(let i = 0;i<listaDeSolicitudes.length;i++){
@@ -112,49 +119,41 @@ function agregarAlista(id,fecha,descripcion,estado){
     "<td id='colFecha"+id+"' class='colFecha'>"+fecha+"</td>"+
     "<td id='colDescripcion"+id+"' class='colDescripcion'>"+descripcion+"</td>"+
     "<td id='colEstado"+id+"' class='colEstado'>"+estado+"</td></tr>");
+    document.getElementById("check"+id).addEventListener("click",function(){
+         console.log("item seleccionado y agregado");
+        if(document.getElementById("check"+id).checked){
+            itemSeleccionados.push(id);
+        }else{
+            itemSeleccionados.splice(id,1);
+        }
+        console.log(itemSeleccionados);
+    })
+
 }
 
 
-async function TABLA_recargar_lista(){
-    itemSeleccionados = [];
-    try {
-        TABLA_borrar_items_todos();
-    } catch (error) {
-        console.log("no hay nada que borrar(error)")
-    }
-    TABLA_agregar_desde_DB();
+function TABLA_recargar_lista(){
+    // UTIL_BORRAR_HTML_pID(["contenedorDeSolicitudes"],"TABLA_borrarTodosLosItems");
+    // TABLA_dibujarEstructura();
+    // TABLA_dibujar_items();
     MisSolicitudesEventos();
 }
 
 
-async function TABLA_borrar_items_todos(){
-    console.log("borrando lista->"+listaDeSolicitudes)
-    for(let i = 0;i<listaDeSolicitudes.length;i++){
-        try{
-            document.getElementById("item"+listaDeSolicitudes[i][0]).remove();
-        }catch{
-            console.log("no se pudo eliminar -> " +"item"+listaDeSolicitudes[i][0]);
-        }
-    }
 
-}
-
-
-function DB_borrar_seleccionados(){
+async function DB_borrar_seleccionados(){
     borrarBotones();
     if(todosSeleccionados){
         document.getElementById("checkAll").checked = false;
     }
     for(let i = 0;i<itemSeleccionados.length;i++){
-        for(let e = 0;e<listaDeSolicitudes.length;e++){
-            if(listaDeSolicitudes[e][0]==itemSeleccionados[i][0]){
-                console.log("borrando item-> "+"item"+listaDeSolicitudes[e][0])
-                document.getElementById("item"+listaDeSolicitudes[e][0]).remove();
-                listaDeSolicitudes.splice(e,1);
-            }
-        }
+        let id = itemSeleccionados[i];
+        listaDeSolicitudes.splice(listaDeSolicitudes.indexOf(id),1);
+        // document.getElementById("check"+id).removeEventListener("click",function(){});
+        UTIL_BORRAR_HTML_pID(["colFecha"+id,"colDescripcion"+id,"colEstado"+id,"check"+id,"colCheck"+id,"item"+id],"DB_borrar_seleccionados")
     }
-    itemSeleccionados = [];
+    itemSeleccionados = []
+    TABLA_recargar_lista();
 }
 
 
@@ -175,9 +174,10 @@ async function DB_traer_JSON(){
 
 
 async function DB_borrar_JSON(){
+    //borra todos los items del array listaSOlicitudes con el origen JSON , item[x][1]
     let listaNormal =[];
     for(let i = 0;i<listaDeSolicitudes.length;i++){
-        if(listaDeSolicitudes[i][0]!="JSON"){
+        if(listaDeSolicitudes[i][1]!="JSON"){
             listaNormal.push(listaDeSolicitudes[i]);
         }
     }
