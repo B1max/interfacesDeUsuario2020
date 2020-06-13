@@ -1,0 +1,19 @@
+{
+    "Usuarios": [
+        {
+            "user": "30337591",
+            "pass": "Admin1234",
+            "lvl": "administrador"
+        },
+        {
+            "user": "41327455",
+            "pass": "Admin1234",
+            "lvl": "administrador"
+        },
+        {
+            "user": "87654321",
+            "pass": "Admin1234",
+            "lvl": "usuario"
+        }
+    ]
+}

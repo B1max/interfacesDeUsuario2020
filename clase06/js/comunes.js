@@ -17,6 +17,27 @@ function UTIL_BORRAR_HTML_pID(ids,info){
     }
 }
 
+function UTIL_dibujar_HTML(html){
+    html.forEach(function(item){
+        try {
+            document.body.lastElementChild.insertAdjacentHTML("afterend",item);
+        } catch (error) {
+            console.log("error dibujando items->"+error);
+        }
+    });
+}
+
+function UTIL_dibujar_HTML2(posicion,html){
+    let pos = document.getElementById(posicion);
+    html.forEach(function(item){
+        try {
+            pos.insertAdjacentHTML("afterend",item);
+        } catch (error) {
+            console.log("error dibujando items->"+error);
+        }
+    });
+}
+
 function UTIL_agregarEvento_pID(lista){
     //lista es [[elementId,evento,funcion][][]]...etc
     let resultado = [];

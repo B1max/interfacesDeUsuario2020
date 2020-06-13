@@ -1,5 +1,11 @@
 'use strict';
 let botones = false;
+let MENU_IDs =[
+    "btnMenu2a",
+    "btnMenu3a",
+    "btnMenu4a",
+    "btnMenu5a"
+];
 const itemsMenu = [
 "<div id='btnMenu1a' class='botonMenu'></div>"];
 // let itemsBotones = [
@@ -21,9 +27,14 @@ async function dibujarMenu(){
     itemsMenu.forEach(await function(item){
         inicial.insertAdjacentHTML("beforeend",item);
     })
-    document.getElementById("btnMenu1a").addEventListener("click",menu);
     // document.getElementById("btnMenu1a").addEventListener("mouseover",menu);
+    await MENU_evento_boton_Menu();
 }
+
+function MENU_evento_boton_Menu(){
+    document.getElementById("btnMenu1a").addEventListener("click",menu);
+}
+
 async function menu(){
     console.log("menu");
     if(botones){
@@ -46,20 +57,22 @@ async function dibujarBotones(){
     })
     document.getElementById("btnMenu2a").addEventListener("click",async function(){
         await CARGAR_PANTALLA_NUEVO();
-        // await dibujarPantallaNuevo();
         await dibujarMenuMS();
     });
     document.getElementById("btnMenu3a").addEventListener("click",CARGAR_PANTALLA_MODIFICAR);
     document.getElementById("btnMenu4a").addEventListener("click",DB_borrar_seleccionados)
     document.getElementById("btnMenu5a").addEventListener("click",async function(){
-        CARGAR_INDEX();
+        MS_salir();
+        INDEX_CARGAR();
     });
 }
-function test(){
-    console.log("presionado")
-}
-async function borrarBotones(){
+
+async function MENU_borrar_botones(){
+    //borra excepto el boton "MENU"
     botones = false;
     console.log("borrando Botones");
-    removerAgregados("btnMenu2a",BOTONES_mis_solicitudes);
+    //////////////////////////////////////////
+    // removerAgregados("btnMenu2a",BOTONES_mis_solicitudes);
+    UTIL_BORRAR_HTML_pID(MENU_IDs);
+    /////////////////////////////////////////
 }

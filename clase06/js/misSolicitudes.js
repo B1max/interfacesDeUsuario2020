@@ -1,5 +1,6 @@
 let itemIndex = 0;
 let todosSeleccionados = false;
+let JSON_Cargado = false;
 let itemSeleccionados = [];
 let listaDeSolicitudes = [];
 let nodosMisSolicitudes = [
@@ -24,9 +25,10 @@ let checkAll ;
 let checkAllState = false;
 
 
-async function cargar_MisSolicitudes(){
+async function MS_cargar(){
+    await MS_salir();
     await dibujarMenu();
-    await DB_traer_JSON();
+    await DB_traer_JSON_MS();
     await TABLA_dibujarEstructura();
     checkAll = document.getElementById("checkAll");
     tabla = document.getElementById("tabla");
@@ -36,24 +38,10 @@ async function cargar_MisSolicitudes(){
 
 
 async function MisSolicitudesEventos(){
-    UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
-    UTIL_agregarEvento_pID(["checkAll","click",check_All]);
+    await UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
+    document.getElementById("checkAll").addEventListener("click",check_All);
     let checks = [];
-    // for(let i = 0;i<listaDeSolicitudes.length;i++){
-    //     let id = listaDeSolicitudes[i][0];
-    //         let checkStr ="check"+id;
-    //         document.getElementById(checkStr).addEventListener("click",function(){
-    //             console.log("item seleccionado y agregado");
-    //             if(document.getElementById(checkStr).checked){
-    //                 itemSeleccionados.push(i);
-    //             }else{
-    //                 itemSeleccionados.splice(id,1);
-    //             }
-    //             console.log(itemSeleccionados);
-    //         })
-    // }
     console.log(checks);
-    // UTIL_agregarEvento_pID(checks,"MisSolicitudesEventos");
 }
 
 
@@ -157,22 +145,6 @@ async function DB_borrar_seleccionados(){
 }
 
 
-async function DB_traer_JSON(){
-    return fetch('./json/tabla.json')
-    .then(result=> result.json())
-    .then(async (ar)=>{
-        let arr = Array.from(ar['Solicitudes']);
-        arr.reverse;
-        for(let i = 0;i<arr.length;i++){  
-            let fecha = arr[i]['Fecha Solicitud'];
-            let desc = arr[i]['Descripción'];
-            let estado = arr[i]['Estado'];
-            await DB_agregar_item("JSON",fecha,desc,estado);
-        }
-    })
-}
-
-
 async function DB_borrar_JSON(){
     //borra todos los items del array listaSOlicitudes con el origen JSON , item[x][1]
     let listaNormal =[];
@@ -182,4 +154,20 @@ async function DB_borrar_JSON(){
         }
     }
     listaDeSolicitudes = listaNormal;
+}
+
+function MS_salir(){
+    //llamar con await
+    for(let i = 0;i<listaDeSolicitudes.length;i++){
+        try{
+            let id = listaDeSolicitudes[i][0];
+            document.getElementById("item"+id).remove();
+            document.getElementById("check"+id).remove();
+            document.getElementById("colFecha"+id).remove();
+            document.getElementById("colDescripcion"+id).remove();
+            document.getElementById("colEstado"+id).remove();
+        }catch(error){
+            console.log("Error borrando HTMLs->"+error)
+        }
+    }
 }
