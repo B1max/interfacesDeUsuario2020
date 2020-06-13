@@ -38,15 +38,15 @@ function MENU_evento_boton_Menu(){
 async function menu(){
     console.log("menu");
     if(botones){
-        borrarBotones();
+        MENU_borrar_botones();
         botones=false;
     }else{
-        dibujarBotones();
+        MENU_MS_dibujar_botones();
         botones=true;
     }
 }
 
-async function dibujarBotones(){
+async function MENU_MS_dibujar_botones(){
 
     const inicial = document.getElementById("ultimo").parentNode;
 

@@ -54,10 +54,10 @@ async function INDEX_CARGAR(){
     document.getElementById("tabla").remove();
     document.getElementById("contenedorDeSolicitudes").remove();
     
-    borrarBotones();
+    MENU_borrar_botones();
     document.getElementById("btnMenu1a").remove();
     // itemIndex=0;
-    itemSeleccionados=[];
+    DB_MS_seleccionados=[];
     // listaDeSolicitudes=[];
     /*---------------------------------------*/
     //aca se abre el login
