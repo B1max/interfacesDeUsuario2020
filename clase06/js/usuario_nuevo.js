@@ -1,4 +1,4 @@
-const Unuevo_IDs = ["uNUEVA-RECTANGULO-FONDO"];/*,"uNUEVA-TXT-TITULO","uNUEVA-TXT-FECHA",
+const Unuevo_IDs = ["uNUEVA-RECTANGULO-FONDO"];/*"MUbtnMenu1a","uNUEVA-TXT-TITULO","uNUEVA-TXT-FECHA",
 "uNUEVA-INPUT-FECHA","uNUEVA-TXT-NOMBRE","uNUEVA-INPUT-NOMBRE","uNtabla","uNavatar","uNavatarAnterior","uNavatarSiguiente","uNUEVA-TXT-ESTADO","uNUEVA-INPUTLIST-ESTADO","uNuevo_alerta","uNUEVA-RECTANGULO-BTN-CANCELAR","uNUEVA-RECTANGULO-BTN-ACEPTAR"
 ];*/
 let Unuevo_avatar_id = 0;
@@ -43,10 +43,7 @@ async function UsuarioN_cargar(){
 function UsuarioN_eventos(){
   document.getElementById("uNavatarAnterior").addEventListener("click",Unuevo_avatar_anterior);
   document.getElementById("uNavatarSiguiente").addEventListener("click",Unuevo_avatar_siguiente);
-  document.getElementById("uNUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",function(){
-    Unuevo_IDs.reverse
-    UTIL_BORRAR_HTML_pID(Unuevo_IDs);
-  });
+  document.getElementById("uNUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",UsuarioN_salir);
   document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",UsuarioN_guardar);
 }
 
@@ -178,4 +175,11 @@ function Mun_alertar(texto){
     html.textContent = "";
     html.style.borderColor = "white";
   },8000);
+}
+
+
+function UsuarioN_salir(){
+  Unuevo_IDs.reverse
+    UTIL_BORRAR_HTML_pID(Unuevo_IDs);
+    UTIL_BORRAR_HTML_pID(["contenedorDeSolicitudes"]);
 }

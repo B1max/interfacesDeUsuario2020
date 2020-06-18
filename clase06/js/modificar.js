@@ -39,11 +39,20 @@ async function dibujarPantallaModificar(){
     document.getElementById("NUEVA-TXTTAREA-DESCRIPCION").value = desc;
     document.getElementById("NUEVA-INPUTLIST-ESTADO").value = estado;
     
-    document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",BORRAR_PANTALLA_MODIFICAR);
+    document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",function(){
+        BORRAR_PANTALLA_MODIFICAR();
+    });
     document.getElementById("NUEVA-TXT-FECHA").addEventListener("click",function(){
         console.log("se cambio la fecha a -> "+document.getElementById("NUEVA-INPUT-FECHA").value);
     });
-    document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",MS_modificar_guardar);
+    document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",function(){
+        MS_modificar_guardar();
+
+        MENU_borrar_botones();
+        MS_salir();
+        MenuMS_salir();
+        MS_cargar();
+    });
 
 }
 
@@ -56,18 +65,15 @@ async function MS_modificar_guardar(){
 
     let mdesc = await document.getElementById("NUEVA-TXTTAREA-DESCRIPCION").value;
     let mestado = await document.getElementById("NUEVA-INPUTLIST-ESTADO").value;
+
     if(mfecha!="" && mfecha!=undefined && mdesc !="" && mestado !=""){
         const origen = DB_MS_solicitudes[DB_MS_seleccionados[0]];
         origen[2] = mfecha;
         origen[3] = mdesc;
         origen[4] = mestado;
         BORRAR_PANTALLA_MODIFICAR();
-        MS_TABLA_borrar();
-        MS_TABLA_dibujarEstructura();
-        await MS_TABLA_dibujar_items();
         checkAll = document.getElementById("checkAll");
         tabla = document.getElementById("tabla");
-        // TABLA_recargar_lista();
     }else{
         console.log("algun dato esta mal->"+mfecha+"-"+mdesc+"-"+mestado);
     }
@@ -81,19 +87,8 @@ function MS_modificar_setSel(){
         return false;
     }
 }
-/*
-function MODIFICAR_SELECCION(){
-    for(let e = 0;e<listaDeSolicitudes.length;e++){
-        if(listaDeSolicitudes[e][0]==MS_modificar_setSel[0]){
-            console.log("borrando item-> "+"item"+MS_modificar_setSel[0])
-            // document.getElementById("item"+listaDeSolicitudes[e][0]).remove();
-            listaDeSolicitudes[e][2] = ""
-            listaDeSolicitudes[e][2] = ""
-            listaDeSolicitudes[e][2] = ""
-        }
-    }
-}
-*/
+
+
 function BORRAR_PANTALLA_MODIFICAR(){
     try {
         document.getElementById("NUEVA-RECTANGULO-FONDO").remove();

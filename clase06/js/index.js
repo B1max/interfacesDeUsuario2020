@@ -24,21 +24,19 @@ INDEX_CARGAR();
 async function INDEX_CARGAR(){
     //rectangulo-superior-flotante
     //await document.getElementById("rectangulo-Bienvenida").insertAdjacentHTML
-    await document.getElementById("rectangulo-superior-flotante").parentNode.insertAdjacentHTML("beforeEnd",""+
-    /*"<div id='contenedor-parrafo-bienvenida' class='contenedor-parrafo-bienvenida'>"+*/
-    "<p id='index0' class='texto-bienvenida'>Bienvenidos al departamento de acompañamiento de alumnos de la universidad"+
-    "</p>"+
-    "</div>");
-    
-    await document.getElementById("ultimo").insertAdjacentHTML("beforebegin",
+    // await document.getElementById("rectangulo-superior-flotante").parentNode.insertAdjacentHTML("beforeEnd",""+
+    // "<p id='index0' class='texto-bienvenida'>Bienvenidos al departamento de acompañamiento de alumnos de la universidad"+
+    // "</p>"+
+    // "</div>");
+    await INDEX_mostrar_bienvenida();
+    document.getElementById("ultimo").insertAdjacentHTML("beforebegin",
     "<div id='BotonLogear' class='texto-login' >LOGEAR</div>"
     )
+    
+    
     document.getElementById("BotonLogear").addEventListener("click",async function(){
-        UTIL_dibujar_HTML(LOGIN_html);
-        LOGIN_eventos();
-         document.getElementById("elementoMenu0").addEventListener("click",async function(){
-            await LOGIN_salir();
-         })
+        INDEX_ocultar_bienvenida();
+        LOGIN_cargar();
      });
 
     await document.getElementById("rectangulo-superior-flotante").parentNode.insertAdjacentHTML("afterend",
@@ -53,4 +51,16 @@ async function INDEX_CARGAR(){
 
 async function INDEX_salir(){
     await UTIL_BORRAR_HTML_pID(INDEX_IDs);
+}
+
+function INDEX_ocultar_bienvenida(){
+    UTIL_BORRAR_HTML_pID(["index0"]);
+}
+
+
+async function INDEX_mostrar_bienvenida(){
+    await document.getElementById("rectangulo-superior-flotante").parentNode.insertAdjacentHTML("beforeEnd",""+
+    "<p id='index0' class='texto-bienvenida'>Bienvenidos al departamento de acompañamiento de alumnos de la universidad"+
+    "</p>"+
+    "</div>");
 }

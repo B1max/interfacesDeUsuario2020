@@ -56,20 +56,51 @@ async function MENU_MS_dibujar_botones(){
         await inicial.insertAdjacentHTML("beforeEnd",item);
     })
     document.getElementById("btnMenu2a").addEventListener("click",async function(){
+        MENU_borrar_botones();
+        botones=false;
         await CARGAR_PANTALLA_NUEVO();
         await dibujarMenuMS();
     });
-    document.getElementById("btnMenu3a").addEventListener("click",MS_modificar_cargar);
-    document.getElementById("btnMenu4a").addEventListener("click",DB_borrar_seleccionados)
+    document.getElementById("btnMenu3a").addEventListener("click",function(){
+        if(DB_MS_seleccionados.length<1){
+            const alert = new alerta();
+            MENU_borrar_botones();
+            MS_salir();
+            MenuMS_salir();
+            MenuMS_salir();
+            alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
+            setTimeout(function(){
+                MS_cargar();
+            },3000);
+        }else{
+            MENU_borrar_botones();
+            botones=false;
+            MS_modificar_cargar()
+        }
+    });
+    document.getElementById("btnMenu4a").addEventListener("click",function(){
+        if(DB_MS_seleccionados.length<1){
+            const alert = new alerta();
+            MENU_borrar_botones();
+            MS_salir();
+            MenuMS_salir();
+            MenuMS_salir();
+            alert.mostrar("Debe seleccionar al menos un item");
+            setTimeout(function(){
+                MS_cargar();
+            },3000);
+        }else{
+            MENU_borrar_botones();
+            botones=false;
+            DB_borrar_seleccionados();
+        }
+    });
     document.getElementById("btnMenu5a").addEventListener("click",async function(){
         MS_salir();
         MenuMS_salir();
         await INDEX_CARGAR();
-        UTIL_dibujar_HTML(LOGIN_html);
-        await LOGIN_eventos();
-         document.getElementById("elementoMenu0").addEventListener("click",async function(){
-            await LOGIN_salir();
-         })
+        INDEX_ocultar_bienvenida();
+        await LOGIN_cargar();
     });
 }
 

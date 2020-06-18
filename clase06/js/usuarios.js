@@ -1,5 +1,5 @@
 const USUARIOS_IDs = [
-  "contenedorDeSolicitudes","tabla"
+  "contenedorDeSolicitudes","tabla","MUbtnMenu1a"
 ];
 
 
@@ -14,9 +14,9 @@ const USUARIOS_html = [
                       "<input type='checkbox' id='UcheckAll' class='check'>"+
                   "</td>"+
                   "<td class='colFecha'>"+
-                      "Datos"+
+                      "Avatar"+
                   "</td>"+
-                  "<td class='colDescripcion'>Descripción</td>"+
+                  "<td class='colDescripcion'>Nombre</td>"+
                   "<td class='colEstado'>Estado</td>"+
               "</tr>"+
           "</table></div>"
@@ -26,7 +26,7 @@ const USUARIOS_html = [
 
 async function USUARIOS_cargar(){
   // falta cargar menu();
-  // await MenuUsuarios_cargar();
+  await MenuUsuarios_cargar();
   UTIL_BORRAR_HTML_pID(PP_IDs,"PP_borrarBienvenida");
   await DB_traer_JSON_USERS();
   
@@ -140,4 +140,5 @@ async function USUARIOS_eliminar_seleccion(){
 
 function USUARIOS_salir(){
   UTIL_BORRAR_HTML_pID(USUARIOS_IDs);
+  MenuUsuarios_salir();
 }

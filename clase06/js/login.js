@@ -18,32 +18,36 @@ let LOGIN_html = [
     "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div>"
 ];
 
+
+
+
 async function LOGIN_cargar(){
-    // await UTIL_dibujar_HTML(LOGIN_html);
+    INDEX_ocultar_bienvenida()
     UTIL_dibujar_HTML(LOGIN_html);
     LOGIN_eventos();
 }
+
+
+
 
 function LOGIN_eventos(){
     document.getElementById("elementoMenu6").addEventListener("click", async function(){
         console.log("se apreto el boton cancelar");
         await LOGIN_validar_UserPass();
-    })
+    });
     document.getElementById("elementoMenu7").addEventListener("click", async function(){
         console.log("se apreto el boton aceptar");
         await LOGIN_validar_UserPass();
-    })
+
+    });
+    document.getElementById("elementoMenu0").addEventListener("click",function(){
+        LOGIN_salir();
+        INDEX_mostrar_bienvenida();
+    });
 }
 
-async function LOGIN_salir(){
-    LOGIN_IDs.forEach(item =>{
-        try {
-            document.getElementById(item).remove();
-        } catch (error) {
-            console.log("no se pudo borrar el HTML de login");
-        }
-    })
-}
+
+
 
 function LOGIN_validar_usuario(usuario){
     console.log("validando usuario:"+usuario.value)
@@ -53,6 +57,9 @@ function LOGIN_validar_usuario(usuario){
         return false;
     }
 }
+
+
+
 
 function LOGIN_validar_contraseña(cont){
     console.log("validando contraseña:"+cont.value)
@@ -74,10 +81,17 @@ function LOGIN_validar_contraseña(cont){
     return (cont.value.length >= 6) && tieneUnNumero && tieneUnaLetra;
 }
 
+
+
+
 async function LOGIN_validar_UserPass(){
     console.log("validando usuario y contraseña");
     await LOGIN_validador();
 }
+
+
+
+
 
 async function LOGIN_validador(){
     let usuario = document.getElementById("elementoMenu4");
@@ -91,7 +105,6 @@ async function LOGIN_validador(){
         //borra los objetos de mas
         await LOGIN_salir();
         try{
-            // document.getElementById("contenedor-parrafo-bienvenida").remove();
             PP_borrarBienvenida();
         }catch(err){
             console.log("no se pudo eliminar algo->"+err);
@@ -106,6 +119,10 @@ async function LOGIN_validador(){
     }
 }
 
+
+
+
+
 function LOGIN_imprimir_resultado(txt){
     console.log(txt);
     const resultado = document.getElementById("elementoMenu8");
@@ -115,3 +132,15 @@ function LOGIN_imprimir_resultado(txt){
     },2000);
 }
 
+
+
+
+async function LOGIN_salir(){
+    LOGIN_IDs.forEach(item =>{
+        try {
+            document.getElementById(item).remove();
+        } catch (error) {
+            console.log("no se pudo borrar el HTML de login");
+        }
+    })
+}

@@ -4,7 +4,7 @@
     width: 170px;
     height: 40px;
     left: 20px;
-    top: 160px;
+    top: 135px;
     background: url("../img/txtMenu.png")no-repeat
     #519856 center;
     border: 2px solid #CB1DC4;
@@ -103,8 +103,6 @@
 }
 
 
-/* \\\\\\ ----> LA VERSION MOVIL ESTA DISEÑADA PARA UNA RESOLUCION DE 320 X 579  PX   <----////////     */
-
 @media all and (max-width: 480px){
 
     .botonMenu{
@@ -130,9 +128,7 @@
         left: 215px;
         top: 110px;
         background: #519856;
-        /* border: 2px solid #CB1DC4; */
         box-sizing: border-box;
-        /* border-radius: 0px 20px; */
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -151,9 +147,7 @@
         left: 215px;
         top: 160px;
         background: #519856;
-        /* border: 2px solid #CB1DC4; */
         box-sizing: border-box;
-        /* border-radius: 0px 28px; */
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -171,9 +165,7 @@
         left: 217px;
         top: 210px;
         background: #519856;
-        /* border: 2px solid #CB1DC4; */
         box-sizing: border-box;
-        /* border-radius: 0px 20px; */
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -190,11 +182,8 @@
         height: 50px;
         left: 217px;
         top: 260px;
-        /* margin-top: 1%; */
         background: #519856;
-        /* border: 2px solid #CB1DC4; */
         box-sizing: border-box;
-        /* border-radius: 0px 20px; */
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;

@@ -32,7 +32,7 @@ async function MenuP_botonera(){
     }else{
         MenuP_activado = true;
         await UTIL_dibujar_HTML(MP_html_botones);
-        await MenuP_eventos_botonera();
+        MenuP_eventos_botonera();
     }
 }
 
@@ -54,7 +54,7 @@ function MenuP_eventos_botonera(){
             MenuP_botonera();
             console.log("Usuarios");
             MenuP_salir();
-            MenuUsuarios_cargar();
+            // MenuUsuarios_cargar();
             USUARIOS_cargar();
         }); 
         //salir

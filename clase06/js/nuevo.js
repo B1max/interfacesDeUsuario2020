@@ -15,11 +15,17 @@ let htmlPantallaNuevo = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGU
 "<div  id='NUEVA-RECTANGULO-BTN-ACEPTAR' class='NUEVA-RECTANGULO-BTN-ACEPTAR' >ACEPTAR</div>"+
 "</div>"];
 
+
+
+
 async function CARGAR_PANTALLA_NUEVO(){
     //evento del boton "nuevo"
     await dibujarPantallaNuevo();
     await EVENTOS_PANTALLA_NUEVO();
 }
+
+
+
 
 function dibujarPantallaNuevo(){
     dibujarMenuMS;
@@ -32,6 +38,9 @@ function dibujarPantallaNuevo(){
     })
 }
 
+
+
+
 async function BORRAR_PANTALLA_NUEVO(){
     try{
         document.getElementById("NUEVA-RECTANGULO-FONDO").remove();
@@ -40,8 +49,12 @@ async function BORRAR_PANTALLA_NUEVO(){
     }
 }
 
+
+
+
 function EVENTOS_PANTALLA_NUEVO(){
     document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",async function(){
+
         let fecha = document.getElementById("NUEVA-INPUT-FECHA").value;
         console.log("la fecha es->"+fecha);
 
@@ -55,12 +68,18 @@ function EVENTOS_PANTALLA_NUEVO(){
         }else{
             await DB_agregar_item("nuevo",fecha,desc,estado);
             await BORRAR_PANTALLA_NUEVO();
-            let ultimoItem = listaDeSolicitudes.length;
-            agregarAlista(ultimoItem,fecha,desc,estado);
-            await TABLA_recargar_lista();
+            
+            MENU_borrar_botones();
+            MS_salir();
+            MenuMS_salir();
+            MS_cargar();
         }
 
     });
+
     document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",BORRAR_PANTALLA_NUEVO);
 }
 
+function MSnuevo_salir(){
+    BORRAR_PANTALLA_NUEVO();
+}

@@ -7,6 +7,9 @@ let BOTONES_Mun=[
     "<div id='MunbtnUsuarios' class='MunbtnUsuarios'>Usuarios</div>",
     "<div id='MunbtnSalir' class='MunbtnSalir'>Salir</div>"];
 
+
+
+
 async function MenuUN_cargar(){
     console.log("dibujando Menu");
     const inicial = document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").parentNode;
@@ -16,6 +19,8 @@ async function MenuUN_cargar(){
 
     document.getElementById("uNUEVO-menu").addEventListener("click",MenuUN_mostrar_ocultar);
 }
+
+
 
 async function MenuUN_mostrar_ocultar(){
     console.log("menu");
@@ -28,6 +33,9 @@ async function MenuUN_mostrar_ocultar(){
     }
 }
 
+
+
+
 async function dibujarBotonesMun(){
     const inicial = document.getElementById("uNUEVO-menu");
     console.log("dibujando Botones");
@@ -37,32 +45,36 @@ async function dibujarBotonesMun(){
     });
     document.getElementById("MunbtnMisSolicitudes").addEventListener("click",
     async function(){
-        await borrarBotonesMun();
+        await MenuUN_mostrar_ocultar();
         Umodificar_salir();
         USUARIOS_salir;
         await MS_cargar();
         // await BORRAR_PANTALLA_NUEVO();
     });
     document.getElementById("MunbtnSalir").addEventListener("click",async function(){
-        await borrarBotonesMun();
-        Umodificar_salir();
-        
-        // await BORRAR_PANTALLA_NUEVO();
-        // CARGAR_INDEX();
+        // await MenuUN_mostrar_ocultar();
+        await MenuUN_salir();
+        await UsuarioN_salir();
+        await MenuUsuarios_salir();
+        await INDEX_CARGAR();
+        await LOGIN_cargar();
     });
 }
+
+
 
 
 async function borrarBotonesMun(){
     botones = false;
     console.log("borrando Botones");
     UTIL_BORRAR_HTML_pID(Mun_IDs);
-    /*try {
-        document.getElementById("MunbtnMisSolicitudes").remove();
-        document.getElementById("MunbtnSalir").remove();  
-    } catch (error) {
-        console.log("no se pudo eliminar el boton");
-    }*/
 }
 
+
+
+
+function MenuUN_salir(){
+    UTIL_BORRAR_HTML_pID(["uNUEVO-menu"]);
+    UTIL_BORRAR_HTML_pID(Mun_IDs);
+}
 

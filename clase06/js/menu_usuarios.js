@@ -7,7 +7,7 @@ const MenuUsuarios_IDs = [
     "MUbtnMenu5a"
 ];
 
-const MenuUsuarios_ID_btnMenu =["MUbtnMenu1a"];
+const MenuUsuarios_ID_btnMenu = ["MUbtnMenu1a"];
 const MenuUsuarios_html_boton_menu =[
     "<div id='MUbtnMenu1a' class='botonMenu'></div>"
 ];
@@ -61,16 +61,36 @@ function MenuUsuarios_eventos_botonera(){
             UsuarioN_cargar();
         }); 
         //Modificar
-        document.getElementById("MUbtnMenu3a").addEventListener("click",function(){
-            MenuUsuarios_botonera();
-            console.log("Modificar");
-            Umodificar_cargar();
+        document.getElementById("MUbtnMenu3a").addEventListener("click",async function(){
+            if(USUARIOS_seleccion.length<1){
+                MenuUsuarios_botonera();
+                USUARIOS_salir();
+                const alert = new alerta();
+                alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
+                setTimeout(function(){
+                    USUARIOS_cargar();
+                },3000);
+            }else{
+                MenuUsuarios_botonera();
+                console.log("Modificar");
+                Umodificar_cargar();
+            }
         }); 
         //Eliminar
         document.getElementById("MUbtnMenu4a").addEventListener("click",async function(){
-          MenuUsuarios_botonera();
-          console.log("Eliminar");
-          await USUARIOS_eliminar_seleccion();
+            if(USUARIOS_seleccion.length<1){
+                MenuUsuarios_botonera();
+                USUARIOS_salir();
+                const alert = new alerta();
+                alert.mostrar("Debe seleccionar al menos un item");
+                setTimeout(function(){
+                    USUARIOS_cargar();
+                },3000);
+            }else{
+                MenuUsuarios_botonera();
+                console.log("Eliminar");
+                await USUARIOS_eliminar_seleccion();
+            }
         //   await USUARIOS_recargar_tabla();
         });
         //salir
@@ -79,24 +99,21 @@ function MenuUsuarios_eventos_botonera(){
             console.log("Salir");
             await MenuUsuarios_salir();
             await INDEX_CARGAR();
-            UTIL_dibujar_HTML(LOGIN_html);
-            await LOGIN_eventos();
-            document.getElementById("elementoMenu0").addEventListener("click",async function(){
-            await LOGIN_salir();
-         })
       });
 }
 
 
 
 
-async function MenuUsuarios_salir(){
+function MenuUsuarios_salir(){
     if(MenuUsuarios_activado){
         MenuUsuarios_activado = false;
     //    await UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs,"MenuUsuarios_salir");
-        UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs);
+        // UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs);
     }
-    UTIL_BORRAR_HTML_pID(["MUbtnMenu1a"]);/*,"MenuUsuarios_salir");*/
-    UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs);/*,"MenuUsuarios_salir");*/
+    UTIL_BORRAR_HTML_pID(MenuUsuarios_ID_btnMenu);
+    // UTIL_BORRAR_HTML_pID(["MUbtnMenu1a"]);
+    UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs);
     UTIL_BORRAR_HTML_pID(["contenedorDeSolicitudes"]);
 }
+

@@ -1,5 +1,6 @@
 const debug = true;
 
+
 function UTIL_BORRAR_HTML_pID(ids,info){
     
     let  estados = [];
@@ -23,6 +24,9 @@ function UTIL_BORRAR_HTML_pID(ids,info){
     }
 }
 
+
+
+
 function UTIL_dibujar_HTML(html){
     html.forEach(function(item){
         try {
@@ -32,6 +36,9 @@ function UTIL_dibujar_HTML(html){
         }
     });
 }
+
+
+
 
 function UTIL_dibujar_HTML2(posicion,html){
     let pos = document.getElementById(posicion);
@@ -43,6 +50,9 @@ function UTIL_dibujar_HTML2(posicion,html){
         }
     });
 }
+
+
+
 
 function UTIL_agregarEvento_pID(lista){
     //lista es [[elementId,evento,funcion][][]]...etc
@@ -65,6 +75,9 @@ function UTIL_agregarEvento_pID(lista){
     }
 }
 
+
+
+
 function UTIL_quitarEvento_pID(ids,info){
     //formato de argumento [id,evento]
     let resultado =[];
@@ -84,6 +97,19 @@ function UTIL_quitarEvento_pID(ids,info){
     console.log("---------------"+info+"-----------------");
 }
 
-class pantalla{
 
+
+
+class alerta{
+    alerta(){
+    }
+    mostrar(texto){
+        document.body.firstElementChild.insertAdjacentHTML("beforeend","<div id='alerta' class='alerta'>"+
+        "<p id='Palerta' class='Palerta' ></p></div>");
+        document.getElementById("Palerta").textContent = ""+texto;
+        setTimeout(function(){
+            document.getElementById("alerta").remove();
+        }
+        ,3000);
+    }
 }
