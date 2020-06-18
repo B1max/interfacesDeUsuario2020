@@ -77,6 +77,7 @@
         line-height: 21px;
         text-align: center;
         color: #FFFFFF;
+        cursor: pointer;
     }
 
     .texto-rectangulo-superior{
@@ -116,13 +117,15 @@
         position: absolute;
         width: 260px;
         height: 100px;
-        left: 20px;
-        top: 37px;
-        right: 0px;
-        margin: 0px;
-        padding: 0px;
+        margin-left: 0px;
+        left: 5%;
+        top: 10px;
+        /* right: 0px; */
+        /* margin: 0px; */
+        /* padding: 0px; */
         background-image: url("../img/logo.png") ;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     .parrafoSuperior{
@@ -260,52 +263,67 @@
             padding: 0px;
         }
 
-
+/*
         .contenedor-img-fondo{
-            border-radius: 0px 15px 0px 15px;
             height: auto;
             bottom: 25px;
             top: 25px;
         }
+    */
 
         .img-fondo{
             position: absolute;
             width: auto;
             height: auto;
-            bottom: 25px;
-            top: 25px;
+            max-height: 706px;
+            /* bottom: 25px; */
+            top: 0px;
             left: 0px;
             right: 0px;
-            background-size: cover;
-            background: url("../img/img-fondo.png");
-            margin: 0px;
-            padding: 0px;
+            margin:0px;
+            background-size: fixed;
+            background: url("../img/img-fondo2.png");
+            border-radius: 0px 0px 0px 0px;
         }
 
 
         .rectangulo-superior-flotante{
+   
+            position: absolute;
+            width: auto;
+            height: 94px;
+            left: 10px;
+            right: 10px;
+            top: 10px;
+
+            background: #5CB760;
+            border-radius: 0px 50px 0px 0px;
+        }
+
+        .rectangulo-Bienvenida{
             position: absolute;
             width: auto;
             height: 150px;
-            left: 8px;
-            right: 8px;
+            left: 10px;
+            right: 10px;
             top: 265px;
             background: linear-gradient(180deg, rgba(92, 183, 96, 0.75) 0%, rgba(203, 29, 196, 0.75) 100%);
-        }
+            border-radius: 0px 0px 0px 0px;
 
+        }
         .rectangulo-info-inferior{
             position: absolute;
             width:auto;
             height: auto;
             min-height: 150px;
-            top: 420px;
+            /* top: 420px; */
             left: 10px;
             right: 10px;
-            bottom: auto;
+            bottom: 60px;
 
 
             background: rgba(92, 183, 96, 0.65);
-            border-radius: 0px 85px 0px 85px;
+            border-radius: 0px 50px 0px 50px;
             margin: 0px;
             padding: 0px;
         }
@@ -323,7 +341,8 @@
         }
 
         .parrafoSuperior{
-            position: absolute;
+            display: none;
+            /*position: absolute;
             width: auto;
             height: auto;
             left: 20px;
@@ -334,21 +353,21 @@
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
-            line-height: 14px;
+            font-size: 20px;
+            line-height: 20px;
             color: #FFFFFF;
 
             margin: 0px;
-            padding: 0px;
+            padding: 0px;*/
         }
 
 
         .texto-login{
             position: absolute;
             width: 126px;
-            right: 5px;
+            right: 15px;
             height: 20px;
-            top: 45px;
+            top: 60px;
 
             font-family: Roboto;
             font-style: normal;
@@ -359,17 +378,6 @@
             color: #FFFFFF;
             margin: 0px;
             padding: 0px;
-        }
-        .rectangulo-Bienvenida{
-            position: absolute;
-            width: auto;
-            height: 94px;
-            left: 8px;
-            right: 8px;
-            top: 40px;
-
-            background: #5CB760;
-            border-radius: 0px 75px 0px 0px;
         }
         
 
@@ -410,22 +418,25 @@
             margin: 0px;
             padding: 0px;
         }
+        /*
         .contenedor-parrafo-bienvenida{
             position: absolute;
             width: auto;
             height: 100px;
-            left: 8px;
-            right: 8px;
-            top:150px;
+            left: 3px;
+            right: 2px;
+            top:110px;
             background: #5CB760;
        }
+       */
+
         .texto-bienvenida{
             position: absolute;
             width: auto;
             height: auto;
-            left: 8px;
-            right: 8px;
-            top: 20px;
+            left: 20px;
+            right: 20px;
+            top: 200px;
             margin-left: -170px;
             font-family: Roboto;
             font-style: normal;
@@ -434,7 +445,6 @@
             line-height: 20px;
             text-align: center;
             color: #FFFFFF;
-
             margin: 0px;
             padding: 0px;
         }

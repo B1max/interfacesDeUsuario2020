@@ -19,14 +19,14 @@ function htmlPantallaModificar(fecha,desc,estado){
 "</div>"];
 };
 
-async function CARGAR_PANTALLA_MODIFICAR(){
+async function MS_modificar_cargar(){
     await dibujarPantallaModificar();
 }
 
 async function dibujarPantallaModificar(){
     const inicial = document.getElementById("ultimo").parentNode;
     console.log("dibujando pantalla nuevo");
-    await SELECCCION_MODIFICAR();
+    await MS_modificar_setSel();
     let fecha = SELECCION_A_MODIFICAR[2];
     let desc = SELECCION_A_MODIFICAR[3];
     let estado = SELECCION_A_MODIFICAR[4];
@@ -64,7 +64,7 @@ async function dibujarPantallaModificar(){
 
 }
 
-function SELECCCION_MODIFICAR(){
+function MS_modificar_setSel(){
     if(itemSeleccionados.length>0){
         SELECCION_A_MODIFICAR = itemSeleccionados[0];
     }else{
@@ -74,8 +74,8 @@ function SELECCCION_MODIFICAR(){
 
 function MODIFICAR_SELECCION(){
         for(let e = 0;e<listaDeSolicitudes.length;e++){
-            if(listaDeSolicitudes[e][0]==SELECCCION_MODIFICAR[0]){
-                console.log("borrando item-> "+"item"+SELECCCION_MODIFICAR[0])
+            if(listaDeSolicitudes[e][0]==MS_modificar_setSel[0]){
+                console.log("borrando item-> "+"item"+MS_modificar_setSel[0])
                 // document.getElementById("item"+listaDeSolicitudes[e][0]).remove();
                 listaDeSolicitudes[e][2] = ""
                 listaDeSolicitudes[e][2] = ""

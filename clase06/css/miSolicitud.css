@@ -15,6 +15,7 @@
     line-height: 28px;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .MSbtnMisSolicitudes{
     position: absolute;
@@ -74,6 +75,7 @@
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
+        cursor: pointer;
     }
     .MSbtnMisSolicitudes{
         position: absolute;

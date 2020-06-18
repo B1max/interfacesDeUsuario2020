@@ -123,7 +123,7 @@
     background: #E81818;
     border: 1px solid #FA16FF;
     box-sizing: border-box;
-
+    cursor: pointer;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -149,6 +149,7 @@
     line-height: 28px;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 /* \\\\\\ ----> LA VERSION MOVIL ESTA DISEÑADA PARA UNA RESOLUCION DE 320 X 620  PX   <----////////     */
 
@@ -283,6 +284,7 @@
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
+        cursor: pointer;
     }
     
     .NUEVA-RECTANGULO-BTN-ACEPTAR{
@@ -301,6 +303,8 @@
         line-height: 28px;
         text-align: center;
         color: #FFFFFF;
+        cursor: pointer;
+
     }
 
 }

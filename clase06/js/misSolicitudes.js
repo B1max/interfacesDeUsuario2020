@@ -27,8 +27,9 @@ let checkAllState = false;
 
 
 async function MS_cargar(){
-    await MS_salir();
-    await dibujarMenu();
+    PP_borrarBienvenida()
+    MS_salir();
+    MenuMS_cargar();
     await DB_traer_JSON_MS();
     await MS_TABLA_dibujarEstructura();
     checkAll = document.getElementById("checkAll");
@@ -38,12 +39,14 @@ async function MS_cargar(){
 }
 
 
+
 async function MS_eventos(){
     await UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
     document.getElementById("checkAll").addEventListener("click",MS_check_All);
     let checks = [];
     console.log(checks);
 }
+
 
 
 function MS_check_All(){
@@ -60,15 +63,18 @@ function MS_check_All(){
 }
 
 
+
 async function MS_TABLA_dibujarEstructura(){
     MS_html.forEach(item =>{
         misSolicitudesInicial.insertAdjacentHTML("AfterEnd",item);
     });
 }
 
+
 function MS_TABLA_borrar(){
     UTIL_BORRAR_HTML_pID(["tabla"]);
 }
+
 
 async function MS_TABLA_dibujar_items(){
     for(let i = 0;i<DB_MS_solicitudes.length;i++){
@@ -112,14 +118,6 @@ function MS_agregar_a_lista(id,fecha,descripcion,estado){
 
 }
 
-/*
-function TABLA_recargar_lista(){
-    // UTIL_BORRAR_HTML_pID(["contenedorDeSolicitudes"],"TABLA_borrarTodosLosItems");
-    // TABLA_dibujarEstructura();
-    // TABLA_dibujar_items();
-    MS_eventos();
-}
-*/
 
 function MS_salir(){
     //llamar con await
@@ -135,4 +133,5 @@ function MS_salir(){
             console.log("Error borrando HTMLs->"+error)
         }
     }
+    UTIL_BORRAR_HTML_pID(MS_IDs);
 }

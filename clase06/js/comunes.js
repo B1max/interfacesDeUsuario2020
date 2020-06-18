@@ -1,8 +1,14 @@
 const debug = true;
 
 function UTIL_BORRAR_HTML_pID(ids,info){
+    
     let  estados = [];
     for(let i = 0;i<ids.length;i++){
+        try {
+            document.getElementById(ids[i]).removeEventListener("click",function(){});
+        } catch (error) {
+            console.log("no hay evento para eliminar");
+        }
         try {
             document.getElementById(ids[i]).remove();
             estados.push([i,ids[i],true,""]);

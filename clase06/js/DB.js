@@ -1,7 +1,23 @@
-let usuarios = [];
+let USUARIOS = [];
 let JSON_USUARIOS_CARGADO = false;
 let DB_MS_seleccionados = [];
 let DB_MS_solicitudes = [];
+let USUARIOS_seleccion = [];
+let USUARIOS_IDs_tabla =[];
+const DB_urlsAvatar = [
+    "https://gravatar.com/avatar/ab3ef817e400dbddf665041ca1a55051?s=100&d=mp&r=x",
+    "https://robohash.org/f79d8337d36910053a2d80563f9db3040?set=set4&bgset=&size=100x100",
+    "https://robohash.org/9981987a80505dabe58e33f7a868e451?set=set4&bgset=&size=100x100",
+    "https://api.adorable.io/avatars/100/9981987a80505dabe58e33f7a868e451.png",
+    "https://api.adorable.io/avatars/100/1f843f4889f79b1744fc8422f1d32cca.png",
+    "https://api.adorable.io/avatars/100/3ceeca62abcdc94ad767fae2e85ec3c4.png",
+    "https://gravatar.com/avatar/8a88a4428712c782a99d07a678a7a040?s=100&d=robohash&r=x",
+    "https://gravatar.com/avatar/8a6f2cc35c927e40ab3b837e70a3301a?s=100&d=robohash&r=x",
+    "https://gravatar.com/avatar/b971eec97ed6ceb86fe307a362984db9?s=100&d=robohash&r=x",
+    "https://gravatar.com/avatar/eb1e0a45a4c29acd4567748e432df5a8?s=100&d=robohash&r=x"
+];
+
+
 
 async function DB_traer_JSON_MS(){
     if(JSON_Cargado==false){
@@ -22,6 +38,8 @@ async function DB_traer_JSON_MS(){
     }
 }
 
+
+
 function DB_traer_JSON_USERS(){
     if(JSON_USUARIOS_CARGADO == false){
         JSON_USUARIOS_CARGADO = true;
@@ -34,9 +52,12 @@ function DB_traer_JSON_USERS(){
             for(let i = 0;i<arr.length;i++){  
                 let user = arr[i]['user'];
                 let pass = arr[i]['pass'];
+                let avatar = arr[i]['avatar'];
+                let nombre = arr[i]['nombre'];
+                let activo = arr[i]['activo'];
+                let fecha = arr[i]['fecha'];
                 let lvl = arr[i]['lvl'];
-                //agregar linea donde carga a un array*****************
-                usuarios.push([user,pass,lvl]);
+                USUARIOS.push([user,pass,avatar,nombre,activo,fecha,lvl]);
             }
         })
     }
@@ -46,10 +67,16 @@ function DB_traer_JSON_USERS(){
 function DB_BUSCAR_USUARIO(user,pass){
     //devuelve una lista con las coincidencias, usuarios
     let respuesta = false;
-    for(let i = 0;i<usuarios.length;i++){
-        if(usuarios[i][0]==user && usuarios[i][1]==pass){
+    let usuarioEncontrado;
+    for(let i = 0;i<USUARIOS.length;i++){
+        if(USUARIOS[i][0]==user && USUARIOS[i][1]==pass){
+            usuarioEncontrado = USUARIOS[i];
             respuesta = true
         }
+    }
+    if (usuarioEncontrado != null && usuarioEncontrado !=undefined &&usuarioEncontrado[4]!="si"){
+        LOGIN_imprimir_resultado("el usuario esta inactivo");
+        respuesta = false;
     }
     return respuesta;
 }

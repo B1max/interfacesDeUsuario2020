@@ -1,5 +1,4 @@
-
-const botonLogear = document.getElementById("BotonLogear");
+// const botonLogear = document.getElementById("BotonLogear");
 const usuariosLogin = [
     ['30337591','dario83']
 ];
@@ -19,28 +18,15 @@ let LOGIN_html = [
     "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div>"
 ];
 
-botonLogear.addEventListener("click",async function(){
-    // await LOGIN_dibujar(elementosAagregar);
-    await UTIL_dibujar_HTML(LOGIN_html);
-    document.getElementById("elementoMenu0").addEventListener("click",async function(){
-        // await LOGIN_salir("elementoMenu0",elementosAagregar);
-        // await LOGIN_salir();
-        await UTIL_BORRAR_HTML_pID(LOGIN_IDs);
-    })
-    await LOGIN_eventos();
-});
-/*
-async function LOGIN_dibujar(items){
-    items.forEach(function(item){
-        document.body.lastElementChild.insertAdjacentHTML("afterend",item);
-    })
-    //agregado solo para esta pantalla
+async function LOGIN_cargar(){
+    // await UTIL_dibujar_HTML(LOGIN_html);
+    UTIL_dibujar_HTML(LOGIN_html);
     LOGIN_eventos();
 }
-*/
+
 function LOGIN_eventos(){
     document.getElementById("elementoMenu6").addEventListener("click", async function(){
-        console.log("se apreto el boton aceptar");
+        console.log("se apreto el boton cancelar");
         await LOGIN_validar_UserPass();
     })
     document.getElementById("elementoMenu7").addEventListener("click", async function(){
@@ -49,7 +35,6 @@ function LOGIN_eventos(){
     })
 }
 
-/*async function LOGIN_salir(primero, items)*/
 async function LOGIN_salir(){
     LOGIN_IDs.forEach(item =>{
         try {
@@ -90,7 +75,7 @@ function LOGIN_validar_contraseña(cont){
 }
 
 async function LOGIN_validar_UserPass(){
-    console.log("validando usuario y contraseña")
+    console.log("validando usuario y contraseña");
     await LOGIN_validador();
 }
 
@@ -101,19 +86,19 @@ async function LOGIN_validador(){
     let contValida = LOGIN_validar_contraseña(cont);
     await DB_traer_JSON_USERS();
     if(usuarioValido && contValida && DB_BUSCAR_USUARIO(usuario.value,cont.value)){
-            //si hay al menos una coincidencia
-            console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido")
-            //borra los objetos de mas
-            await LOGIN_salir();
-            try{
-                document.getElementById("contenedor-parrafo-bienvenida").remove();
-            }catch(err){
-                console.log("no se pudo eliminar algo->"+err);
-            }
-            await MS_salir();
-            await INDEX_salir();
-            await MS_cargar();
-            return true;
+        //si hay al menos una coincidencia
+        console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido");
+        //borra los objetos de mas
+        await LOGIN_salir();
+        try{
+            // document.getElementById("contenedor-parrafo-bienvenida").remove();
+            PP_borrarBienvenida();
+        }catch(err){
+            console.log("no se pudo eliminar algo->"+err);
+        }
+        await INDEX_salir();
+        await PP_cargar();
+        return true;
     }else{
         LOGIN_imprimir_resultado("Usuario o contraseña incorrecta");
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido");

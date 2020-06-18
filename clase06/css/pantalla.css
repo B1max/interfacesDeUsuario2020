@@ -79,7 +79,7 @@
 }
 
 .BotonAceptar{
-
+    cursor: pointer;
     position: absolute;
     width: 180px;
     margin-left: -90px;
@@ -92,6 +92,7 @@
 }
 
 .ACEPTAR{
+    cursor: pointer;
 
     position: absolute;
     width: 180px;
@@ -160,7 +161,7 @@
         color: #FFFFFF;
     }
     .BotonAceptar{
-        
+        cursor: pointer;
         position: absolute;
         width: 180px;
         margin-left: -90px;
@@ -172,7 +173,7 @@
         box-sizing: border-box;
     }
     .ACEPTAR{
-        
+        cursor: pointer;
         position: absolute;
         width: 180px;
         margin-left: -90px;
