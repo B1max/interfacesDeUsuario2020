@@ -57,12 +57,12 @@ async function dibujarBotonesMS(){
         await BORRAR_PANTALLA_NUEVO();
     });
     document.getElementById("MSbtnSalir").addEventListener("click",async function(){
-        MenuMS_salir();
+        SALIR_menu_misSolicitudes();
         MSnuevo_salir();
         MS_salir();
         await INDEX_CARGAR();
         INDEX_ocultar_bienvenida();
-        await LOGIN_cargar();
+        await CARGAR_login();
     });
 }
 

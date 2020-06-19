@@ -56,7 +56,7 @@ async function dibujarBotonesMun(){
         await UsuarioN_salir();
         await MenuUsuarios_salir();
         await INDEX_CARGAR();
-        await LOGIN_cargar();
+        await CARGAR_login();
     });
 }
 

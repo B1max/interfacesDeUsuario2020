@@ -71,9 +71,9 @@ function EVENTOS_PANTALLA_NUEVO(){
             await DB_agregar_item("nuevo",fecha,desc,estado);
             await BORRAR_PANTALLA_NUEVO();
             
-            MENU_borrar_botones();
+            MENU_misSolicitudes_borrarBotones();
             MS_salir();
-            MenuMS_salir();
+            SALIR_menu_misSolicitudes();
             MS_cargar();
         }
 

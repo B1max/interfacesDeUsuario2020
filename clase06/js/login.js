@@ -1,7 +1,3 @@
-// const botonLogear = document.getElementById("BotonLogear");
-const usuariosLogin = [
-    ['30337591','dario83']
-];
 let LOGIN_IDs = [
     "elementoMenu0","elementoMenu1","elementoMenu2","elementoMenu3","elementoMenu4",
     "elementoMenu5","elementoMenu8","elementoMenu6","elementoMenu7"];
@@ -21,7 +17,7 @@ let LOGIN_html = [
 
 
 
-async function LOGIN_cargar(){
+async function CARGAR_login(){
     INDEX_ocultar_bienvenida()
     UTIL_dibujar_HTML(LOGIN_html);
     LOGIN_eventos();
@@ -41,7 +37,7 @@ function LOGIN_eventos(){
 
     });
     document.getElementById("elementoMenu0").addEventListener("click",function(){
-        LOGIN_salir();
+        SALIR_login();
         INDEX_mostrar_bienvenida();
     });
 }
@@ -103,7 +99,7 @@ async function LOGIN_validador(){
         //si hay al menos una coincidencia
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido");
         //borra los objetos de mas
-        await LOGIN_salir();
+        await SALIR_login();
         try{
             PP_borrarBienvenida();
         }catch(err){
@@ -135,7 +131,7 @@ function LOGIN_imprimir_resultado(txt){
 
 
 
-async function LOGIN_salir(){
+async function SALIR_login(){
     LOGIN_IDs.forEach(item =>{
         try {
             document.getElementById(item).remove();

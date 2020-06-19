@@ -52,9 +52,9 @@ async function dibujarPantallaModificar(){
     document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",function(){
         MS_modificar_guardar();
 
-        MENU_borrar_botones();
+        MENU_misSolicitudes_borrarBotones();
         MS_salir();
-        MenuMS_salir();
+        SALIR_menu_misSolicitudes();
         MS_cargar();
     });
 

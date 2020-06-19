@@ -108,7 +108,7 @@ async function DB_borrar_JSON(){
 
 
 async function DB_borrar_seleccionados(){
-    MENU_borrar_botones();
+    MENU_misSolicitudes_borrarBotones();
     if(todosSeleccionados){
         document.getElementById("checkAll").checked = false;
     }

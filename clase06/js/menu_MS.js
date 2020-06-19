@@ -28,34 +28,85 @@ let BOTONES_solicitud = [
     "<div id='btnMenu5a' class='botonSalir'>SALIR</div>"];
 
 
-function MenuMS_cargar(){
+function CARGAR_menu_MisSolocitudes(){
     console.log("dibujando Menu");
-    //document.getElementById("rectangulo-superior-flotante").insertAdjacentHTML("beforeend",
     const inicial = document.getElementById("rectangulo-superior-flotante");
-    // const inicial = document.getElementById("ultimo").parentNode;
     itemsMenu.forEach(function(item){
         inicial.insertAdjacentHTML("beforeend",item);
     })
-    MENU_evento_boton_Menu();
+    EVENTOS_menu_misSOlicitudes();
 }
 
 
 
 
-function MENU_evento_boton_Menu(){
-    document.getElementById("btnMenu1a").addEventListener("click",MenuMS_mostrar);
+function EVENTOS_menu_misSOlicitudes(){
+    document.getElementById("btnMenu1a").addEventListener("click",MENU_misSolicitudes_mostrarOcultar);
 }
 
 
 
 
-async function MenuMS_mostrar(){
+function EVENTOS_menu_misSOlicitudes_botonera(){
+    document.getElementById("btnMenu2a").addEventListener("click",async function(){
+        MENU_misSolicitudes_borrarBotones();
+        botones=false;
+        await CARGAR_PANTALLA_NUEVO();
+        await dibujarMenuMS();
+    });
+    document.getElementById("btnMenu3a").addEventListener("click",function(){
+        if(DB_MS_seleccionados.length<1){
+            const alert = new alerta();
+            MENU_misSolicitudes_borrarBotones();
+            MS_salir();
+            SALIR_menu_misSolicitudes();
+            SALIR_menu_misSolicitudes();
+            alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
+            setTimeout(function(){
+                MS_cargar();
+            },3000);
+        }else{
+            MENU_misSolicitudes_borrarBotones();
+            botones=false;
+            MS_modificar_cargar()
+        }
+    });
+    document.getElementById("btnMenu4a").addEventListener("click",function(){
+        if(DB_MS_seleccionados.length<1){
+            const alert = new alerta();
+            MENU_misSolicitudes_borrarBotones();
+            MS_salir();
+            SALIR_menu_misSolicitudes();
+            SALIR_menu_misSolicitudes();
+            alert.mostrar("Debe seleccionar al menos un item");
+            setTimeout(function(){
+                MS_cargar();
+            },3000);
+        }else{
+            MENU_misSolicitudes_borrarBotones();
+            botones=false;
+            DB_borrar_seleccionados();
+        }
+    });
+    document.getElementById("btnMenu5a").addEventListener("click",async function(){
+        MS_salir();
+        SALIR_menu_misSolicitudes();
+        await INDEX_CARGAR();
+        INDEX_ocultar_bienvenida();
+        await CARGAR_login();
+    });
+}
+
+
+
+
+async function MENU_misSolicitudes_mostrarOcultar(){
     console.log("menu");
     if(botones){
-        MENU_borrar_botones();
+        MENU_misSolicitudes_borrarBotones();
         botones=false;
     }else{
-        MENU_MS_dibujar_botones();
+        MENU_misSolicitudes_mostrarBotones();
         botones=true;
     }
 }
@@ -63,7 +114,7 @@ async function MenuMS_mostrar(){
 
 
 
-async function MENU_MS_dibujar_botones(){
+async function MENU_misSolicitudes_mostrarBotones(){
 
     const inicial = document.getElementById("ultimo").parentNode;
 
@@ -72,59 +123,13 @@ async function MENU_MS_dibujar_botones(){
         console.log("agregando items de menu");
         await inicial.insertAdjacentHTML("beforeEnd",item);
     })
-    document.getElementById("btnMenu2a").addEventListener("click",async function(){
-        MENU_borrar_botones();
-        botones=false;
-        await CARGAR_PANTALLA_NUEVO();
-        await dibujarMenuMS();
-    });
-    document.getElementById("btnMenu3a").addEventListener("click",function(){
-        if(DB_MS_seleccionados.length<1){
-            const alert = new alerta();
-            MENU_borrar_botones();
-            MS_salir();
-            MenuMS_salir();
-            MenuMS_salir();
-            alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
-            setTimeout(function(){
-                MS_cargar();
-            },3000);
-        }else{
-            MENU_borrar_botones();
-            botones=false;
-            MS_modificar_cargar()
-        }
-    });
-    document.getElementById("btnMenu4a").addEventListener("click",function(){
-        if(DB_MS_seleccionados.length<1){
-            const alert = new alerta();
-            MENU_borrar_botones();
-            MS_salir();
-            MenuMS_salir();
-            MenuMS_salir();
-            alert.mostrar("Debe seleccionar al menos un item");
-            setTimeout(function(){
-                MS_cargar();
-            },3000);
-        }else{
-            MENU_borrar_botones();
-            botones=false;
-            DB_borrar_seleccionados();
-        }
-    });
-    document.getElementById("btnMenu5a").addEventListener("click",async function(){
-        MS_salir();
-        MenuMS_salir();
-        await INDEX_CARGAR();
-        INDEX_ocultar_bienvenida();
-        await LOGIN_cargar();
-    });
+    
 }
 
 
 
 
-async function MENU_borrar_botones(){
+async function MENU_misSolicitudes_borrarBotones(){
     //borra excepto el boton "MENU"
     botones = false;
     console.log("borrando Botones");
@@ -134,7 +139,7 @@ async function MENU_borrar_botones(){
 
 
 
-function MenuMS_salir(){
-    MENU_borrar_botones();
+function SALIR_menu_misSolicitudes(){
+    MENU_misSolicitudes_borrarBotones();
     UTIL_BORRAR_HTML_pID(["btnMenu1a"]);
 }

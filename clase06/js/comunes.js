@@ -113,6 +113,39 @@ class alerta{
 }
 
 
-class pantalla{
-    
+class menu{
+    menu(fun){
+        this.id_btn_menu = "";
+        this.ids_botones = [];
+        this.test = fun;
+    }
+
+    Test(){
+        const fff = this.test;
+        fff();
+    }
+
+    botonMenu(){
+        
+    }
+
+    Cant_Botones(cant){
+        this.cant_botones = cant;
+    }
+
+    posicionInicial(str){
+        this.inicial = str;
+    }
+
+    cargar(){
+        
+    }
+
+    mostrar_ocultar_botones(){
+        
+    }
+
+    salir(){
+
+    }
 }
