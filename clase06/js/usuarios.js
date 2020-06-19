@@ -25,7 +25,6 @@ const USUARIOS_html = [
 
 
 async function USUARIOS_cargar(){
-  // falta cargar menu();
   await MenuUsuarios_cargar();
   UTIL_BORRAR_HTML_pID(PP_IDs,"PP_borrarBienvenida");
   await DB_traer_JSON_USERS();
@@ -39,9 +38,7 @@ async function USUARIOS_cargar(){
 
 
 function USUARIOS_eventos(){
-  // document.getElementById("UcheckAll").removeEventListener("click",function(){});
   document.getElementById("UcheckAll").addEventListener("click", function(){
-    //codigo chheckall
 
       if(UtodosSeleccionados){
         USUARIOS_seleccion = [];
@@ -112,7 +109,6 @@ function USUARIOS_mostrar_usuario(id,avatar,nombre,activo){
 
 
 async function USUARIOS_recargar_tabla(){
-  // await USUARIOS_borrar_usuarios();
   UTIL_BORRAR_HTML_pID(USUARIOS_IDs_tabla);
   await USUARIOS_mostrar_usuarios();
 }

@@ -1,5 +1,6 @@
 let SELECCION_A_MODIFICAR;
 
+
 function MS_modificar_html(fecha,desc){ 
     return ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGULO-FONDO'>"+
 "<P id='NUEVA-TXT-TITULO' class='NUEVA-TXT-TITULO'>MODIFICAR SOLICITUD</P>"+
@@ -19,15 +20,18 @@ function MS_modificar_html(fecha,desc){
 "</div>"];
 };
 
+
+
 async function MS_modificar_cargar(){
     await dibujarPantallaModificar();
 }
+
+
 
 async function dibujarPantallaModificar(){
     const inicial = document.getElementById("ultimo").parentNode;
     console.log("dibujando pantalla nuevo");
     await MS_modificar_setSel();
-    // DB_MS_seleccionados[0]
     const origen = DB_MS_solicitudes[DB_MS_seleccionados[0]];
     let fecha = origen[2];
     let desc = origen[3];
@@ -56,6 +60,9 @@ async function dibujarPantallaModificar(){
 
 }
 
+
+
+
 async function MS_modificar_guardar(){
     let val = document.getElementById("NUEVA-INPUT-FECHA").value;
     let mfecha = ""+val;
@@ -80,6 +87,8 @@ async function MS_modificar_guardar(){
 }
 
 
+
+
 function MS_modificar_setSel(){
     if(DB_MS_seleccionados.length>0){
         SELECCION_A_MODIFICAR = DB_MS_seleccionados[0];
@@ -87,6 +96,8 @@ function MS_modificar_setSel(){
         return false;
     }
 }
+
+
 
 
 function BORRAR_PANTALLA_MODIFICAR(){

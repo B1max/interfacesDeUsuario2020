@@ -55,7 +55,6 @@ function UTIL_dibujar_HTML2(posicion,html){
 
 
 function UTIL_agregarEvento_pID(lista){
-    //lista es [[elementId,evento,funcion][][]]...etc
     let resultado = [];
     for(let i = 0;i<lista.lenght;i++){
 
@@ -79,7 +78,6 @@ function UTIL_agregarEvento_pID(lista){
 
 
 function UTIL_quitarEvento_pID(ids,info){
-    //formato de argumento [id,evento]
     let resultado =[];
     for(let i = 0;i<ids.length;i++){
         let id = ids[i][0];
@@ -112,4 +110,9 @@ class alerta{
         }
         ,3000);
     }
+}
+
+
+class pantalla{
+    
 }

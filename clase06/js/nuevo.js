@@ -1,4 +1,6 @@
 let PANTALLA_NUEVO = false;
+
+
 let htmlPantallaNuevo = ["<div id='NUEVA-RECTANGULO-FONDO' class='NUEVA-RECTANGULO-FONDO'>"+
 "<P id='NUEVA-TXT-TITULO' class='NUEVA-TXT-TITULO'>NUEVA SOLICITUD</P>"+
 "<P  id='NUEVA-TXT-FECHA' class='NUEVA-TXT-FECHA' required>FECHA:</P>"+
@@ -79,6 +81,9 @@ function EVENTOS_PANTALLA_NUEVO(){
 
     document.getElementById("NUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",BORRAR_PANTALLA_NUEVO);
 }
+
+
+
 
 function MSnuevo_salir(){
     BORRAR_PANTALLA_NUEVO();

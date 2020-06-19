@@ -17,16 +17,15 @@ const MP_html_botones =[
 
 
 async function MenuP_cargar(){
-    // PP_borrarBienvenida();
     document.getElementById("rectangulo-superior-flotante").insertAdjacentHTML("beforeend",MenuP_html_boton_menu[0]);
-
-    // await UTIL_dibujar_HTML(MenuP_html_boton_menu);
     MenuP_evento_btnMenu();
 }
 
+
+
+
 async function MenuP_botonera(){
     if(MenuP_activado == true ){
-        // await MenuP_eventos_botonera();
         MenuP_activado = false;
         await UTIL_BORRAR_HTML_pID(MenuP_IDs);
     }else{
@@ -36,17 +35,21 @@ async function MenuP_botonera(){
     }
 }
 
+
+
+
 function MenuP_evento_btnMenu(){
     document.getElementById("btnMenu1a").addEventListener("click",MenuP_botonera);
 }
 
+
+
+
 function MenuP_eventos_botonera(){
-        //Mis Solicitudes
         document.getElementById("btnMenu2a").addEventListener("click",function(){
             MenuP_botonera();
             console.log("Mis Solicitudes");
             MenuP_salir();
-            // MenuMS_cargar();
             MS_cargar();
         }); 
         //Usuarios
@@ -54,7 +57,6 @@ function MenuP_eventos_botonera(){
             MenuP_botonera();
             console.log("Usuarios");
             MenuP_salir();
-            // MenuUsuarios_cargar();
             USUARIOS_cargar();
         }); 
         //salir
@@ -62,7 +64,6 @@ function MenuP_eventos_botonera(){
             MenuP_botonera();
             PP_salir();
             INDEX_CARGAR();
-            // LOGIN_cargar();
             console.log("Salir");
         });
 }

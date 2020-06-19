@@ -1,8 +1,12 @@
-const Unuevo_IDs = ["uNUEVA-RECTANGULO-FONDO"];/*"MUbtnMenu1a","uNUEVA-TXT-TITULO","uNUEVA-TXT-FECHA",
-"uNUEVA-INPUT-FECHA","uNUEVA-TXT-NOMBRE","uNUEVA-INPUT-NOMBRE","uNtabla","uNavatar","uNavatarAnterior","uNavatarSiguiente","uNUEVA-TXT-ESTADO","uNUEVA-INPUTLIST-ESTADO","uNuevo_alerta","uNUEVA-RECTANGULO-BTN-CANCELAR","uNUEVA-RECTANGULO-BTN-ACEPTAR"
-];*/
+const Unuevo_IDs = ["uNUEVA-RECTANGULO-FONDO"];
+
+
 let Unuevo_avatar_id = 0;
+
+
 let Unuevo_avatar ="https://gravatar.com/avatar/ab3ef817e400dbddf665041ca1a55051?s=100&d=mp&r=x";
+
+
 const Unuevo_html = [
   "<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
 "<P id='uNUEVA-TXT-TITULO' class='uNUEVA-TXT-TITULO'>Nuevo usuario</P>"+
@@ -33,11 +37,15 @@ const Unuevo_html = [
 ];
 
 
+
+
 async function UsuarioN_cargar(){
   await UTIL_dibujar_HTML(Unuevo_html);
   await UsuarioN_eventos();
   await MenuUN_cargar();
 }
+
+
 
 
 function UsuarioN_eventos(){
@@ -48,11 +56,15 @@ function UsuarioN_eventos(){
 }
 
 
+
+
 function Unuevo_avatar_siguiente(){
   Unuevo_avatar_id++;
   let urlAvatar = DB_urlsAvatar[Unuevo_avatar_id%DB_urlsAvatar.length];
   document.getElementById("imgAvatar").src = urlAvatar;
 }
+
+
 
 
 function Unuevo_avatar_anterior(){
@@ -148,6 +160,8 @@ function UsuarioN_validar_cont(cont){
 }
 
 
+
+
 function UsuarioN_guardar(){
   let user = UsuarioN_validar_form();
   if(user.length == 5){
@@ -167,6 +181,8 @@ function UsuarioN_guardar(){
 }
 
 
+
+
 function Mun_alertar(texto){
   let html = document.getElementById("uNuevo_alerta");
   html.style.borderColor = "red";
@@ -176,6 +192,8 @@ function Mun_alertar(texto){
     html.style.borderColor = "white";
   },8000);
 }
+
+
 
 
 function UsuarioN_salir(){

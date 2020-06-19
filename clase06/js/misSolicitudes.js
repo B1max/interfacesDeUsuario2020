@@ -1,9 +1,15 @@
 let itemIndex = 0;
+
+
 let todosSeleccionados = false;
+
+
 let JSON_Cargado = false;
-let MS_IDs = [
-    "contenedorDeSolicitudes","tabla"
-];
+
+
+let MS_IDs = ["contenedorDeSolicitudes","tabla"];
+
+
 let MS_html = [
     "<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
 
@@ -20,10 +26,20 @@ let MS_html = [
                 "</tr>"+
             "</table></div>"
 ];
+
+
 let misSolicitudesInicial = document.getElementById("ultimo");
+
+
 let tabla;
+
+
 let checkAll ;
+
+
 let checkAllState = false;
+
+
 
 
 async function MS_cargar(){
@@ -71,9 +87,11 @@ async function MS_TABLA_dibujarEstructura(){
 }
 
 
+
 function MS_TABLA_borrar(){
     UTIL_BORRAR_HTML_pID(["tabla"]);
 }
+
 
 
 async function MS_TABLA_dibujar_items(){
@@ -87,6 +105,7 @@ async function MS_TABLA_dibujar_items(){
 }
 
 
+
 async function MS_TABLA_agregar_desde_DB(){
     if(DB_MS_solicitudes.length>0){
         for(let i = 0;i<DB_MS_solicitudes.length;i++){
@@ -96,6 +115,7 @@ async function MS_TABLA_agregar_desde_DB(){
         console.log("nada que agregar")
     }
 }
+
 
 
 function MS_agregar_a_lista(id,fecha,descripcion,estado){
@@ -115,12 +135,11 @@ function MS_agregar_a_lista(id,fecha,descripcion,estado){
         }
         console.log(DB_MS_seleccionados);
     })
-
 }
 
 
+
 function MS_salir(){
-    //llamar con await
     for(let i = 0;i<DB_MS_solicitudes.length;i++){
         try{
             let id = DB_MS_solicitudes[i][0];

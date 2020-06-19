@@ -1,24 +1,32 @@
 'use strict';
 let botones = false;
+
+
 let MENU_IDs =[
     "btnMenu2a",
     "btnMenu3a",
     "btnMenu4a",
     "btnMenu5a"
 ];
+
+
 const itemsMenu = [
 "<div id='btnMenu1a' class='botonMenu'></div>"];
+
+
 let BOTONES_mis_solicitudes=[
 "<div id='btnMenu2a' class='botonNuevo'>NUEVO</div>",
 "<div id='btnMenu3a' class='botonModificar'>MODIFICAR</div>",
 "<div id='btnMenu4a' class='botonEliminar'>ELIMINAR</div>",
 "<div id='btnMenu5a' class='botonSalir'>SALIR</div>"];
 
+
 let BOTONES_solicitud = [
     "<div id='btnMenu2a' class='botonNuevo'>NUEVO</div>",
     "<div id='btnMenu3a' class='botonModificar'>MODIFICAR</div>",
     "<div id='btnMenu4a' class='botonEliminar'>ELIMINAR</div>",
     "<div id='btnMenu5a' class='botonSalir'>SALIR</div>"];
+
 
 function MenuMS_cargar(){
     console.log("dibujando Menu");
@@ -31,9 +39,15 @@ function MenuMS_cargar(){
     MENU_evento_boton_Menu();
 }
 
+
+
+
 function MENU_evento_boton_Menu(){
     document.getElementById("btnMenu1a").addEventListener("click",MenuMS_mostrar);
 }
+
+
+
 
 async function MenuMS_mostrar(){
     console.log("menu");
@@ -45,6 +59,9 @@ async function MenuMS_mostrar(){
         botones=true;
     }
 }
+
+
+
 
 async function MENU_MS_dibujar_botones(){
 
@@ -104,12 +121,17 @@ async function MENU_MS_dibujar_botones(){
     });
 }
 
+
+
+
 async function MENU_borrar_botones(){
     //borra excepto el boton "MENU"
     botones = false;
     console.log("borrando Botones");
     UTIL_BORRAR_HTML_pID(MENU_IDs);
 }
+
+
 
 
 function MenuMS_salir(){

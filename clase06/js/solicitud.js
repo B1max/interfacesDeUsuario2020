@@ -19,9 +19,13 @@ function htmlPantallaModificar(fecha,desc,estado){
 "</div>"];
 };
 
+
 async function MS_modificar_cargar(){
     await dibujarPantallaModificar();
 }
+
+
+
 
 async function dibujarPantallaModificar(){
     const inicial = document.getElementById("ultimo").parentNode;
@@ -64,6 +68,9 @@ async function dibujarPantallaModificar(){
 
 }
 
+
+
+
 function MS_modificar_setSel(){
     if(itemSeleccionados.length>0){
         SELECCION_A_MODIFICAR = itemSeleccionados[0];
@@ -71,6 +78,9 @@ function MS_modificar_setSel(){
         return false;
     }
 }
+
+
+
 
 function MODIFICAR_SELECCION(){
         for(let e = 0;e<listaDeSolicitudes.length;e++){
@@ -83,6 +93,9 @@ function MODIFICAR_SELECCION(){
             }
         }
 }
+
+
+
 
 function BORRAR_PANTALLA_MODIFICAR(){
     try {

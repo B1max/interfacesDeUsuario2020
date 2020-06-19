@@ -1,15 +1,22 @@
 'use strict';
 let botonesMS = false;
 
+
 let botonesMS_IDs = ["MSbtnMenu","MSbtnMisSolicitudes","MSbtnSalir"];
+
+
 const itemsMenuMS = ["<div id='MSbtnMenu' class='MSbtnMenu'>MENU</div>"];
+
+
 let BOTONES_mis_solicitudesMS=[
     "<div id='MSbtnMisSolicitudes' class='MSbtnMisSolicitudes'>Mis Solicitudes</div>",
     "<div id='MSbtnSalir' class='MSbtnSalir'>SALIR</div>"];
 
+
 let BOTONES_solicitudMS = [
     "<div id='MSbtnMisSolicitudes' class='MSbtnMisSolicitudes'>Mis Solicitudes</div>",
     "<div id='MSbtnSalir' class='MSbtnSalir'>SALIR</div>"];
+
 
 async function dibujarMenuMS(){
     console.log("dibujando Menu");
@@ -19,6 +26,9 @@ async function dibujarMenuMS(){
     });
     document.getElementById("MSbtnMenu").addEventListener("click",menuMS);
 }
+
+
+
 
 async function menuMS(){
     console.log("menu");
@@ -30,6 +40,9 @@ async function menuMS(){
         botonesMS=true;
     }
 }
+
+
+
 
 async function dibujarBotonesMS(){
     const inicial = document.getElementById("MSbtnMenu");
@@ -54,6 +67,8 @@ async function dibujarBotonesMS(){
 }
 
 
+
+
 async function borrarBotonesMS(){
     botonesMS = false;
     console.log("borrando Botones");
@@ -65,6 +80,10 @@ async function borrarBotonesMS(){
     }
 }
 
+
+
 function menuMS_salir(){
     UTIL_BORRAR_HTML_pID(botonesMS_IDs);
 }
+
+

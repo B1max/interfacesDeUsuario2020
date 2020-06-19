@@ -11,7 +11,6 @@ let BOTONES_Mun=[
 
 
 async function MenuUN_cargar(){
-    console.log("dibujando Menu");
     const inicial = document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").parentNode;
     itemsMenuMun.forEach(function(item){
         inicial.insertAdjacentHTML("beforeend",item);
@@ -23,7 +22,6 @@ async function MenuUN_cargar(){
 
 
 async function MenuUN_mostrar_ocultar(){
-    console.log("menu");
     if(botonesMun){
         borrarBotonesMun();
         botonesMun=false;
@@ -38,21 +36,22 @@ async function MenuUN_mostrar_ocultar(){
 
 async function dibujarBotonesMun(){
     const inicial = document.getElementById("uNUEVO-menu");
-    console.log("dibujando Botones");
     BOTONES_Mun.forEach(async function(item){
-        console.log("agregando items de menu");
         inicial.insertAdjacentHTML("beforeEnd",item);
     });
     document.getElementById("MunbtnMisSolicitudes").addEventListener("click",
     async function(){
         await MenuUN_mostrar_ocultar();
         Umodificar_salir();
-        USUARIOS_salir;
+        USUARIOS_salir();
         await MS_cargar();
-        // await BORRAR_PANTALLA_NUEVO();
+    });
+
+    document.getElementById("MunbtnUsuarios").addEventListener("click",async function(){
+        await MenuUN_mostrar_ocultar();
+        Umodificar_salir();
     });
     document.getElementById("MunbtnSalir").addEventListener("click",async function(){
-        // await MenuUN_mostrar_ocultar();
         await MenuUN_salir();
         await UsuarioN_salir();
         await MenuUsuarios_salir();
@@ -66,7 +65,6 @@ async function dibujarBotonesMun(){
 
 async function borrarBotonesMun(){
     botones = false;
-    console.log("borrando Botones");
     UTIL_BORRAR_HTML_pID(Mun_IDs);
 }
 

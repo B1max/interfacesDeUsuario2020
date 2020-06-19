@@ -46,7 +46,12 @@ async function Umodificar_cargar(){
     await MenuUN_cargar();
     Unuevo_avatar_id = DB_urlsAvatar.indexOf(USUARIOS[indexModificar][2]);
   }else{
-    //una alerta diciendo "no selecciono nada"
+    const alert = new alerta();
+    Umodificar_salir();
+    alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
+    setTimeout(function(){
+        Umodificar_cargar();
+    },3000);
   }
 }
 
@@ -120,8 +125,9 @@ function UsuarioM_validar_form(){
     "al menos debe tener 6 caracteres");
   }
 
-  // const avatar = Unuevo_avatar;
   const avatar = document.getElementById("imgAvatar").src;
+
+  
   retorno.push(""+avatar);
 
   const activo = document.getElementById("uNUEVA-INPUTLIST-ESTADO").value;

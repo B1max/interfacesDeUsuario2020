@@ -25,7 +25,6 @@ const MenuUsuarios_html_botones =[
 
 async function MenuUsuarios_cargar(){
     document.getElementById("rectangulo-superior-flotante").insertAdjacentHTML("beforeend",MenuUsuarios_html_boton_menu[0]);
-    // await UTIL_dibujar_HTML(MenuUsuarios_html_boton_menu);
     MenuUsuarios_evento_btnMenu();
 }
 
@@ -91,7 +90,6 @@ function MenuUsuarios_eventos_botonera(){
                 console.log("Eliminar");
                 await USUARIOS_eliminar_seleccion();
             }
-        //   await USUARIOS_recargar_tabla();
         });
         //salir
         document.getElementById("MUbtnMenu5a").addEventListener("click",async function(){
@@ -108,11 +106,8 @@ function MenuUsuarios_eventos_botonera(){
 function MenuUsuarios_salir(){
     if(MenuUsuarios_activado){
         MenuUsuarios_activado = false;
-    //    await UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs,"MenuUsuarios_salir");
-        // UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs);
     }
     UTIL_BORRAR_HTML_pID(MenuUsuarios_ID_btnMenu);
-    // UTIL_BORRAR_HTML_pID(["MUbtnMenu1a"]);
     UTIL_BORRAR_HTML_pID(MenuUsuarios_IDs);
     UTIL_BORRAR_HTML_pID(["contenedorDeSolicitudes"]);
 }
