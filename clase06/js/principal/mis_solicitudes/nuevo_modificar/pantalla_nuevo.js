@@ -30,7 +30,7 @@ async function CARGAR_PANTALLA_NUEVO(){
 
 
 function dibujarPantallaNuevo(){
-    dibujarMenuMS;
+    Menu_s_cargar;
     const inicial = document.getElementById("ultimo").parentNode;
 
     console.log("dibujando pantalla nuevo");
@@ -71,7 +71,8 @@ function EVENTOS_PANTALLA_NUEVO(){
             await DB_agregar_item("nuevo",fecha,desc,estado);
             await BORRAR_PANTALLA_NUEVO();
             
-            MENU_misSolicitudes_borrarBotones();
+            // MENU_misSolicitudes_borrarBotones();
+            menu_mostrar_ocultar(menu_MS);
             MS_salir();
             SALIR_menu_misSolicitudes();
             MS_cargar();

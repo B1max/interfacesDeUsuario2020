@@ -33,7 +33,8 @@ async function INDEX_CARGAR(){
     )
     
     document.getElementById("BotonLogear").addEventListener("click",async function(){
-        INDEX_ocultar_bienvenida();
+        // INDEX_ocultar_bienvenida();
+        INDEX_salir();
         CARGAR_login();
      });
 
@@ -58,7 +59,7 @@ async function INDEX_salir(){
 
 
 function INDEX_ocultar_bienvenida(){
-    UTIL_BORRAR_HTML_pID(["index0"]);
+    UTIL_BORRAR_HTML_pID(["index0","index2"]);
 }
 
 

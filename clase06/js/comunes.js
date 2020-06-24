@@ -114,38 +114,53 @@ class alerta{
 
 
 class menu{
-    menu(fun){
-        this.id_btn_menu = "";
-        this.ids_botones = [];
-        this.test = fun;
-    }
+    static estado = false;
+    static pos_inicial = "";
+    static ultimo = "ultimo";
+    static id_menu =[];
+    static html_menu =[];
+    static ids_botones =[];
+    static html_botones=[];
+}
 
-    Test(){
-        const fff = this.test;
-        fff();
-    }
 
-    botonMenu(){
-        
+function menu_mostrar_ocultar(menu = new menu()){
+    if(menu.estado){
+        UTIL_BORRAR_HTML_pID(menu.ids_botones);
+        menu.estado=false;
+    }else{
+        const inicial = document.getElementById(menu.ultimo).parentNode;
+        if(inicial != null){
+            menu.html_botones.forEach(async function(item){
+                console.log("agregando items de menu");
+                await inicial.insertAdjacentHTML("beforeEnd",item);
+            })
+            menu.estado=true;
+        }
     }
+}
 
-    Cant_Botones(cant){
-        this.cant_botones = cant;
+
+function menu_cargar(eventos, menu){
+    const inicial = document.getElementById(menu.pos_inicial);
+    if(inicial != null){
+    menu.html_menu.forEach(function(item){
+        inicial.insertAdjacentHTML("beforeend",item);
+    })
+    eventos(menu);
+    }else{
+        console.log("error [punto inicial es nulo]")
     }
+}
 
-    posicionInicial(str){
-        this.inicial = str;
-    }
 
-    cargar(){
-        
-    }
+function menu_salir(menu= new menu()){
+    menu.estado = false;
+    UTIL_BORRAR_HTML_pID([menu.id_menu]);
+    UTIL_BORRAR_HTML_pID(menu.ids_botones);
+}
 
-    mostrar_ocultar_botones(){
-        
-    }
 
-    salir(){
-
-    }
+class pantalla{
+    static menuAsociado = new menu();
 }

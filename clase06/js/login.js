@@ -18,7 +18,8 @@ let LOGIN_html = [
 
 
 async function CARGAR_login(){
-    INDEX_ocultar_bienvenida()
+    // INDEX_ocultar_bienvenida();
+    INDEX_salir();
     UTIL_dibujar_HTML(LOGIN_html);
     LOGIN_eventos();
 }
@@ -38,7 +39,8 @@ function LOGIN_eventos(){
     });
     document.getElementById("elementoMenu0").addEventListener("click",function(){
         SALIR_login();
-        INDEX_mostrar_bienvenida();
+        // INDEX_mostrar_bienvenida();
+        INDEX_CARGAR();
     });
 }
 

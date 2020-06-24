@@ -45,7 +45,11 @@ let checkAllState = false;
 async function MS_cargar(){
     PP_borrarBienvenida()
     MS_salir();
-    CARGAR_menu_MisSolocitudes();
+    //---------------------------------------------------
+    // CARGAR_menu_MisSolocitudes();
+    Menu_ms_cargar();
+
+    //---------------------------------------------------
     await DB_traer_JSON_MS();
     await MS_TABLA_dibujarEstructura();
     checkAll = document.getElementById("checkAll");

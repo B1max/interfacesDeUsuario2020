@@ -136,5 +136,7 @@ async function USUARIOS_eliminar_seleccion(){
 
 function USUARIOS_salir(){
   UTIL_BORRAR_HTML_pID(USUARIOS_IDs);
-  MenuUsuarios_salir();
+  // MenuUsuarios_salir();
+  menu_salir(Menu_usuarios);
+
 }
