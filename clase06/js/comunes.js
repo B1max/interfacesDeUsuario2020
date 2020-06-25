@@ -1,5 +1,5 @@
 const debug = true;
-
+let logs = [];
 
 function UTIL_BORRAR_HTML_pID(ids,info){
     
@@ -113,6 +113,7 @@ class alerta{
 }
 
 
+
 class menu{
     static estado = false;
     static pos_inicial = "";
@@ -122,6 +123,7 @@ class menu{
     static ids_botones =[];
     static html_botones=[];
 }
+
 
 
 function menu_mostrar_ocultar(menu = new menu()){
@@ -141,6 +143,7 @@ function menu_mostrar_ocultar(menu = new menu()){
 }
 
 
+
 function menu_cargar(eventos, menu){
     const inicial = document.getElementById(menu.pos_inicial);
     if(inicial != null){
@@ -154,13 +157,50 @@ function menu_cargar(eventos, menu){
 }
 
 
+
 function menu_salir(menu= new menu()){
     menu.estado = false;
     UTIL_BORRAR_HTML_pID([menu.id_menu]);
     UTIL_BORRAR_HTML_pID(menu.ids_botones);
 }
+//--------pantalla------------
+
 
 
 class pantalla{
+    static punto_inicial = "contenedor";
     static menuAsociado = new menu();
+    static ids_general = [];
+    static html_general = [];
+    static evento = {};
+}
+
+
+
+
+async function pantalla_cargar(pan){
+    const inicial = document.getElementById(pan.punto_inicial);
+    if(inicial!=null){
+        pan.html_general.forEach(function(panHtml){
+            inicial.insertAdjacentHTML("beforeend",panHtml);
+        });
+        // await eventos();
+        // await pan.eventos();
+        // pan.evento["menu"]();
+        if(pan.menuAsociado!=null && pan.eventoMenu!=null){
+            menu_cargar(pan.eventoMenu.evento.self, pan.menuAsociado);
+        }
+    }else{
+        logs.push("el punto inicial de ${pan} no existe o es incorrecto");
+    }
+}
+
+
+
+
+function pantalla_salir(pan){
+    UTIL_BORRAR_HTML_pID(pan.ids_general);
+    if (pan.menuAsociado[1]){
+        menu_salir(pan.menuAsociado[1]);
+    }
 }

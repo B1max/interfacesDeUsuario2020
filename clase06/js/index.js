@@ -1,3 +1,4 @@
+let pantalla_actual = new pantalla();
 
 let INDEX_IDs =["index0","BotonLogear","index2"];
 

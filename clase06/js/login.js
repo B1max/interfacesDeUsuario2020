@@ -1,3 +1,20 @@
+class login extends pantalla{
+
+    static ids_general = ["elementoMenu0","elementoMenu1","elementoMenu2","elementoMenu3","elementoMenu4",
+    "elementoMenu5","elementoMenu8","elementoMenu6","elementoMenu7"];
+    static html_general = [
+        "<div id='elementoMenu0' class='menu-fondo'>esto es del menu</div>",
+        "<div id='elementoMenu1' class='ventanaColoreada'>",
+        "<div id='elementoMenu2' class='txtIngresar'>INGRESAR</div>",
+        "<div id='elementoMenu3' class='USUARIO_CONTRASEÑA'>USUARIO: <br>CONTRASEÑA: </div>",
+        "<input id='elementoMenu4' class='ingresoDeUsuario' type='text' name='usuario' id='usuario'>",
+        "<input id='elementoMenu5' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
+        "<p id='elementoMenu8' class='loginResultado'></p>",
+        "<div id='elementoMenu6' class='BotonAceptar'></div>",
+        "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div>"
+    ];
+}
+/*
 let LOGIN_IDs = [
     "elementoMenu0","elementoMenu1","elementoMenu2","elementoMenu3","elementoMenu4",
     "elementoMenu5","elementoMenu8","elementoMenu6","elementoMenu7"];
@@ -13,15 +30,13 @@ let LOGIN_html = [
     "<div id='elementoMenu6' class='BotonAceptar'></div>",
     "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div>"
 ];
-
+*/
 
 
 
 async function CARGAR_login(){
-    // INDEX_ocultar_bienvenida();
     INDEX_salir();
-    UTIL_dibujar_HTML(LOGIN_html);
-    LOGIN_eventos();
+    pantalla_cargar(LOGIN_eventos, login)
 }
 
 
@@ -66,8 +81,8 @@ function LOGIN_validar_contraseña(cont){
     'f','g','h','j','k','l','ñ','z','x','c','v','b','n','m','Q','W','E',
     'R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Ñ',
     'Z','X','C','V','B','N','M'];
-    let tieneUnNumero = false
-    let tieneUnaLetra = false
+    let tieneUnNumero = false;
+    let tieneUnaLetra = false;
     let palabra = Array.from(cont.value);
     palabra.forEach((caracter)=>{
         letras.forEach((letra)=>{if(caracter == letra){tieneUnaLetra = true}})
@@ -101,14 +116,18 @@ async function LOGIN_validador(){
         //si hay al menos una coincidencia
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido");
         //borra los objetos de mas
-        await SALIR_login();
+        // await SALIR_login();
+        pantalla_salir(login);
+        /*
         try{
             PP_borrarBienvenida();
         }catch(err){
             console.log("no se pudo eliminar algo->"+err);
         }
+        */
         await INDEX_salir();
-        await PP_cargar();
+        // await PP_cargar();
+        pantalla_cargar(principal);
         return true;
     }else{
         LOGIN_imprimir_resultado("Usuario o contraseña incorrecta");
@@ -116,7 +135,6 @@ async function LOGIN_validador(){
         return false;
     }
 }
-
 
 
 
@@ -133,12 +151,6 @@ function LOGIN_imprimir_resultado(txt){
 
 
 
-async function SALIR_login(){
-    LOGIN_IDs.forEach(item =>{
-        try {
-            document.getElementById(item).remove();
-        } catch (error) {
-            console.log("no se pudo borrar el HTML de login");
-        }
-    })
+function SALIR_login(){
+    pantalla_salir(login);
 }
