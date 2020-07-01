@@ -1,3 +1,25 @@
+class pantalla_misSolicitudes extends pantalla{
+    // static punto_inicial = "contenedor";
+    // static punto_inicial = "contenedorDeSolicitudes";
+    static menuAsociado = Menu_misSolicitudes;
+    static ids_general = ["contenedorDeSolicitudes","tabla"];
+    static html_general = ["<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
+
+    "<table id='tabla' class='tabla'>"+
+                "<tr>"+
+                    "<td class='colCheck'>"+
+                        "<input type='checkbox' id='checkAll' class='check'>"+
+                    "</td>"+
+                    "<td class='colFecha'>"+
+                        "Fecha"+
+                    "</td>"+
+                    "<td class='colDescripcion'>Descripción</td>"+
+                    "<td class='colEstado'>Estado</td>"+
+                "</tr>"+
+            "</table></div>"];
+    static evento = {};
+}
+
 let itemIndex = 0;
 
 
@@ -43,31 +65,46 @@ let checkAllState = false;
 
 
 async function MS_cargar(){
-    PP_borrarBienvenida()
-    MS_salir();
+    // PP_borrarBienvenida()
+    // MS_salir();
     //---------------------------------------------------
-    // CARGAR_menu_MisSolocitudes();
-    Menu_ms_cargar();
+    //menu_cargar(EVENTOS_menu_misSOlicitudes, Menu_usuarios);
+    //---------------------------------------------------
+    // await DB_traer_JSON_MS();
+    // await MS_TABLA_dibujarEstructura();
+    // checkAll = document.getElementById("checkAll");
+    // tabla = document.getElementById("tabla");
+    // await MS_TABLA_dibujar_items();
+    // await MS_eventos();
+    pantalla_cargar(MS_eventos,pantalla_misSolicitudes);
+}
 
-    //---------------------------------------------------
+
+
+async function MS_eventos(pantalla){
     await DB_traer_JSON_MS();
-    await MS_TABLA_dibujarEstructura();
-    checkAll = document.getElementById("checkAll");
-    tabla = document.getElementById("tabla");
-    await MS_TABLA_dibujar_items();
-    await MS_eventos();
-}
+    // await MS_TABLA_dibujarEstructura(pantalla);
+    
+    // checkAll = document.getElementById("checkAll");
+    // tabla = document.getElementById("tabla");
+    await MS_TABLA_dibujar_items(pantalla);
 
-
-
-async function MS_eventos(){
-    await UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
+    // await UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
     document.getElementById("checkAll").addEventListener("click",MS_check_All);
-    let checks = [];
-    console.log(checks);
+    // let checks = [];
+    // console.log(checks);
+    
 }
 
-
+/*
+async function MS_TABLA_dibujarEstructura(pantalla){
+    const inicial = document.getElementById(pantalla.punto_inicial);
+    pantalla.html_general.forEach(item =>{
+        // inicial.insertAdjacentHTML("AfterEnd",item);
+        inicial.insertAdjacentHTML("beforeend",item);
+    });
+}
+*/
 
 function MS_check_All(){
     if(todosSeleccionados){
@@ -84,21 +121,16 @@ function MS_check_All(){
 
 
 
-async function MS_TABLA_dibujarEstructura(){
-    MS_html.forEach(item =>{
-        misSolicitudesInicial.insertAdjacentHTML("AfterEnd",item);
-    });
-}
 
-
-
+/*
 function MS_TABLA_borrar(){
     UTIL_BORRAR_HTML_pID(["tabla"]);
 }
+*/
 
 
 
-async function MS_TABLA_dibujar_items(){
+async function MS_TABLA_dibujar_items(pantalla){
     for(let i = 0;i<DB_MS_solicitudes.length;i++){
         let itemID = ""+DB_MS_solicitudes[i][0]
         let fecha = ""+DB_MS_solicitudes[i][2];
@@ -108,17 +140,6 @@ async function MS_TABLA_dibujar_items(){
     }
 }
 
-
-
-async function MS_TABLA_agregar_desde_DB(){
-    if(DB_MS_solicitudes.length>0){
-        for(let i = 0;i<DB_MS_solicitudes.length;i++){
-            MS_agregar_a_lista(DB_MS_solicitudes[i][0],DB_MS_solicitudes[i][2],DB_MS_solicitudes[i][3],DB_MS_solicitudes[i][4]);
-        }
-    }else{
-        console.log("nada que agregar")
-    }
-}
 
 
 
@@ -140,6 +161,22 @@ function MS_agregar_a_lista(id,fecha,descripcion,estado){
         console.log(DB_MS_seleccionados);
     })
 }
+
+
+
+
+async function MS_TABLA_agregar_desde_DB(){
+    if(DB_MS_solicitudes.length>0){
+        for(let i = 0;i<DB_MS_solicitudes.length;i++){
+            MS_agregar_a_lista(DB_MS_solicitudes[i][0],DB_MS_solicitudes[i][2],DB_MS_solicitudes[i][3],DB_MS_solicitudes[i][4]);
+        }
+    }else{
+        console.log("nada que agregar")
+    }
+}
+
+
+
 
 
 

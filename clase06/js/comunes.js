@@ -122,23 +122,31 @@ class menu{
     static html_menu =[];
     static ids_botones =[];
     static html_botones=[];
+    static eventoMenu = function(){console.log("menu sin eventos")}
 }
 
 
 
-function menu_mostrar_ocultar(menu = new menu()){
-    if(menu.estado){
-        UTIL_BORRAR_HTML_pID(menu.ids_botones);
-        menu.estado=false;
-    }else{
-        const inicial = document.getElementById(menu.ultimo).parentNode;
-        if(inicial != null){
+function menu_mostrar_ocultar(menu){
+    const inicial = document.getElementById(menu.id_menu).parentNode;
+    if(inicial != null){
+        if(menu.estado){
+            UTIL_BORRAR_HTML_pID(menu.ids_botones);
+            /*
+            menu.ids_botones.forEach(function(item){
+                inicial.insertAdjacentHTML("beforeend",item);
+            })
+            */
+            menu.estado=false;
+        }else{
             menu.html_botones.forEach(async function(item){
                 console.log("agregando items de menu");
                 await inicial.insertAdjacentHTML("beforeEnd",item);
             })
             menu.estado=true;
         }
+    }else{
+        console.log("inicial no definido");
     }
 }
 
@@ -178,20 +186,18 @@ class pantalla{
 
 
 
-async function pantalla_cargar(pan){
+async function pantalla_cargar(eventos, pan){
     const inicial = document.getElementById(pan.punto_inicial);
     if(inicial!=null){
         pan.html_general.forEach(function(panHtml){
             inicial.insertAdjacentHTML("beforeend",panHtml);
         });
-        // await eventos();
-        // await pan.eventos();
-        // pan.evento["menu"]();
-        if(pan.menuAsociado!=null && pan.eventoMenu!=null){
-            menu_cargar(pan.eventoMenu.evento.self, pan.menuAsociado);
+        await eventos(pan);
+        if(pan.menuAsociado!=null){
+            menu_cargar(pan.menuAsociado.eventoMenu, pan.menuAsociado);
         }
     }else{
-        logs.push("el punto inicial de ${pan} no existe o es incorrecto");
+        logs.push("el punto inicial de "+pan.punto_inicial+" no existe o es incorrecto");
     }
 }
 
@@ -200,7 +206,7 @@ async function pantalla_cargar(pan){
 
 function pantalla_salir(pan){
     UTIL_BORRAR_HTML_pID(pan.ids_general);
-    if (pan.menuAsociado[1]){
-        menu_salir(pan.menuAsociado[1]);
+    if (pan.menuAsociado!=null){
+        menu_salir(pan.menuAsociado);
     }
 }

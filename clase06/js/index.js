@@ -36,7 +36,9 @@ async function INDEX_CARGAR(){
     document.getElementById("BotonLogear").addEventListener("click",async function(){
         // INDEX_ocultar_bienvenida();
         INDEX_salir();
-        CARGAR_login();
+        // CARGAR_login();
+        // pantalla_cargar(login);
+        pantalla_cargar(LOGIN_eventos, login);
      });
 
     await document.getElementById("rectangulo-superior-flotante").parentNode.insertAdjacentHTML("afterend",

@@ -1,3 +1,23 @@
+class pantalla_usuarios extends pantalla{
+  static selectAll = false;
+  static menuAsociado = Menu_usuarios;
+  static ids_general = ["contenedorDeSolicitudes","tabla"];
+  static html_general = [ "<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
+  "<table id='tabla' class='tabla'>"+
+              "<tr>"+
+                  "<td class='colCheck'>"+
+                      "<input type='checkbox' id='UcheckAll' class='check'>"+
+                  "</td>"+
+                  "<td class='colFecha'>"+
+                      "Avatar"+
+                  "</td>"+
+                  "<td class='colDescripcion'>Nombre</td>"+
+                  "<td class='colEstado'>Estado</td>"+
+              "</tr>"+
+          "</table></div>"];
+  static evento = {};
+}
+
 const USUARIOS_IDs = [
   "contenedorDeSolicitudes","tabla","MUbtnMenu1a"
 ];
@@ -25,36 +45,44 @@ const USUARIOS_html = [
 
 
 async function USUARIOS_cargar(){
-  await MenuUsuarios_cargar();
-  UTIL_BORRAR_HTML_pID(PP_IDs,"PP_borrarBienvenida");
-  await DB_traer_JSON_USERS();
+  pantalla_cargar(USUARIOS_eventos,pantalla_usuarios);
+  // await MenuUsuarios_cargar();
+  // UTIL_BORRAR_HTML_pID(PP_IDs,"PP_borrarBienvenida");
+  // await DB_traer_JSON_USERS();
   
-  USUARIOS_mostrar_encabezado();
-  await USUARIOS_mostrar_usuarios();
-  USUARIOS_eventos();
+  // USUARIOS_mostrar_encabezado();
+  // await USUARIOS_mostrar_usuarios();
+  // USUARIOS_eventos();
 }
 
 
 
 
-function USUARIOS_eventos(){
+async function USUARIOS_eventos(pan){
+  await DB_traer_JSON_USERS();
+  // console.log("");
+  // USUARIOS_mostrar_encabezado();
+
+  await USUARIOS_mostrar_usuarios();
+  //?????????????????
   document.getElementById("UcheckAll").addEventListener("click", function(){
 
-      if(UtodosSeleccionados){
+      if(pan.selectAll){
         USUARIOS_seleccion = [];
-        UtodosSeleccionados = false;
+        pan.selectAll = false;
       }else{
         USUARIOS_seleccion = [];
         for(let i = 0;i<USUARIOS.length;i++){
           USUARIOS_seleccion.push(i);
         }
-        UtodosSeleccionados = true;
+        pan.selectAll = true;
       }
       for(let i = 0;i<USUARIOS.length;i++){
-          document.getElementById("userCheck"+i).checked = UtodosSeleccionados;
+          document.getElementById("userCheck"+i).checked = pan.selectAll;
       }
 
   });
+  return true;
 }
 
 

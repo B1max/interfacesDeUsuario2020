@@ -1,52 +1,86 @@
 class Usuario_nuevo extends pantalla{
-  menuAsociado = Menu_usuarios;
+  static punto_inicial = "contenedor";
+  static menuAsociado = menu_usuario_nuevo;
+  static ids_general = ["uNUEVA-RECTANGULO-FONDO","uNUEVA-TXT-TITULO",
+  "uNUEVA-TXT-FECHA","uNUEVA-INPUT-FECHA",  "uNUEVA-TXT-NOMBRE",
+  "uNUEVA-INPUT-NOMBRE","uNtabla","uNavatar","imgAvatar","uNavatarAnterior",
+  "uNavatarSiguiente",  "uNUEVA-TXT-PASS","uNUEVA-INPUT-PASS","uNUEVA-TXT-ESTADO",
+  "uNUEVA-INPUTLIST-ESTADO","uNuevo_alerta","uNUEVA-RECTANGULO-BTN-CANCELAR","uNUEVA-RECTANGULO-BTN-ACEPTAR"];
+
+  static html_general = ["<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
+  "<P id='uNUEVA-TXT-TITULO' class='uNUEVA-TXT-TITULO'>Nuevo usuario</P>"+
+  "<P  id='uNUEVA-TXT-FECHA' class='uNUEVA-TXT-FECHA' required>FECHA</P>"+
+  "<INPUT type='date'  id='uNUEVA-INPUT-FECHA' class='uNUEVA-INPUT-FECHA' > </INPUT>"+
+  "<P  id='uNUEVA-TXT-NOMBRE' class='uNUEVA-TXT-NOMBRE'>NOMBRE</P>"+
+  "<input id='uNUEVA-INPUT-NOMBRE' class='uNUEVA-INPUT-NOMBRE' type='text'></input>"+
+  "<table id='uNtabla' class='uNtabla'>"+
+  "<tr>"+
+  "<td colspan='2' id='uNavatar' class='uNavatar'>"+
+  "<img id='imgAvatar' src='https://gravatar.com/avatar/ab3ef817e400dbddf665041ca1a55051?s=100&d=mp&r=x'>"+
+  "</td>"+
+  "</tr>"+
+  "<tr>"+
+  "<td id='uNavatarAnterior' class='uNavatarAnterior'></td>"+
+  "<td id='uNavatarSiguiente' class='uNavatarSiguiente'></td>"+
+  "</tr>"+
+  "<P id='uNUEVA-TXT-PASS' class='uNUEVA-TXT-PASS'>CONTRASEÑA</P>"+
+  "<input id='uNUEVA-INPUT-PASS' class='uNUEVA-INPUT-PASS' type='password'></input>"+
+  "<p  id='uNUEVA-TXT-ESTADO' class='uNUEVA-TXT-ESTADO'>Activo:</p>"+
+  "<select  id='uNUEVA-INPUTLIST-ESTADO' class='uNUEVA-INPUTLIST-ESTADO' required>"+
+  "    <option value='si'>si</option>"+
+  "    <option value='no'>no</option>"+
+  "</select>"+
+  "<div id='uNuevo_alerta' class='uNuevo_alerta'></div>"+
+  "<div  id='uNUEVA-RECTANGULO-BTN-CANCELAR' class='uNUEVA-RECTANGULO-BTN-CANCELAR' >CANCELAR</div>"+
+  "<div  id='uNUEVA-RECTANGULO-BTN-ACEPTAR' class='uNUEVA-RECTANGULO-BTN-ACEPTAR' >GUARDAR</div>"+
+  "</div>"];
+
 }
 
-const Unuevo_IDs = ["uNUEVA-RECTANGULO-FONDO"];
+// const Unuevo_IDs = ["uNUEVA-RECTANGULO-FONDO"];
 
 
 let Unuevo_avatar_id = 0;
-
-
 let Unuevo_avatar ="https://gravatar.com/avatar/ab3ef817e400dbddf665041ca1a55051?s=100&d=mp&r=x";
 
 
-const Unuevo_html = [
-  "<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
-"<P id='uNUEVA-TXT-TITULO' class='uNUEVA-TXT-TITULO'>Nuevo usuario</P>"+
-"<P  id='uNUEVA-TXT-FECHA' class='uNUEVA-TXT-FECHA' required>FECHA</P>"+
-"<INPUT type='date'  id='uNUEVA-INPUT-FECHA' class='uNUEVA-INPUT-FECHA' > </INPUT>"+
-"<P  id='uNUEVA-TXT-NOMBRE' class='uNUEVA-TXT-NOMBRE'>NOMBRE</P>"+
-"<input id='uNUEVA-INPUT-NOMBRE' class='uNUEVA-INPUT-NOMBRE' type='text'></input>"+
-"<table id='uNtabla' class='uNtabla'>"+
-"<tr>"+
-"<td colspan='2' id='uNavatar' class='uNavatar'><img id='imgAvatar' src='https://gravatar.com/avatar/ab3ef817e400dbddf665041ca1a55051?s=100&d=mp&r=x'>"+
-"</td>"+
-"</tr>"+
-"<tr>"+
-"<td id='uNavatarAnterior' class='uNavatarAnterior'></td>"+
-"<td id='uNavatarSiguiente' class='uNavatarSiguiente'></td>"+
-"</tr>"+
-"<P id='uNUEVA-TXT-PASS' class='uNUEVA-TXT-PASS'>CONTRASEÑA</P>"+
-"<input id='uNUEVA-INPUT-PASS' class='uNUEVA-INPUT-PASS' type='password'></input>"+
-"<p  id='uNUEVA-TXT-ESTADO' class='uNUEVA-TXT-ESTADO'>Activo:</p>"+
-"<select  id='uNUEVA-INPUTLIST-ESTADO' class='uNUEVA-INPUTLIST-ESTADO' required>"+
-"    <option value='si'>si</option>"+
-"    <option value='no'>no</option>"+
-"</select>"+
-"<div id='uNuevo_alerta' class='uNuevo_alerta'></div>"+
-"<div  id='uNUEVA-RECTANGULO-BTN-CANCELAR' class='uNUEVA-RECTANGULO-BTN-CANCELAR' >CANCELAR</div>"+
-"<div  id='uNUEVA-RECTANGULO-BTN-ACEPTAR' class='uNUEVA-RECTANGULO-BTN-ACEPTAR' >GUARDAR</div>"+
-"</div>"
-];
+// const Unuevo_html = [
+//   "<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
+// "<P id='uNUEVA-TXT-TITULO' class='uNUEVA-TXT-TITULO'>Nuevo usuario</P>"+
+// "<P  id='uNUEVA-TXT-FECHA' class='uNUEVA-TXT-FECHA' required>FECHA</P>"+
+// "<INPUT type='date'  id='uNUEVA-INPUT-FECHA' class='uNUEVA-INPUT-FECHA' > </INPUT>"+
+// "<P  id='uNUEVA-TXT-NOMBRE' class='uNUEVA-TXT-NOMBRE'>NOMBRE</P>"+
+// "<input id='uNUEVA-INPUT-NOMBRE' class='uNUEVA-INPUT-NOMBRE' type='text'></input>"+
+// "<table id='uNtabla' class='uNtabla'>"+
+// "<tr>"+
+// "<td colspan='2' id='uNavatar' class='uNavatar'><img id='imgAvatar' src='https://gravatar.com/avatar/ab3ef817e400dbddf665041ca1a55051?s=100&d=mp&r=x'>"+
+// "</td>"+
+// "</tr>"+
+// "<tr>"+
+// "<td id='uNavatarAnterior' class='uNavatarAnterior'></td>"+
+// "<td id='uNavatarSiguiente' class='uNavatarSiguiente'></td>"+
+// "</tr>"+
+// "<P id='uNUEVA-TXT-PASS' class='uNUEVA-TXT-PASS'>CONTRASEÑA</P>"+
+// "<input id='uNUEVA-INPUT-PASS' class='uNUEVA-INPUT-PASS' type='password'></input>"+
+// "<p  id='uNUEVA-TXT-ESTADO' class='uNUEVA-TXT-ESTADO'>Activo:</p>"+
+// "<select  id='uNUEVA-INPUTLIST-ESTADO' class='uNUEVA-INPUTLIST-ESTADO' required>"+
+// "    <option value='si'>si</option>"+
+// "    <option value='no'>no</option>"+
+// "</select>"+
+// "<div id='uNuevo_alerta' class='uNuevo_alerta'></div>"+
+// "<div  id='uNUEVA-RECTANGULO-BTN-CANCELAR' class='uNUEVA-RECTANGULO-BTN-CANCELAR' >CANCELAR</div>"+
+// "<div  id='uNUEVA-RECTANGULO-BTN-ACEPTAR' class='uNUEVA-RECTANGULO-BTN-ACEPTAR' >GUARDAR</div>"+
+// "</div>"
+// ];
 
 
 
 
 async function UsuarioN_cargar(){
-  await UTIL_dibujar_HTML(Unuevo_html);
-  await UsuarioN_eventos();
-  await MenuUN_cargar();
+  pantalla_cargar(UsuarioN_eventos,Usuario_nuevo);
+  // await UTIL_dibujar_HTML(Unuevo_html);
+  // await UsuarioN_eventos();
+  // await MenuUN_cargar();
 }
 
 
@@ -55,8 +89,14 @@ async function UsuarioN_cargar(){
 function UsuarioN_eventos(){
   document.getElementById("uNavatarAnterior").addEventListener("click",Unuevo_avatar_anterior);
   document.getElementById("uNavatarSiguiente").addEventListener("click",Unuevo_avatar_siguiente);
-  document.getElementById("uNUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",UsuarioN_salir);
-  document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",UsuarioN_guardar);
+  document.getElementById("uNUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",function(){
+    // UsuarioN_salir
+    pantalla_salir(Usuario_nuevo);
+  });
+  document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",function(){
+    UsuarioN_guardar();
+    pantalla_salir(Usuario_nuevo);
+  });
 }
 
 
@@ -177,7 +217,8 @@ function UsuarioN_guardar(){
     let activo = user[4];
     USUARIOS.push([nombre,pass,avatar,nombre,activo,fecha]);
     Unuevo_IDs.reverse
-    UTIL_BORRAR_HTML_pID(Unuevo_IDs);
+    // UTIL_BORRAR_HTML_pID(Unuevo_IDs);
+    pantalla_salir(Usuario_nuevo);
     USUARIOS_recargar_tabla();
   }else{
     console.log("conteo guardar invalido ->"+user.length)

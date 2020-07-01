@@ -4,14 +4,9 @@ class principal extends pantalla{
   static html_general = ["<div id='DIV_PPimgBienvenida' class ='DIV_PPimgBienvenida'></div>"];
 }
 
-/*
-const PP_IDs = ["DIV_PPimgBienvenida"];
-const PP_HTML = ["<div id='DIV_PPimgBienvenida' class ='DIV_PPimgBienvenida'></div>"];
-*/
 
 async function PP_cargar(){
   pantalla_cargar(function(){},principal);
-  // PP_mostrarBienvenida();
   // await MenuP_cargar();
 }
 
@@ -20,7 +15,6 @@ async function PP_cargar(){
 function PP_salir(){
   pantalla_salir(principal);
   // MenuP_salir();
-  // PP_borrarBienvenida();
 }
 
 

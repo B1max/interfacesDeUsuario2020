@@ -1,38 +1,33 @@
-//principal/usuarios
-
-// let MenuUsuarios_activado = false;
+//principal/usuarios y mis solicitudes
 class Menu_usuarios extends menu{
-    // static pos_inicial = "rectangulo-superior-flotante";
     static pos_inicial = "rectangulo-superior-flotante";
 
     static ultimo = "contenedorDeSolicitudes";
+
 
     static id_menu =["MUbtnMenu1a"];
 
     static html_menu =["<div id='MUbtnMenu1a' class='botonMenu'></div>"];
 
     static ids_botones =[
-        "MUbtnMenu2a",
-        "MUbtnMenu3a",
-        "MUbtnMenu4a",
-        "MUbtnMenu5a"
+        "btnMenu2a",
+        "btnMenu3a",
+        "btnMenu4a",
+        "btnMenu5a"
     ];
 
-    static html_botones=["<div id='MUbtnMenu2a' class='botonNuevo'>NUEVO</div>",
-    "<div id='MUbtnMenu3a' class='botonModificar'>Modificar</div>",
-    "<div id='MUbtnMenu4a' class='botonEliminar'>Eliminar</div>",
-    "<div id='MUbtnMenu5a' class='botonSalir'>Salir</div>"];
-
+    static html_botones=["<div id='btnMenu2a' class='botonNuevo'>NUEVO</div>",
+    "<div id='btnMenu3a' class='botonModificar'>MODIFICAR</div>",
+    "<div id='btnMenu4a' class='botonEliminar'>ELIMINAR</div>",
+    "<div id='btnMenu5a' class='botonSalir'>SALIR</div>"];
+    static eventoMenu = MenuUsuarios_evento_btnMenu;
 }
 
 
 
 
 async function MenuUsuarios_cargar(){
-    // Menu_usuarios.cargar();
-    // menu_cargar(MenuUsuarios_evento_btnMenu,Menu_usuarios);
     menu_cargar(MenuUsuarios_evento_btnMenu,menu_MS);
-
 }
 
 
@@ -91,8 +86,7 @@ function MenuUsuarios_eventos_botonera(menu){
     document.getElementById(menu.ids_botones[3]).addEventListener("click",async function(){
         menu_mostrar_ocultar(menu);
         menu_salir(menu);
-        USUARIOS_salir();
-        await INDEX_CARGAR();
-        await CARGAR_login();
+        pantalla_salir(pantalla_usuarios);
+        pantalla_cargar(LOGIN_eventos,login);
     });
 }
