@@ -15,82 +15,30 @@ class pantalla_usuarios extends pantalla{
                   "<td class='colEstado'>Estado</td>"+
               "</tr>"+
           "</table></div>"];
-  static evento = {};
-}
-
-const USUARIOS_IDs = [
-  "contenedorDeSolicitudes","tabla","MUbtnMenu1a"
-];
 
 
-let UtodosSeleccionados = false;
-
-
-const USUARIOS_html = [
-  "<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
-  "<table id='tabla' class='tabla'>"+
-              "<tr>"+
-                  "<td class='colCheck'>"+
-                      "<input type='checkbox' id='UcheckAll' class='check'>"+
-                  "</td>"+
-                  "<td class='colFecha'>"+
-                      "Avatar"+
-                  "</td>"+
-                  "<td class='colDescripcion'>Nombre</td>"+
-                  "<td class='colEstado'>Estado</td>"+
-              "</tr>"+
-          "</table></div>"
-];
-
-
-
-async function USUARIOS_cargar(){
-  pantalla_cargar(USUARIOS_eventos,pantalla_usuarios);
-  // await MenuUsuarios_cargar();
-  // UTIL_BORRAR_HTML_pID(PP_IDs,"PP_borrarBienvenida");
-  // await DB_traer_JSON_USERS();
-  
-  // USUARIOS_mostrar_encabezado();
-  // await USUARIOS_mostrar_usuarios();
-  // USUARIOS_eventos();
-}
-
-
-
-
-async function USUARIOS_eventos(pan){
-  await DB_traer_JSON_USERS();
-  // console.log("");
-  // USUARIOS_mostrar_encabezado();
-
-  await USUARIOS_mostrar_usuarios();
-  //?????????????????
-  document.getElementById("UcheckAll").addEventListener("click", function(){
-
-      if(pan.selectAll){
-        USUARIOS_seleccion = [];
-        pan.selectAll = false;
-      }else{
-        USUARIOS_seleccion = [];
-        for(let i = 0;i<USUARIOS.length;i++){
-          USUARIOS_seleccion.push(i);
+  static eventos = async function(){
+    await DB_traer_JSON_USERS();
+    await USUARIOS_mostrar_usuarios();
+    document.getElementById("UcheckAll").addEventListener("click", function(){
+        if(this.selectAll){
+          USUARIOS_seleccion = [];
+          this.selectAll = false;
+        }else{
+          USUARIOS_seleccion = [];
+          for(let i = 0;i<USUARIOS.length;i++){
+            USUARIOS_seleccion.push(i);
+          }
+          this.selectAll = true;
         }
-        pan.selectAll = true;
-      }
-      for(let i = 0;i<USUARIOS.length;i++){
-          document.getElementById("userCheck"+i).checked = pan.selectAll;
-      }
+        for(let i = 0;i<USUARIOS.length;i++){
+            document.getElementById("userCheck"+i).checked = this.selectAll;
+        }
+    });
+  };
 
-  });
-  return true;
 }
 
-
-
-
-function USUARIOS_mostrar_encabezado(){
-  UTIL_dibujar_HTML(USUARIOS_html);
-}
 
 
 
@@ -101,7 +49,7 @@ async function USUARIOS_mostrar_usuarios(){
     let avatar = USUARIOS[i][2];
     let nombre = USUARIOS[i][3];
     let activo = USUARIOS[i][4];
-    await USUARIOS_mostrar_usuario(id,avatar,nombre,activo);
+    USUARIOS_mostrar_usuario(id,avatar,nombre,activo);
   }
 }
 
@@ -121,50 +69,34 @@ function USUARIOS_mostrar_usuario(id,avatar,nombre,activo){
   "</tr>");
 
   USUARIOS_IDs_tabla.push("user"+id);
-
-  document.getElementById("userCheck"+id).addEventListener("click",function(){
-       console.log("item seleccionado");
-      if(document.getElementById("userCheck"+id).checked){
-        USUARIOS_seleccion.push(id);
-      }else{
-        USUARIOS_seleccion.splice(id,1);
+  document.getElementById("userCheck"+id).removeEventListener("click",function(){});
+  document.getElementById("userCheck"+id).addEventListener("click",async function(){
+    console.log("item seleccionado");
+    let seleccion = USUARIOS[id];
+    if(document.getElementById("userCheck"+id).checked){
+      USUARIOS_seleccion.push(seleccion);
+    }else{
+      for(let i = 0; i < USUARIOS_seleccion.length; i++){
+        if(USUARIOS_seleccion[i]==seleccion){
+          USUARIOS_seleccion.splice(i,1);
+        }
       }
-      console.log(USUARIOS_seleccion);
-  })
+    }
+    console.log(USUARIOS_seleccion);
+  });
 }
 
-
-
-
-async function USUARIOS_recargar_tabla(){
-  UTIL_BORRAR_HTML_pID(USUARIOS_IDs_tabla);
-  await USUARIOS_mostrar_usuarios();
-}
-
-
-
-
-function USUARIOS_borrar_usuarios(){
-  UTIL_BORRAR_HTML_pID(USUARIOS_IDs_tabla);
-}
 
 
 
 
 async function USUARIOS_eliminar_seleccion(){
   for(let i = 0; i < USUARIOS_seleccion.length; i++){
-    USUARIOS.splice(USUARIOS.indexOf(USUARIOS_seleccion[i][0]),1);
+    USUARIOS.forEach(usuario=>{
+      if(usuario==USUARIOS_seleccion[i]){
+        USUARIOS.splice([USUARIOS.indexOf(usuario)],1);
+      }
+    });
   }
-
   USUARIOS_seleccion = [];
-  USUARIOS_recargar_tabla();
-}
-
-
-
-function USUARIOS_salir(){
-  UTIL_BORRAR_HTML_pID(USUARIOS_IDs);
-  // MenuUsuarios_salir();
-  menu_salir(Menu_usuarios);
-
 }

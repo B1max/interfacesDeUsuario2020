@@ -28,7 +28,6 @@ class menu_principal extends menu{
 
 
 async function MenuP_cargar(){
-    INDEX_salir();
     menu_cargar(MenuP_evento_btnMenu, menu_principal);
 }
 
@@ -47,28 +46,27 @@ function MenuP_evento_btnMenu(mEnu){
 
 
 function MenuP_eventos_botonera(mEnu){
+    
+        //mis solicitudes
         document.getElementById(mEnu.ids_botones[0]).addEventListener("click",function(){
-            pantalla_salir(principal);
-            MS_cargar();
+            principal.salir();
+            misSolicitudes.cargar();
             INDEX_ocultar_bienvenida();
         }); 
+
         //Usuarios
         document.getElementById(mEnu.ids_botones[1]).addEventListener("click",function(){
-            pantalla_salir(principal);
-            USUARIOS_cargar();
+            principal.salir();
+            pantalla_usuarios.cargar();
         }); 
+
         //salir
         document.getElementById(mEnu.ids_botones[2]).addEventListener("click",function(){
        menu_mostrar_ocultar(mEnu);
-            pantalla_salir(principal);
+            principal.salir();
             INDEX_CARGAR();
         });
 }
 
 
-
-async function MenuP_salir(){
-    //hay que ver quien lo llama y modofica4r la linea por esta
-    menu_salir(menu_principal);
-}
 

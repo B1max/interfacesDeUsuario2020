@@ -38,7 +38,8 @@ async function INDEX_CARGAR(){
         INDEX_salir();
         // CARGAR_login();
         // pantalla_cargar(login);
-        pantalla_cargar(LOGIN_eventos, login);
+        // pantalla_cargar(login.evento, login);
+        login.cargar();
      });
 
     await document.getElementById("rectangulo-superior-flotante").parentNode.insertAdjacentHTML("afterend",

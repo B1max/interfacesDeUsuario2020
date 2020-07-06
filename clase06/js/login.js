@@ -3,7 +3,8 @@ class login extends pantalla{
     static menuAsociado = null;
 
     static ids_general = ["elementoMenu0","elementoMenu1","elementoMenu2","elementoMenu3","elementoMenu4",
-    "elementoMenu5","elementoMenu8","elementoMenu6","elementoMenu7"];
+    "elementoMenu5","elementoMenu8","elementoMenu6","elementoMenu7","btnRegistrar"];
+
     static html_general = [
         "<div id='elementoMenu0' class='menu-fondo'>esto es del menu</div>",
         "<div id='elementoMenu1' class='ventanaColoreada'>",
@@ -13,25 +14,37 @@ class login extends pantalla{
         "<input id='elementoMenu5' class='ingresoDeContraseña' type='password' name='contraseña' id='contraseña'>",
         "<p id='elementoMenu8' class='loginResultado'></p>",
         "<div id='elementoMenu6' class='BotonAceptar'></div>",
-        "<div id='elementoMenu7' class='ACEPTAR'>ACEPTAR</div></div>"
+        "<div id='elementoMenu7' class='ACEPTAR'>ENTRAR</div>",
+        "<div id='btnRegistrar' class='BotonRegistrar'>REGISTRAR</div></div>",
     ];
+
+    static eventos = function(){
+        document.getElementById(this.ids_general[7]).addEventListener("click", async function(){
+            await LOGIN_validar_UserPass();
+        });
+
+        document.getElementById(this.ids_general[8]).addEventListener("click", async function(){
+            await LOGIN_validar_UserPass();
+        });
+
+        document.getElementById(this.ids_general[0]).addEventListener("click",function(){
+            login.salir();
+            INDEX_CARGAR();
+        });
+
+        document.getElementById("btnRegistrar").addEventListener("click",function(){
+            DB_traer_JSON_MS();
+            class my_pantalla extends Usuario_nuevo{
+             static menuAsociado = new menu();
+             static pantalla_origen = login;
+            }
+            my_pantalla.cargar();
+        });
+
+    }
 }
 
 
-
-function LOGIN_eventos(pantalla){
-    document.getElementById(pantalla.ids_general[7]).addEventListener("click", async function(){
-        await LOGIN_validar_UserPass();
-    });
-    document.getElementById(pantalla.ids_general[8]).addEventListener("click", async function(){
-        await LOGIN_validar_UserPass();
-
-    });
-    document.getElementById(pantalla.ids_general[0]).addEventListener("click",function(){
-        pantalla_salir(login);
-        INDEX_CARGAR();
-    });
-}
 
 
 
@@ -89,9 +102,10 @@ async function LOGIN_validador(){
     if(usuarioValido && contValida && DB_BUSCAR_USUARIO(usuario.value,cont.value)){
         //si hay al menos una coincidencia
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido");
-        pantalla_salir(login);
+        login.salir()
         await INDEX_salir();
-        pantalla_cargar(function(){},principal);
+        INDEX_ocultar_bienvenida();
+        principal.cargar();
         return true;
     }else{
         LOGIN_imprimir_resultado("Usuario o contraseña incorrecta");

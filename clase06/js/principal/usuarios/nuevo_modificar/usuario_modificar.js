@@ -2,8 +2,8 @@ class Usuario_modificar extends pantalla{
   static indexModificar;
   static punto_inicial = "contenedor";
   static menuAsociado = menu_usuario_nuevo;
-  static ids_general = [];
-  static html_general =  [ "<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
+  static ids_general = ["uNUEVA-RECTANGULO-FONDO"];
+  static html_general =  ["<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
   "<P id='uNUEVA-TXT-TITULO' class='uNUEVA-TXT-TITULO'>Modificar usuario</P>"+
   "<P  id='uNUEVA-TXT-FECHA' class='uNUEVA-TXT-FECHA' required>FECHA</P>"+
   "<INPUT type='date'  id='uNUEVA-INPUT-FECHA' class='uNUEVA-INPUT-FECHA' "+
@@ -31,91 +31,49 @@ class Usuario_modificar extends pantalla{
   "<div  id='uNUEVA-RECTANGULO-BTN-ACEPTAR' class='uNUEVA-RECTANGULO-BTN-ACEPTAR' >GUARDAR</div>"+
   "</div>"];
   static evento = {};
-}
 
-
-
-function Umodificar_html(){
-  if(Usuario_modificar.indexModificar!=null){
-    return [
-    "<div id='uNUEVA-RECTANGULO-FONDO' class='uNUEVA-RECTANGULO-FONDO'>"+
-  "<P id='uNUEVA-TXT-TITULO' class='uNUEVA-TXT-TITULO'>Modificar usuario</P>"+
-  "<P  id='uNUEVA-TXT-FECHA' class='uNUEVA-TXT-FECHA' required>FECHA</P>"+
-  "<INPUT type='date'  id='uNUEVA-INPUT-FECHA' class='uNUEVA-INPUT-FECHA' "+
-  "value='"+USUARIOS[Usuario_modificar.indexModificar][5]+"'></INPUT>"+
-  "<P  id='uNUEVA-TXT-NOMBRE' class='uNUEVA-TXT-NOMBRE'>NOMBRE</P>"+
-  "<input id='uNUEVA-INPUT-NOMBRE' class='uNUEVA-INPUT-NOMBRE' type='text' value='"+USUARIOS[Usuario_modificar.indexModificar][3]+"'></input>"+
-  "<table id='uNtabla' class='uNtabla'>"+
-  "<tr>"+
-  "<td colspan='2' id='uNavatar' class='uNavatar'><img id='imgAvatar' src='"+USUARIOS[Usuario_modificar.indexModificar][2]+"'>"+
-  "</td>"+
-  "</tr>"+
-  "<tr>"+
-  "<td id='uNavatarAnterior' class='uNavatarAnterior'></td>"+
-  "<td id='uNavatarSiguiente' class='uNavatarSiguiente'></td>"+
-  "</tr>"+
-  "<P id='uNUEVA-TXT-PASS' class='uNUEVA-TXT-PASS'>CONTRASEÑA</P>"+
-  "<input id='uNUEVA-INPUT-PASS' class='uNUEVA-INPUT-PASS' type='password' value='"+USUARIOS[Usuario_modificar.indexModificar][1]+"'></input>"+
-  "<p  id='uNUEVA-TXT-ESTADO' class='uNUEVA-TXT-ESTADO'>Activo:</p>"+
-  "<select  id='uNUEVA-INPUTLIST-ESTADO' class='uNUEVA-INPUTLIST-ESTADO' required>"+
-  "    <option value='si'>si</option>"+
-  "    <option value='no'>no</option>"+
-  "</select>"+
-  "<div id='uNuevo_alerta' class='uNuevo_alerta'></div>"+
-  "<div  id='uNUEVA-RECTANGULO-BTN-CANCELAR' class='uNUEVA-RECTANGULO-BTN-CANCELAR' >CANCELAR</div>"+
-  "<div  id='uNUEVA-RECTANGULO-BTN-ACEPTAR' class='uNUEVA-RECTANGULO-BTN-ACEPTAR' >GUARDAR</div>"+
-  "</div>"
-  ];
-  }else{
-    return [];
-  }
-}
-
-
-
-
-async function Umodificar_cargar(){
-  if(USUARIOS_seleccion.length>0){
-    Usuario_modificar.indexModificar = USUARIOS_seleccion[0];
-
-    await UTIL_dibujar_HTML(Umodificar_html());
-    document.getElementById("uNUEVA-TXT-TITULO").textContent = "Modificar usuario";
-    document.getElementById("uNUEVA-INPUT-FECHA").value = USUARIOS[Usuario_modificar.indexModificar][5];
+  static eventos =  function(){
+    if(USUARIOS_seleccion.length>0){
     
-    document.getElementById("uNUEVA-INPUT-NOMBRE").value = USUARIOS[Usuario_modificar.indexModificar][3];
+      Usuario_modificar.indexModificar = USUARIOS.indexOf(USUARIOS_seleccion[0]);
+  
+      document.getElementById("uNUEVA-TXT-TITULO").textContent = "Modificar usuario";
+  
+      document.getElementById("uNUEVA-INPUT-FECHA").value = USUARIOS[Usuario_modificar.indexModificar][5];
+      
+      document.getElementById("uNUEVA-INPUT-NOMBRE").value = USUARIOS[Usuario_modificar.indexModificar][3];
+  
+      document.getElementById("imgAvatar").src = USUARIOS[Usuario_modificar.indexModificar][2];
+  
+      document.getElementById("uNUEVA-INPUT-PASS").value = USUARIOS[Usuario_modificar.indexModificar][1];
+  
+      document.getElementById("uNUEVA-INPUTLIST-ESTADO").value =USUARIOS[Usuario_modificar.indexModificar][4];
+  
+      // await UsuarioM_eventos();
+      // await MenuUN_cargar();
+      Unuevo_avatar_id = DB_urlsAvatar.indexOf(USUARIOS[Usuario_modificar.indexModificar][2]);
+    }else{
+      const alert = new alerta();
+      Usuario_modificar.salir();
+      alert.mostrar("Debe seleccionar un item,\nsi selecciona mas de uno, solo se tomara el primero");
+      setTimeout(function(){
+        Usuario_modificar.cargar();
+      },3000);
+    }
+  
+    document.getElementById("uNavatarAnterior").addEventListener("click",Unuevo_avatar_anterior);
+    document.getElementById("uNavatarSiguiente").addEventListener("click",Unuevo_avatar_siguiente);
+    document.getElementById("uNUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",function(){
+      Usuario_nuevo.salir();
+    });
+    document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",function(){
+      if(UsuarioM_guardar()){
+        Usuario_modificar.salir();
+      }
+    });
+  };
 
-    document.getElementById("imgAvatar").src = USUARIOS[Usuario_modificar.indexModificar][2];
-
-    document.getElementById("uNUEVA-INPUT-PASS").value = USUARIOS[Usuario_modificar.indexModificar][1];
-
-    document.getElementById("uNUEVA-INPUTLIST-ESTADO").value =USUARIOS[Usuario_modificar.indexModificar][4];
-
-    await UsuarioM_eventos();
-    await MenuUN_cargar();
-    Unuevo_avatar_id = DB_urlsAvatar.indexOf(USUARIOS[Usuario_modificar.indexModificar][2]);
-  }else{
-    const alert = new alerta();
-    Umodificar_salir();
-    alert.mostrar("Debe seleccionar un item,\nsi selecciona mas de uno, solo se tomara el primero");
-    setTimeout(function(){
-        Umodificar_cargar();
-    },3000);
-  }
 }
-
-
-
-
-function UsuarioM_eventos(){
-  document.getElementById("uNavatarAnterior").addEventListener("click",Unuevo_avatar_anterior);
-  document.getElementById("uNavatarSiguiente").addEventListener("click",Unuevo_avatar_siguiente);
-  document.getElementById("uNUEVA-RECTANGULO-BTN-CANCELAR").addEventListener("click",function(){
-    pantalla_salir(Usuario_nuevo);
-  });
-  document.getElementById("uNUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",UsuarioM_guardar);
-}
-
-
 
 
 function UsuarioM_guardar(){
@@ -133,13 +91,15 @@ function UsuarioM_guardar(){
     USUARIOS[Usuario_modificar.indexModificar][4] = ""+activo;
     USUARIOS[Usuario_modificar.indexModificar][5] = ""+fecha;
     console.log("usuario valido guardado");
-    // UTIL_BORRAR_HTML_pID(Unuevo_IDs);
-    pantalla_salir(Usuario_nuevo);
-    USUARIOS_recargar_tabla();
+    Usuario_modificar.salir();
+    pantalla_usuarios.salir();
+    pantalla_usuarios.cargar();
     Usuario_modificar.indexModificar = null;
     USUARIOS_seleccion = [];
+    return true;
   }else{
-    console.log("usuario invalido")
+    logs.push("usuario invalido")
+    return false;
   }
 }
 
@@ -225,8 +185,4 @@ function UsuarioM_validar_cont(cont){
   }
 
   return (cont.length >= 6) && tieneUnNumero && tieneUnaLetra;
-}
-
-function Umodificar_salir(){
-  UTIL_BORRAR_HTML_pID(["uNUEVA-RECTANGULO-FONDO"]);
 }

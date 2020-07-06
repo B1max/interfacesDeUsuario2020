@@ -1,6 +1,4 @@
-class pantalla_misSolicitudes extends pantalla{
-    // static punto_inicial = "contenedor";
-    // static punto_inicial = "contenedorDeSolicitudes";
+class misSolicitudes extends pantalla{
     static menuAsociado = Menu_misSolicitudes;
     static ids_general = ["contenedorDeSolicitudes","tabla"];
     static html_general = ["<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
@@ -18,7 +16,23 @@ class pantalla_misSolicitudes extends pantalla{
                 "</tr>"+
             "</table></div>"];
     static evento = {};
+
+    static eventos = async function(){
+            await DB_traer_JSON_MS();
+
+            await MS_TABLA_dibujar_items(this);
+        
+            document.getElementById("checkAll").addEventListener("click",function(){
+                MS_check_All
+            });
+    }
+
 }
+
+
+
+
+
 
 let itemIndex = 0;
 
@@ -26,85 +40,6 @@ let itemIndex = 0;
 let todosSeleccionados = false;
 
 
-let JSON_Cargado = false;
-
-
-let MS_IDs = ["contenedorDeSolicitudes","tabla"];
-
-
-let MS_html = [
-    "<div id='contenedorDeSolicitudes' class='contenedorDeSolicitudes'>"+
-
-    "<table id='tabla' class='tabla'>"+
-                "<tr>"+
-                    "<td class='colCheck'>"+
-                        "<input type='checkbox' id='checkAll' class='check'>"+
-                    "</td>"+
-                    "<td class='colFecha'>"+
-                        "Fecha"+
-                    "</td>"+
-                    "<td class='colDescripcion'>Descripción</td>"+
-                    "<td class='colEstado'>Estado</td>"+
-                "</tr>"+
-            "</table></div>"
-];
-
-
-let misSolicitudesInicial = document.getElementById("ultimo");
-
-
-let tabla;
-
-
-let checkAll ;
-
-
-let checkAllState = false;
-
-
-
-
-async function MS_cargar(){
-    // PP_borrarBienvenida()
-    // MS_salir();
-    //---------------------------------------------------
-    //menu_cargar(EVENTOS_menu_misSOlicitudes, Menu_usuarios);
-    //---------------------------------------------------
-    // await DB_traer_JSON_MS();
-    // await MS_TABLA_dibujarEstructura();
-    // checkAll = document.getElementById("checkAll");
-    // tabla = document.getElementById("tabla");
-    // await MS_TABLA_dibujar_items();
-    // await MS_eventos();
-    pantalla_cargar(MS_eventos,pantalla_misSolicitudes);
-}
-
-
-
-async function MS_eventos(pantalla){
-    await DB_traer_JSON_MS();
-    // await MS_TABLA_dibujarEstructura(pantalla);
-    
-    // checkAll = document.getElementById("checkAll");
-    // tabla = document.getElementById("tabla");
-    await MS_TABLA_dibujar_items(pantalla);
-
-    // await UTIL_quitarEvento_pID([["checkAll","click"]],"MisSolicitudesEventos");
-    document.getElementById("checkAll").addEventListener("click",MS_check_All);
-    // let checks = [];
-    // console.log(checks);
-    
-}
-
-/*
-async function MS_TABLA_dibujarEstructura(pantalla){
-    const inicial = document.getElementById(pantalla.punto_inicial);
-    pantalla.html_general.forEach(item =>{
-        // inicial.insertAdjacentHTML("AfterEnd",item);
-        inicial.insertAdjacentHTML("beforeend",item);
-    });
-}
-*/
 
 function MS_check_All(){
     if(todosSeleccionados){
@@ -120,13 +55,6 @@ function MS_check_All(){
 }
 
 
-
-
-/*
-function MS_TABLA_borrar(){
-    UTIL_BORRAR_HTML_pID(["tabla"]);
-}
-*/
 
 
 
@@ -173,25 +101,4 @@ async function MS_TABLA_agregar_desde_DB(){
     }else{
         console.log("nada que agregar")
     }
-}
-
-
-
-
-
-
-function MS_salir(){
-    for(let i = 0;i<DB_MS_solicitudes.length;i++){
-        try{
-            let id = DB_MS_solicitudes[i][0];
-            document.getElementById("item"+id).remove();
-            document.getElementById("check"+id).remove();
-            document.getElementById("colFecha"+id).remove();
-            document.getElementById("colDescripcion"+id).remove();
-            document.getElementById("colEstado"+id).remove();
-        }catch(error){
-            console.log("Error borrando HTMLs->"+error)
-        }
-    }
-    UTIL_BORRAR_HTML_pID(MS_IDs);
 }

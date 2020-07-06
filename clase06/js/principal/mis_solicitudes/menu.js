@@ -3,7 +3,7 @@ class Menu_misSolicitudes extends Menu_usuarios{
 }
 
 function Menu_ms_cargar(){
-    menu_cargar(EVENTOS_menu_misSOlicitudes, Menu_usuarios);
+    menu_cargar(EVENTOS_menu_misSOlicitudes, Menu_misSolicitudes);
 }
 
 
@@ -24,9 +24,8 @@ function EVENTOS_menu_misSOlicitudes_botonera(mEnu){
     //nuevo
     document.getElementById(mEnu.ids_botones[0]).addEventListener("click",async function(){
         menu_mostrar_ocultar(mEnu);
-        //----------------------------------?
-        await CARGAR_PANTALLA_NUEVO();
-
+        // pantalla_cargar(function(){},misSolicitudes_nuevo);
+        misSolicitudes_nuevo.cargar();
     });
     //modificar
     document.getElementById(mEnu.ids_botones[1]).addEventListener("click",async function(){
@@ -34,17 +33,15 @@ function EVENTOS_menu_misSOlicitudes_botonera(mEnu){
             const alert = new alerta();
             menu_mostrar_ocultar(mEnu);
         //----------------------------------?
-
-            MS_salir();
+            misSolicitudes.salir();
             menu_salir(mEnu);
             alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
             setTimeout(function(){
-                MS_cargar();
+                misSolicitudes.cargar();
             },3000);
         }else{
             menu_mostrar_ocultar(mEnu);
-            await MS_modificar_cargar();
-            await Menu_s_cargar();
+            pantalla_modificar_solicitud.cargar();
         }
     });
     //eliminar
@@ -52,11 +49,11 @@ function EVENTOS_menu_misSOlicitudes_botonera(mEnu){
         if(DB_MS_seleccionados.length<1){
             const alert = new alerta();
             menu_mostrar_ocultar(mEnu);
-            MS_salir();
+            misSolicitudes.salir();
             menu_salir(mEnu);
             alert.mostrar("Debe seleccionar al menos un item");
             setTimeout(function(){
-                MS_cargar();
+                misSolicitudes.cargar();
             },3000);
         }else{
             menu_mostrar_ocultar(mEnu);
@@ -65,13 +62,10 @@ function EVENTOS_menu_misSOlicitudes_botonera(mEnu){
     });
     //salir
     document.getElementById(mEnu.ids_botones[3]).addEventListener("click",async function(){
-        MS_salir();
-        // SALIR_menu_misSolicitudes();
+        pantalla_misSolicitudes.salir();
         menu_salir(mEnu);
-
         await INDEX_CARGAR();
-        INDEX_ocultar_bienvenida();
-        await CARGAR_login();
+        login.cargar();
     });
 }
 

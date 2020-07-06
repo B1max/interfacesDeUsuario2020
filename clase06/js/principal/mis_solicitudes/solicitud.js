@@ -1,3 +1,4 @@
+/*
 let SELECCION_A_MODIFICAR;
 
 function htmlPantallaModificar(fecha,desc,estado){ 
@@ -105,3 +106,4 @@ function BORRAR_PANTALLA_MODIFICAR(){
     }
 
 }
+*/

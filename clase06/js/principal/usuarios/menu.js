@@ -26,11 +26,6 @@ class Menu_usuarios extends menu{
 
 
 
-async function MenuUsuarios_cargar(){
-    menu_cargar(MenuUsuarios_evento_btnMenu,menu_MS);
-}
-
-
 //solo eventos
 
 function MenuUsuarios_evento_btnMenu(menu){
@@ -50,43 +45,49 @@ function MenuUsuarios_eventos_botonera(menu){
     //Nuevo
     document.getElementById(menu.ids_botones[0]).addEventListener("click",function(){
         menu_mostrar_ocultar(menu);
-        UsuarioN_cargar();
+        Usuario_nuevo.pantalla_origen = pantalla_usuarios;
+        Usuario_nuevo.cargar();
     }); 
+
     //Modificar
     document.getElementById(menu.ids_botones[1]).addEventListener("click",async function(){
         if(USUARIOS_seleccion.length<1){
             menu_mostrar_ocultar(menu);
-            USUARIOS_salir();
+            pantalla_usuarios.salir();
             const alert = new alerta();
             alert.mostrar("Debe seleccionar al menos un item,\nsi selecciona mas de uno, solo se tomara el primero");
             setTimeout(function(){
-                USUARIOS_cargar();
+                pantalla_usuarios.cargar();
             },3000);
         }else{
             menu_mostrar_ocultar(menu);
-            Umodificar_cargar();
+            Usuario_modificar.cargar();
         }
     }); 
+
     //Eliminar
     document.getElementById(menu.ids_botones[2]).addEventListener("click",async function(){
         if(USUARIOS_seleccion.length<1){
             menu_mostrar_ocultar(menu);
-            USUARIOS_salir();
+            pantalla_usuarios.salir();
             const alert = new alerta();
             alert.mostrar("Debe seleccionar al menos un item");
             setTimeout(function(){
-                USUARIOS_cargar();
+                pantalla_usuarios.cargar();
             },3000);
         }else{
             menu_mostrar_ocultar(menu);
             await USUARIOS_eliminar_seleccion();
+            pantalla_usuarios.salir();
+            pantalla_usuarios.cargar();
         }
     });
+
     //salir
     document.getElementById(menu.ids_botones[3]).addEventListener("click",async function(){
         menu_mostrar_ocultar(menu);
         menu_salir(menu);
-        pantalla_salir(pantalla_usuarios);
-        pantalla_cargar(LOGIN_eventos,login);
+        pantalla_usuarios.salir()
+        login.cargar();
     });
 }
