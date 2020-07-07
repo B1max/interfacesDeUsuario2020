@@ -18,7 +18,7 @@ class misSolicitudes extends pantalla{
     static evento = {};
 
     static eventos = async function(){
-            await DB_traer_JSON_MS();
+            // await DB_traer_JSON_MS();
 
             await MS_TABLA_dibujar_items(this);
         
@@ -64,7 +64,10 @@ async function MS_TABLA_dibujar_items(pantalla){
         let fecha = ""+DB_MS_solicitudes[i][2];
         let desc = ""+DB_MS_solicitudes[i][3];
         let estado = ""+DB_MS_solicitudes[i][4];
-        MS_agregar_a_lista(itemID,fecha,desc,estado);
+        let usuario = ""+DB_MS_solicitudes[i][5];
+        if(usuario_actual!=null && usuario_actual!=undefined && usuario_actual==usuario){
+            MS_agregar_a_lista(itemID,fecha,desc,estado);
+        }
     }
 }
 

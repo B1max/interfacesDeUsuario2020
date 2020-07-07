@@ -36,8 +36,8 @@ class pantalla_modificar_solicitud extends pantalla{
         document.getElementById("NUEVA-RECTANGULO-BTN-ACEPTAR").addEventListener("click",async function(){
             await MS_modificar_guardar();
             pantalla_modificar_solicitud.salir();
-            pantalla_misSolicitudes.salir();
-            pantalla_misSolicitudes.cargar();
+            misSolicitudes.salir();
+            misSolicitudes.cargar();
             DB_MS_seleccionados =[];
         });
 

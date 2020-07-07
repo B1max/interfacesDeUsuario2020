@@ -2,7 +2,9 @@
 class Menu_usuarios extends menu{
     static pos_inicial = "rectangulo-superior-flotante";
 
-    static ultimo = "contenedorDeSolicitudes";
+    // static ultimo = "contenedorDeSolicitudes";
+    static ultimo = "rectangulo-superior-flotante";
+
 
 
     static id_menu =["MUbtnMenu1a"];

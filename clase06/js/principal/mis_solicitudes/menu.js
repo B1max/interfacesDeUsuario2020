@@ -62,7 +62,7 @@ function EVENTOS_menu_misSOlicitudes_botonera(mEnu){
     });
     //salir
     document.getElementById(mEnu.ids_botones[3]).addEventListener("click",async function(){
-        pantalla_misSolicitudes.salir();
+        misSolicitudes.salir();
         menu_salir(mEnu);
         await INDEX_CARGAR();
         login.cargar();

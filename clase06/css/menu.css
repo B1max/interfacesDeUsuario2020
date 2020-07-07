@@ -23,7 +23,9 @@
 
 .botonNuevo{
     /* height: 40px; */
-    left: 210px;
+    /*  +20  */
+    top: 185px;
+    /* left: 210px; */
     background: #519856;
     /* top: 135px; */
 }
@@ -31,21 +33,24 @@
 
 .botonModificar{
     /* height: 40px; */
-    left: 400px;
+    /* left: 400px; */
+    top: 235px;
     background: #519856;
 }
 
 
 .botonEliminar{
     /* height: 40px; */
-    left: 590px;
+    top: 285px;
+    /* left: 590px; */
     background: #519856;
 }
 
 
 .botonSalir{
     /* height: 40px; */
-    left: 780px;
+    /* left: 780px; */
+    top: 335px;
     background: #519856;
 }
 

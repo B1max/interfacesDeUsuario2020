@@ -18,7 +18,10 @@ class login extends pantalla{
         "<div id='btnRegistrar' class='BotonRegistrar'>REGISTRAR</div></div>",
     ];
 
-    static eventos = function(){
+    static eventos = async function(){
+        await INDEX_salir();
+        await DB_traer_JSON_MS();
+
         document.getElementById(this.ids_general[7]).addEventListener("click", async function(){
             await LOGIN_validar_UserPass();
         });
@@ -102,12 +105,14 @@ async function LOGIN_validador(){
     if(usuarioValido && contValida && DB_BUSCAR_USUARIO(usuario.value,cont.value)){
         //si hay al menos una coincidencia
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") valido");
-        login.salir()
+        usuario_actual = usuario.value+"";
+        login.salir();
         await INDEX_salir();
         INDEX_ocultar_bienvenida();
         principal.cargar();
         return true;
     }else{
+        usuario_actual = "";
         LOGIN_imprimir_resultado("Usuario o contraseña incorrecta");
         console.log("usuario : ("+usuario.value+")y contraseña : ("+cont.value+") no valido");
         return false;

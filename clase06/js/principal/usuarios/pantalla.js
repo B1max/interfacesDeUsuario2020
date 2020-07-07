@@ -91,12 +91,39 @@ function USUARIOS_mostrar_usuario(id,avatar,nombre,activo){
 
 
 async function USUARIOS_eliminar_seleccion(){
+
+  let ids_solicitudes_borrables =[];
+
   for(let i = 0; i < USUARIOS_seleccion.length; i++){
+    //["87654321", "Admin1234", "https://gravatar.com/avatar/ab3ef817e4
+    //00dbddf665041ca1a55051?s=100&d=mp&r=x", "87654321", "si", "2020-05-03", undefined]
+
+    //aca elimino el usuario solamente
     USUARIOS.forEach(usuario=>{
       if(usuario==USUARIOS_seleccion[i]){
-        USUARIOS.splice([USUARIOS.indexOf(usuario)],1);
+        USUARIOS.splice(USUARIOS.indexOf(usuario),1);
       }
     });
+    //aca elimino las solicitudes
+
+    // DB_MS_solicitudes.forEach(solicitud=>{
+    //   if(solicitud[5]==USUARIOS_seleccion[i][0]){
+    //     DB_MS_solicitudes.splice(DB_MS_solicitudes.indexOf(solicitud),1);
+    //   }
+    // });
+
+    for(let e = DB_MS_solicitudes.length-1; e > 0; e--){
+      if(DB_MS_solicitudes[e][5]==USUARIOS_seleccion[i][0]){
+        ids_solicitudes_borrables.push(e);
+        console.log("para eliminar->"+e);
+      }
+    }
+
+
   }
+  // for(let a = 0; a<ids_solicitudes_borrables.length;a++){
+  //   DB_MS_solicitudes.splice(DB_MS_solicitudes[ids_solicitudes_borrables[a]],1);
+  // }
   USUARIOS_seleccion = [];
+  return ids_solicitudes_borrables;
 }

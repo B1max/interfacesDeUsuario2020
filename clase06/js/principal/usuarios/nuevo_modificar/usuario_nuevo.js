@@ -180,8 +180,8 @@ function UsuarioN_guardar(){
     let activo = user[4];
     USUARIOS.push([nombre,pass,avatar,nombre,activo,fecha]);
     Usuario_nuevo.salir();
-    Usuario_nuevo.pantalla_origen.salir()
-    Usuario_nuevo.pantalla_origen.cargar();
+    // Usuario_nuevo.pantalla_origen.salir();
+    // Usuario_nuevo.pantalla_origen.cargar();
     return true;
   }else{
     logs.push("conteo guardar invalido ->"+user.length)

@@ -41,9 +41,10 @@ class misSolicitudes_nuevo extends pantalla{
                 //----------------- mostrar pantalla de error
                 console.log("no se cargaron todos los datos");
             }else{
-                await DB_agregar_item("nuevo",fecha,desc,estado);
-                menu_mostrar_ocultar(menu_MS);
-                pantalla_misSolicitudes.salir();
+                await DB_agregar_item(MS_indice(),"nuevo",fecha,desc,estado,usuario_actual);
+                // menu_mostrar_ocultar(Menu_misSolicitudes);
+                misSolicitudes_nuevo.salir();
+                misSolicitudes.salir();
                 misSolicitudes.cargar();
             }
 
@@ -62,7 +63,7 @@ class misSolicitudes_nuevo extends pantalla{
 /*
 
 async function CARGAR_PANTALLA_NUEVO(){
-    pantalla_cargar(EVENTOS_PANTALLA_NUEVO,misSolicitudes_nuevo);
+    pantalla_cargar(EVENTOS_PANTALLA_NUEVO,m-isSolicitudes_nuevo);
 }
 
 

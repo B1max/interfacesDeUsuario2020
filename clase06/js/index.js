@@ -34,11 +34,7 @@ async function INDEX_CARGAR(){
     )
     
     document.getElementById("BotonLogear").addEventListener("click",async function(){
-        // INDEX_ocultar_bienvenida();
         INDEX_salir();
-        // CARGAR_login();
-        // pantalla_cargar(login);
-        // pantalla_cargar(login.evento, login);
         login.cargar();
      });
 
